@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "source_n": 4014,
+  "recorded_events": 155,
+  "postoperative_stay_below_7d": 171,
+  "short_stay_recorded_negative_n": 167,
+  "assumed_event_fractions": [
+    0.0,
+    0.02,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "interpretation_boundary": "Sensitivity bounds do not identify post-discharge AKI or event timing."
+}

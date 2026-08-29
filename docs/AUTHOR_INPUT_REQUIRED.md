@@ -76,18 +76,18 @@ submission fields and scope reconciliations remain unresolved:
 
 ## Reproducibility and submission administration
 
-1. Public repository URL, version tag or release, archive DOI if available, and selected
-   open-source licence for the aggregate stress-test package.
+1. The public repository URL, version tag and MIT License are fixed at
+   https://github.com/blanchzll/outcome-measurement-transport/releases/tag/v1.1.0.
+   Add the archive DOI after author-controlled deposit.
 2. Confirmation that public-data use statements and required INSPIRE and MIMIC
    acknowledgements meet the applicable data-use agreements.
 3. The target journal and article type are now fixed as a Nature Communications Article.
    Confirm acceptance of the open-access publication charge and licence choice, then
    recheck portal fields on the day of submission.
-4. Approval of the final title, 150-word abstract, cover letter, Data Availability statement,
+4. Approval of the final title, 155-word abstract, cover letter, Data Availability statement,
    Code Availability statement, and transparent-peer-review choice.
-
-5. A valid public repository URL and archive DOI for figure source data and release-safe
-   code. Nature Communications verifies accessions and persistent links before publication.
+5. Add the archive DOI for figure source data and release-safe code. Nature Communications
+   verifies accessions and persistent links before publication.
 6. Completed Nature Portfolio Reporting Summary and machine-learning reporting summary,
    signed off by the corresponding author rather than treated as administrative checklists.
 

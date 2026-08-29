@@ -1,6 +1,7 @@
 {
   "status": "PASS",
   "repository": "outcome-measurement-transport",
+  "release": "v1.1.0",
   "checks": {
     "no_internal_paths": true,
     "no_detected_secrets": true,
@@ -11,14 +12,14 @@
     "synthetic_and_contract_tests": true
   },
   "counts": {
-    "files": 199,
-    "python_files": 75,
-    "workflow_scripts": 71,
-    "tests": 3
+    "files": 222,
+    "python_files": 81,
+    "workflow_scripts": 76,
+    "tests": 4
   },
   "test_result": {
     "returncode": 0,
-    "stdout_tail": ".........                                                                [100%]\n9 passed in 2.22s\n",
+    "stdout_tail": ".............                                                            [100%]\n13 passed in 2.28s\n",
     "stderr_tail": ""
   },
   "privacy_findings": {
@@ -27,5 +28,6 @@
     "restricted_files": [],
     "patient_filename_hits": [],
     "identifier_header_hits": []
-  }
+  },
+  "compile_errors": []
 }

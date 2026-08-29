@@ -16,6 +16,12 @@
 | reference sample | Random subset retaining the operational reference endpoint for model-updating evaluation | adjudication sample | Public references are algorithmic, not clinician-adjudicated. |
 | locked public-database external validation | INSPIRE-developed serialized model applied unchanged at the same ICU-admission landmark and against the same creatinine endpoint in MIMIC-IV and eICU | public transport test; public replication | This is genuine same-model external validation for the public model, not for the five-centre source model. |
 | endpoint-transport clinical bridge | INSPIRE gastrointestinal model applied unchanged to the five-centre cohort while the reference endpoint changes from creatinine-only to expert full KDIGO | source external validation; clinical validation | Never call this strict same-endpoint external validation. |
+| empirical measurement-schedule transport | Semi-synthetic mapping of observed donor measurement times to unchanged target trajectories | hospital-policy transfer; natural experiment | State the matching tolerance and never give the schedules a causal interpretation. |
+| probability reference sample | Reference sample drawn with known, positive inclusion probabilities and evaluated outside sampled records | targeted adjudication; enriched validation set | Non-random designs require inverse known inclusion probabilities and risk-coverage diagnostics. |
+| operational haemoglobin-decline endpoint | Haemoglobin decrease of at least 2 g/dL after a harmonised peri-landmark baseline through 168 h | postoperative bleeding; haemorrhage | Never call this adjudicated bleeding or a surgical complication. |
+| post-discharge sensitivity bound | Performance under explicit assumed event fractions among short-stay recorded negatives | corrected incidence; recovered outcome | This analysis does not identify whether or when post-discharge events occurred. |
+| retained trajectory \(L^*\) | All available longitudinal measurements retained for the operational reference | complete biological trajectory | Retained data are still observational and may miss biological events. |
+| measurement indicator \(R(t)\) | Whether a measurement is retained at time \(t\) | missingness flag | Use to distinguish longitudinal coarsening from whole-label selection. |
 
 ## Locked claim boundary
 

@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "replicates_per_design": 500,
+  "databases": [
+    "INSPIRE",
+    "MIMIC",
+    "EICU"
+  ],
+  "fractions": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "strategies": [
+    "random",
+    "risk_quintile_equal",
+    "risk_enriched",
+    "cluster_stratified"
+  ],
+  "raw_rows": 18000,
+  "summary_rows": 288,
+  "inference": "Recalibration used inverse known sampling probabilities; evaluation excluded reference-sample records."
+}

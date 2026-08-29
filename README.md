@@ -1,6 +1,6 @@
 # Outcome measurement transport and calibration
 
-Public release: <https://github.com/blanchzll/outcome-measurement-transport/releases/tag/v1.0.0>
+Public release: <https://github.com/blanchzll/outcome-measurement-transport/releases/tag/v1.1.0>
 
 This repository contains the release-safe analysis code and aggregate outputs for the manuscript:
 
@@ -13,6 +13,9 @@ The study asks whether a fixed set of predictions can receive different calibrat
 - An executable, synthetic-data `ascertainment_stress` package.
 - Analysis scripts arranged in the order used for the study.
 - Fixed simulation protocols and estimand definitions.
+- Empirical cross-database measurement-schedule transport experiments.
+- A second, haemoglobin-decline operational endpoint replication.
+- Probability-sampled reference-review designs and source follow-up bounds.
 - Synthetic unit and contract tests.
 - Aggregate main tables, cross-database validation tables, figure source data, and machine-readable audits.
 - A reviewer guide linking claims and display items to generating scripts.
@@ -53,7 +56,7 @@ The public operational endpoint is a creatinine-based computational reference. I
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e . pytest
-pytest -q tests/test_ascertainment_stress.py tests/test_simulation_contract.py
+pytest -q
 ```
 
 These tests verify endpoint reconstruction, retention behaviour, estimand separation, and simulation contracts without accessing clinical records.
@@ -80,7 +83,9 @@ Scripts retain their frozen numerical settings, seeds, cohort rules, model speci
 3. Applying the INSPIRE gastrointestinal model to the five-centre cohort is an endpoint-transport clinical bridge, not strict same-endpoint validation.
 4. Dense-reference analyses are conditional on selected, highly monitored populations.
 5. Retrospective decision analysis does not establish clinical impact.
+6. Empirically sampled measurement schedules reproduce observed timing distributions; they are not estimates of causal hospital testing policies.
+7. The haemoglobin-decline endpoint is an operational laboratory endpoint, not adjudicated bleeding.
 
 ## Licence and citation
 
-Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite release `v1.0.0` and the associated manuscript; an archive DOI will be added after author-controlled archival deposit.
+Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite release `v1.1.0` and the associated manuscript; an archive DOI will be added after author-controlled archival deposit.

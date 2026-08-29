@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "endpoint": "haemoglobin decrease of at least 2 g/dL after a harmonized -24-to-+6-h peri-landmark baseline through 168 h",
+  "clinical_claim_boundary": "Operational laboratory-trajectory endpoint; not adjudicated postoperative bleeding.",
+  "flows": [
+    {
+      "database": "MIMIC",
+      "candidate_n": 9253,
+      "any_postop_hemoglobin_n": 9043,
+      "dense_reference_n": 6909,
+      "dense_reference_events": 3860
+    },
+    {
+      "database": "EICU",
+      "candidate_n": 21755,
+      "any_postop_hemoglobin_n": 9031,
+      "dense_reference_n": 4821,
+      "dense_reference_events": 2143
+    }
+  ],
+  "replicates_per_condition": 100,
+  "raw_rows": 3200,
+  "summary_rows": 288
+}

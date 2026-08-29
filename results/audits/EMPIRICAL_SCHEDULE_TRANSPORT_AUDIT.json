@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "replicates_per_condition": 200,
+  "target_databases": [
+    "INSPIRE",
+    "MIMIC",
+    "EICU"
+  ],
+  "donor_schedule_databases": [
+    "INSPIRE",
+    "MIMIC",
+    "EICU"
+  ],
+  "tolerance_hours": [
+    12,
+    24
+  ],
+  "target_n": {
+    "INSPIRE": 1676,
+    "MIMIC": 2838,
+    "EICU": 3253
+  },
+  "donor_schedule_n": {
+    "INSPIRE": 7059,
+    "MIMIC": 9164,
+    "EICU": 20288
+  },
+  "raw_rows": 14400,
+  "summary_rows": 648,
+  "interpretation_boundary": "Empirical schedules are sampled observed measurement patterns and are not causal hospital policies. Mapping uses the nearest retained target measurement within the prespecified tolerance."
+}
