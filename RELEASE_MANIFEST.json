@@ -14,8 +14,8 @@
     },
     {
       "path": "CITATION.md",
-      "bytes": 303,
-      "sha256": "65294213a27a9c565e1c4a4cdf847e7db3602daf3904a0331f3c47d49ea86312"
+      "bytes": 399,
+      "sha256": "82e9e59fbd0caff0a0de7c77d61798610a098e580118761678e2c77f7d5123e0"
     },
     {
       "path": "CODE_REVIEW_GUIDE.md",
@@ -29,8 +29,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4643,
-      "sha256": "80d80301156dbf188fcbd95e57f231f33d195817ef3e52b13f4d488f1463d6b0"
+      "bytes": 4768,
+      "sha256": "ff09641903cf05ba1f3cac97e38b753b36254ee613a3695defce26990bcd07d6"
     },
     {
       "path": "WORKFLOW_MANIFEST.csv",
@@ -60,7 +60,7 @@
     {
       "path": "docs/PUBLIC_RELEASE_QA.json",
       "bytes": 847,
-      "sha256": "ff61a34474d80ecaf5587398d9da12c444a465ddbc817065bc19e585144ca60d"
+      "sha256": "4a0e60ae10457bc7340bd73f78636cc9d3c73bb00a2c234869947467c7852b4d"
     },
     {
       "path": "docs/TERMINOLOGY_LEDGER.md",

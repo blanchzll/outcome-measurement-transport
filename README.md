@@ -1,5 +1,7 @@
 # Outcome measurement transport and calibration
 
+Public release: <https://github.com/blanchzll/outcome-measurement-transport/releases/tag/v1.0.0>
+
 This repository contains the release-safe analysis code and aggregate outputs for the manuscript:
 
 > **Outcome measurement transport alters calibration of clinical prediction models across health systems**
@@ -81,4 +83,4 @@ Scripts retain their frozen numerical settings, seeds, cohort rules, model speci
 
 ## Licence and citation
 
-Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite the associated manuscript and archived release once its persistent identifier is available.
+Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite release `v1.0.0` and the associated manuscript; an archive DOI will be added after author-controlled archival deposit.

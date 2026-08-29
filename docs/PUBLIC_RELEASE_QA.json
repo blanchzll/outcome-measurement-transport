@@ -18,7 +18,7 @@
   },
   "test_result": {
     "returncode": 0,
-    "stdout_tail": ".........                                                                [100%]\n9 passed in 2.24s\n",
+    "stdout_tail": ".........                                                                [100%]\n9 passed in 2.25s\n",
     "stderr_tail": ""
   },
   "privacy_findings": {
