@@ -1,0 +1,34 @@
+{
+  "record_type": "author-confirmed outcome-adjudication metadata",
+  "confirmation_date": "2026-08-27",
+  "data_source": "source five-centre gastric and colorectal cancer surgery cohort",
+  "outcome_field": "PostopAKI",
+  "guideline": "KDIGO 2012",
+  "criteria_components": [
+    "serum creatinine",
+    "urine output",
+    "renal replacement therapy"
+  ],
+  "primary_adjudication": {
+    "adjudicators_per_patient": 2,
+    "adjudicator_type": "nephrologist",
+    "performed_within_each_participating_centre": true
+  },
+  "disagreement_resolution": {
+    "resolver": "third nephrologist",
+    "location": "coordinating centre"
+  },
+  "masking": {
+    "model_predictions": true,
+    "candidate_predictors": true
+  },
+  "central_single_panel_adjudication": false,
+  "evidence_status": "confirmed by the study author; not independently reconstructed from the analytic extract",
+  "residual_unavailable_materials": [
+    "patient-level component adjudication forms",
+    "adjudicator-specific decisions",
+    "inter-rater agreement statistics",
+    "new central blinded readjudication"
+  ],
+  "reporting_boundary": "Describe as site-level dual-nephrologist KDIGO adjudication, not as a newly performed central readjudication or biological ground truth."
+}

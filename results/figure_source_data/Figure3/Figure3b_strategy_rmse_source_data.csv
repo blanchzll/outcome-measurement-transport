@@ -1,0 +1,16 @@
+database,method,rmse,label
+EICU,AIPW_design_probability,0.03142823531097348,AIPW
+EICU,Gamma2_prediction_sensitivity_region,0.034475682658387435,Gamma=2 midpoint
+EICU,IPAW_design_probability_truncated99,0.027523260241021627,IPAW truncated
+EICU,IPAW_design_probability_untruncated,0.0303588024518815,IPAW untruncated
+EICU,naive,0.048316220809223404,Naive
+INSPIRE,AIPW_design_probability,0.010277924080520345,AIPW
+INSPIRE,Gamma2_prediction_sensitivity_region,0.0102774757950848,Gamma=2 midpoint
+INSPIRE,IPAW_design_probability_truncated99,0.009570286209468322,IPAW truncated
+INSPIRE,IPAW_design_probability_untruncated,0.010625996210647462,IPAW untruncated
+INSPIRE,naive,0.05492295012349015,Naive
+MIMIC,AIPW_design_probability,0.033795468360787166,AIPW
+MIMIC,Gamma2_prediction_sensitivity_region,0.019789710490214746,Gamma=2 midpoint
+MIMIC,IPAW_design_probability_truncated99,0.02933095267640053,IPAW truncated
+MIMIC,IPAW_design_probability_untruncated,0.03324567215735669,IPAW untruncated
+MIMIC,naive,0.04267940537445707,Naive

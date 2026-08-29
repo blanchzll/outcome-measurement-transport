@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ascertainment-stress-test"
+version = "0.1.0"
+description = "Stress tests for measurement-induced miscalibration of longitudinal clinical endpoints"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26", "pandas>=2.0", "scipy>=1.11", "scikit-learn>=1.4"]
+license = {text = "MIT"}
+
+[tool.setuptools]
+py-modules = ["ascertainment_stress"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

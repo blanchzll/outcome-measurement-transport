@@ -1,0 +1,13 @@
+{
+  "source_rows": 4014,
+  "source_events": 155,
+  "centers": 5,
+  "unique_analytic_record_ids": 4014,
+  "repeat_patient_status": "not verifiable because a separate stable patient identifier was not retained",
+  "study_dates_status": "not available in the deidentified analytic extract",
+  "sex_known_male": 2267,
+  "sex_known_female": 1452,
+  "sex_unknown_or_nonconforming": 295,
+  "garbled_token_policy": "the token 濂 is treated as missing, never as female",
+  "outputs_are_aggregate_only": true
+}

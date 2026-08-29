@@ -1,0 +1,19 @@
+{
+  "analysis": "measurement-aware subgroup audit",
+  "observability_bootstrap": 500,
+  "observability_bootstrap_unit": {
+    "INSPIRE": "analytic record",
+    "MIMIC-IV": "analytic record",
+    "eICU": "hospital"
+  },
+  "measurement_simulation": {
+    "replicates": 100,
+    "mechanism": "mixed_MNAR",
+    "strength": "strong",
+    "target_retention": 0.55
+  },
+  "minimum_reportable_group": "n>=100, events>=20, non-events>=20",
+  "multiplicity": "no subgroup p values; descriptive effect sizes and intervals only",
+  "interpretation_boundary": "The audit separates observability and apparent-performance disparities but is not a causal fairness analysis or certification.",
+  "protected_data": "patient-level and replicate-level outputs retained under secure_work only"
+}

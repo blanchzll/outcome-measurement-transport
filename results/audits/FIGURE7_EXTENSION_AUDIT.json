@@ -1,0 +1,15 @@
+{
+  "figure": "Figure 7 robustness extensions",
+  "panels": 4,
+  "files": 16,
+  "formats_per_panel": [
+    "svg",
+    "pdf",
+    "tiff",
+    "source_data_csv"
+  ],
+  "palette": "Okabe-Ito colorblind-safe",
+  "minimum_font_points": 6.5,
+  "patient_level_data_read": false,
+  "aggregate_source_data_only": true
+}

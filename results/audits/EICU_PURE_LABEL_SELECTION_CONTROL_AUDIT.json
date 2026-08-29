@@ -1,0 +1,11 @@
+{
+  "database": "EICU",
+  "role": "positive-control experiment with perfectly classified observed labels",
+  "replicates_per_condition": 300,
+  "conditions": 30,
+  "patient_n": 3253,
+  "events": 731,
+  "oracle_probability_uses_unobserved_outcome_under_mnar": true,
+  "interpretation": "oracle IPW is an identification benchmark, not an implementable MNAR estimator",
+  "rows": 18000
+}

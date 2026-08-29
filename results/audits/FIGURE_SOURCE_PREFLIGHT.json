@@ -1,0 +1,279 @@
+{
+  "summary": {
+    "panels": 27,
+    "ready_panels": 27,
+    "ready": true
+  },
+  "panels": [
+    {
+      "panel": "figures/Figure1_reference_observability/Figure1a_reference_flow.pdf",
+      "files": {
+        "pdf": "figures/Figure1_reference_observability/Figure1a_reference_flow.pdf",
+        "svg": "figures/Figure1_reference_observability/Figure1a_reference_flow.svg",
+        "tiff": "figures/Figure1_reference_observability/Figure1a_reference_flow.tiff",
+        "source_data": "figures/Figure1_reference_observability/Figure1a_reference_flow_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure1_reference_observability/Figure1b_ipaw_balance.pdf",
+      "files": {
+        "pdf": "figures/Figure1_reference_observability/Figure1b_ipaw_balance.pdf",
+        "svg": "figures/Figure1_reference_observability/Figure1b_ipaw_balance.svg",
+        "tiff": "figures/Figure1_reference_observability/Figure1b_ipaw_balance.tiff",
+        "source_data": "figures/Figure1_reference_observability/Figure1b_ipaw_balance_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure1_reference_observability/Figure1c_monitoring_gradient.pdf",
+      "files": {
+        "pdf": "figures/Figure1_reference_observability/Figure1c_monitoring_gradient.pdf",
+        "svg": "figures/Figure1_reference_observability/Figure1c_monitoring_gradient.svg",
+        "tiff": "figures/Figure1_reference_observability/Figure1c_monitoring_gradient.tiff",
+        "source_data": "figures/Figure1_reference_observability/Figure1c_monitoring_gradient_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure1_reference_observability/Figure1d_estimand_schematic.pdf",
+      "files": {
+        "pdf": "figures/Figure1_reference_observability/Figure1d_estimand_schematic.pdf",
+        "svg": "figures/Figure1_reference_observability/Figure1d_estimand_schematic.svg",
+        "tiff": "figures/Figure1_reference_observability/Figure1d_estimand_schematic.tiff",
+        "source_data": "figures/Figure1_reference_observability/Figure1d_estimand_schematic_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure2_deletion_mechanisms/Figure2a_eicu_event_bias.pdf",
+      "files": {
+        "pdf": "figures/Figure2_deletion_mechanisms/Figure2a_eicu_event_bias.pdf",
+        "svg": "figures/Figure2_deletion_mechanisms/Figure2a_eicu_event_bias.svg",
+        "tiff": "figures/Figure2_deletion_mechanisms/Figure2a_eicu_event_bias.tiff",
+        "source_data": "figures/Figure2_deletion_mechanisms/Figure2a_eicu_event_bias_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure2_deletion_mechanisms/Figure2a_inspire_event_bias.pdf",
+      "files": {
+        "pdf": "figures/Figure2_deletion_mechanisms/Figure2a_inspire_event_bias.pdf",
+        "svg": "figures/Figure2_deletion_mechanisms/Figure2a_inspire_event_bias.svg",
+        "tiff": "figures/Figure2_deletion_mechanisms/Figure2a_inspire_event_bias.tiff",
+        "source_data": "figures/Figure2_deletion_mechanisms/Figure2a_inspire_event_bias_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure2_deletion_mechanisms/Figure2a_mimic_event_bias.pdf",
+      "files": {
+        "pdf": "figures/Figure2_deletion_mechanisms/Figure2a_mimic_event_bias.pdf",
+        "svg": "figures/Figure2_deletion_mechanisms/Figure2a_mimic_event_bias.svg",
+        "tiff": "figures/Figure2_deletion_mechanisms/Figure2a_mimic_event_bias.tiff",
+        "source_data": "figures/Figure2_deletion_mechanisms/Figure2a_mimic_event_bias_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure2_deletion_mechanisms/Figure2b_eicu_method_bias.pdf",
+      "files": {
+        "pdf": "figures/Figure2_deletion_mechanisms/Figure2b_eicu_method_bias.pdf",
+        "svg": "figures/Figure2_deletion_mechanisms/Figure2b_eicu_method_bias.svg",
+        "tiff": "figures/Figure2_deletion_mechanisms/Figure2b_eicu_method_bias.tiff",
+        "source_data": "figures/Figure2_deletion_mechanisms/Figure2b_eicu_method_bias_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure2_deletion_mechanisms/Figure2b_inspire_method_bias.pdf",
+      "files": {
+        "pdf": "figures/Figure2_deletion_mechanisms/Figure2b_inspire_method_bias.pdf",
+        "svg": "figures/Figure2_deletion_mechanisms/Figure2b_inspire_method_bias.svg",
+        "tiff": "figures/Figure2_deletion_mechanisms/Figure2b_inspire_method_bias.tiff",
+        "source_data": "figures/Figure2_deletion_mechanisms/Figure2b_inspire_method_bias_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure2_deletion_mechanisms/Figure2b_mimic_method_bias.pdf",
+      "files": {
+        "pdf": "figures/Figure2_deletion_mechanisms/Figure2b_mimic_method_bias.pdf",
+        "svg": "figures/Figure2_deletion_mechanisms/Figure2b_mimic_method_bias.svg",
+        "tiff": "figures/Figure2_deletion_mechanisms/Figure2b_mimic_method_bias.tiff",
+        "source_data": "figures/Figure2_deletion_mechanisms/Figure2b_mimic_method_bias_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure2_deletion_mechanisms/Figure2c_reconstruction_sensitivity.pdf",
+      "files": {
+        "pdf": "figures/Figure2_deletion_mechanisms/Figure2c_reconstruction_sensitivity.pdf",
+        "svg": "figures/Figure2_deletion_mechanisms/Figure2c_reconstruction_sensitivity.svg",
+        "tiff": "figures/Figure2_deletion_mechanisms/Figure2c_reconstruction_sensitivity.tiff",
+        "source_data": "figures/Figure2_deletion_mechanisms/Figure2c_reconstruction_sensitivity_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure2_deletion_mechanisms/Figure2d_pure_selection_control.pdf",
+      "files": {
+        "pdf": "figures/Figure2_deletion_mechanisms/Figure2d_pure_selection_control.pdf",
+        "svg": "figures/Figure2_deletion_mechanisms/Figure2d_pure_selection_control.svg",
+        "tiff": "figures/Figure2_deletion_mechanisms/Figure2d_pure_selection_control.tiff",
+        "source_data": "figures/Figure2_deletion_mechanisms/Figure2d_pure_selection_control_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure3_correction_strategies/Figure3a_apparent_vs_reference_recalibration.pdf",
+      "files": {
+        "pdf": "figures/Figure3_correction_strategies/Figure3a_apparent_vs_reference_recalibration.pdf",
+        "svg": "figures/Figure3_correction_strategies/Figure3a_apparent_vs_reference_recalibration.svg",
+        "tiff": "figures/Figure3_correction_strategies/Figure3a_apparent_vs_reference_recalibration.tiff",
+        "source_data": "figures/Figure3_correction_strategies/Figure3a_apparent_vs_reference_recalibration_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure3_correction_strategies/Figure3b_strategy_rmse.pdf",
+      "files": {
+        "pdf": "figures/Figure3_correction_strategies/Figure3b_strategy_rmse.pdf",
+        "svg": "figures/Figure3_correction_strategies/Figure3b_strategy_rmse.svg",
+        "tiff": "figures/Figure3_correction_strategies/Figure3b_strategy_rmse.tiff",
+        "source_data": "figures/Figure3_correction_strategies/Figure3b_strategy_rmse_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure3_correction_strategies/Figure3c_cross_database_bias.pdf",
+      "files": {
+        "pdf": "figures/Figure3_correction_strategies/Figure3c_cross_database_bias.pdf",
+        "svg": "figures/Figure3_correction_strategies/Figure3c_cross_database_bias.svg",
+        "tiff": "figures/Figure3_correction_strategies/Figure3c_cross_database_bias.tiff",
+        "source_data": "figures/Figure3_correction_strategies/Figure3c_cross_database_bias_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure3_correction_strategies/Figure3d_eicu_recalibration_fidelity.pdf",
+      "files": {
+        "pdf": "figures/Figure3_correction_strategies/Figure3d_eicu_recalibration_fidelity.pdf",
+        "svg": "figures/Figure3_correction_strategies/Figure3d_eicu_recalibration_fidelity.svg",
+        "tiff": "figures/Figure3_correction_strategies/Figure3d_eicu_recalibration_fidelity.tiff",
+        "source_data": "figures/Figure3_correction_strategies/Figure3d_eicu_recalibration_fidelity_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure3_correction_strategies/Figure3d_inspire_recalibration_fidelity.pdf",
+      "files": {
+        "pdf": "figures/Figure3_correction_strategies/Figure3d_inspire_recalibration_fidelity.pdf",
+        "svg": "figures/Figure3_correction_strategies/Figure3d_inspire_recalibration_fidelity.svg",
+        "tiff": "figures/Figure3_correction_strategies/Figure3d_inspire_recalibration_fidelity.tiff",
+        "source_data": "figures/Figure3_correction_strategies/Figure3d_inspire_recalibration_fidelity_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure3_correction_strategies/Figure3d_mimic_recalibration_fidelity.pdf",
+      "files": {
+        "pdf": "figures/Figure3_correction_strategies/Figure3d_mimic_recalibration_fidelity.pdf",
+        "svg": "figures/Figure3_correction_strategies/Figure3d_mimic_recalibration_fidelity.svg",
+        "tiff": "figures/Figure3_correction_strategies/Figure3d_mimic_recalibration_fidelity.tiff",
+        "source_data": "figures/Figure3_correction_strategies/Figure3d_mimic_recalibration_fidelity_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure3_correction_strategies/Figure3e_reference_sample_design.pdf",
+      "files": {
+        "pdf": "figures/Figure3_correction_strategies/Figure3e_reference_sample_design.pdf",
+        "svg": "figures/Figure3_correction_strategies/Figure3e_reference_sample_design.svg",
+        "tiff": "figures/Figure3_correction_strategies/Figure3e_reference_sample_design.tiff",
+        "source_data": "figures/Figure3_correction_strategies/Figure3e_reference_sample_design_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure4_stability_portability/Figure4a_model_stability.pdf",
+      "files": {
+        "pdf": "figures/Figure4_stability_portability/Figure4a_model_stability.pdf",
+        "svg": "figures/Figure4_stability_portability/Figure4a_model_stability.svg",
+        "tiff": "figures/Figure4_stability_portability/Figure4a_model_stability.tiff",
+        "source_data": "figures/Figure4_stability_portability/Figure4a_model_stability_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure4_stability_portability/Figure4b_perioperative_increment.pdf",
+      "files": {
+        "pdf": "figures/Figure4_stability_portability/Figure4b_perioperative_increment.pdf",
+        "svg": "figures/Figure4_stability_portability/Figure4b_perioperative_increment.svg",
+        "tiff": "figures/Figure4_stability_portability/Figure4b_perioperative_increment.tiff",
+        "source_data": "figures/Figure4_stability_portability/Figure4b_perioperative_increment_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure4_stability_portability/Figure4c_portability_frontier.pdf",
+      "files": {
+        "pdf": "figures/Figure4_stability_portability/Figure4c_portability_frontier.pdf",
+        "svg": "figures/Figure4_stability_portability/Figure4c_portability_frontier.svg",
+        "tiff": "figures/Figure4_stability_portability/Figure4c_portability_frontier.tiff",
+        "source_data": "figures/Figure4_stability_portability/Figure4c_portability_frontier_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure5_clinical_audit/Figure5a_burden_event_capture.pdf",
+      "files": {
+        "pdf": "figures/Figure5_clinical_audit/Figure5a_burden_event_capture.pdf",
+        "svg": "figures/Figure5_clinical_audit/Figure5a_burden_event_capture.svg",
+        "tiff": "figures/Figure5_clinical_audit/Figure5a_burden_event_capture.tiff",
+        "source_data": "figures/Figure5_clinical_audit/Figure5a_burden_event_capture_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure5_clinical_audit/Figure5b_subgroup_auc.pdf",
+      "files": {
+        "pdf": "figures/Figure5_clinical_audit/Figure5b_subgroup_auc.pdf",
+        "svg": "figures/Figure5_clinical_audit/Figure5b_subgroup_auc.svg",
+        "tiff": "figures/Figure5_clinical_audit/Figure5b_subgroup_auc.tiff",
+        "source_data": "figures/Figure5_clinical_audit/Figure5b_subgroup_auc_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure6_eicu_replication/Figure6a_eicu_hospital_observability.pdf",
+      "files": {
+        "pdf": "figures/Figure6_eicu_replication/Figure6a_eicu_hospital_observability.pdf",
+        "svg": "figures/Figure6_eicu_replication/Figure6a_eicu_hospital_observability.svg",
+        "tiff": "figures/Figure6_eicu_replication/Figure6a_eicu_hospital_observability.tiff",
+        "source_data": "figures/Figure6_eicu_replication/Figure6a_eicu_hospital_observability_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure6_eicu_replication/Figure6b_eicu_endpoint_components.pdf",
+      "files": {
+        "pdf": "figures/Figure6_eicu_replication/Figure6b_eicu_endpoint_components.pdf",
+        "svg": "figures/Figure6_eicu_replication/Figure6b_eicu_endpoint_components.svg",
+        "tiff": "figures/Figure6_eicu_replication/Figure6b_eicu_endpoint_components.tiff",
+        "source_data": "figures/Figure6_eicu_replication/Figure6b_eicu_endpoint_components_source_data.csv"
+      },
+      "ready": true
+    },
+    {
+      "panel": "figures/Figure6_eicu_replication/Figure6c_eicu_target_performance.pdf",
+      "files": {
+        "pdf": "figures/Figure6_eicu_replication/Figure6c_eicu_target_performance.pdf",
+        "svg": "figures/Figure6_eicu_replication/Figure6c_eicu_target_performance.svg",
+        "tiff": "figures/Figure6_eicu_replication/Figure6c_eicu_target_performance.tiff",
+        "source_data": "figures/Figure6_eicu_replication/Figure6c_eicu_target_performance_source_data.csv"
+      },
+      "ready": true
+    }
+  ]
+}

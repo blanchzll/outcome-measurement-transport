@@ -1,0 +1,71 @@
+{
+  "INSPIRE": {
+    "rows": 5472,
+    "minimum_replicates": 299,
+    "maximum_metric_failure_fraction": 0.0033333333333332993,
+    "recalibration_targets": {
+      "oe": 1.0,
+      "calibration_intercept": 0.0,
+      "calibration_slope": 1.0
+    },
+    "original_model_target": {
+      "n": 1676,
+      "events": 138.0,
+      "event_rate": 0.08233890214797136,
+      "event_rate_se": 0.006714391951077612,
+      "mean_prediction": 0.04579004420917477,
+      "oe": 1.7981835040786758,
+      "brier": 0.07401706045195605,
+      "auc": 0.739248223742485,
+      "calibration_intercept": 1.702506671223115,
+      "calibration_slope": 1.3724056553369128,
+      "ess": 1676.0
+    }
+  },
+  "MIMIC": {
+    "rows": 5472,
+    "minimum_replicates": 300,
+    "maximum_metric_failure_fraction": 0.0,
+    "recalibration_targets": {
+      "oe": 1.0,
+      "calibration_intercept": 0.0,
+      "calibration_slope": 1.0
+    },
+    "original_model_target": {
+      "n": 2838,
+      "events": 648.0,
+      "event_rate": 0.22832980972515857,
+      "event_rate_se": 0.007879360549083246,
+      "mean_prediction": 0.2250349105876637,
+      "oe": 1.014641724383521,
+      "brier": 0.16846932387660193,
+      "auc": 0.6561516996448503,
+      "calibration_intercept": -0.18541045524139502,
+      "calibration_slope": 0.821146166940161,
+      "ess": 2838.0
+    }
+  },
+  "EICU": {
+    "rows": 5472,
+    "minimum_replicates": 300,
+    "maximum_metric_failure_fraction": 0.0,
+    "recalibration_targets": {
+      "oe": 1.0,
+      "calibration_intercept": 0.0,
+      "calibration_slope": 1.0
+    },
+    "original_model_target": {
+      "n": 3253,
+      "events": 731.0,
+      "event_rate": 0.22471564709498923,
+      "event_rate_se": 0.007318214499668828,
+      "mean_prediction": 0.27185942811245,
+      "oe": 0.8265876547126386,
+      "brier": 0.17317082820044874,
+      "auc": 0.6075628857300625,
+      "calibration_intercept": -0.5713041050456754,
+      "calibration_slope": 0.669538562489046,
+      "ess": 3253.0
+    }
+  }
+}

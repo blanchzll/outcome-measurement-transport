@@ -1,0 +1,16 @@
+{
+  "items": 27,
+  "passed": 27,
+  "failed": 0,
+  "analysis_ready": true,
+  "submission_ready": false,
+  "production_ready": false,
+  "submission_blockers": [
+    "author names and affiliations",
+    "ethics committee, approval identifier, and consent decision",
+    "funding and funder role",
+    "contributors, declarations of interests, acknowledgments, and data/code repository URL"
+  ],
+  "patient_level_data_read": false,
+  "matrix": "tables/Table_analysis_completion_matrix.csv"
+}

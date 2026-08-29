@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "input": "secure_work/SOURCE_4014_LOCKED_LOCO_PREDICTIONS_SECURE.csv.gz",
+  "locked_model": "pred_PI_restricted_rf",
+  "n": 4014,
+  "events": 155,
+  "postoperative_stay_lt7_n": 171,
+  "postoperative_stay_lt7_events": 4,
+  "outputs": [
+    "tables/Table_source_outcome_observation_proxy_by_center.csv",
+    "tables/Table_source_locked_model_observation_restriction.csv",
+    "tables/Table_source_preoperative_AKI_contamination_replicates.csv",
+    "tables/Table_source_preoperative_AKI_contamination_sensitivity.csv"
+  ],
+  "claim_boundary": "The analyses quantify robustness and limited observation opportunity. They do not prove preoperative-AKI exclusion, complete 0-168 h ascertainment, or a causal measurement explanation for centre calibration differences."
+}

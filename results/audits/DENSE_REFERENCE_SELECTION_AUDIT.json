@@ -1,0 +1,26 @@
+{
+  "INSPIRE": {
+    "database": "INSPIRE",
+    "candidate_n": 7135,
+    "dense_n": 1676,
+    "dense_fraction": 0.23489838822704975
+  },
+  "MIMIC-IV": {
+    "database": "MIMIC-IV",
+    "candidate_n": 9253,
+    "dense_n": 7094,
+    "dense_fraction": 0.7666702691019129
+  },
+  "eICU": {
+    "database": "eICU",
+    "candidate_n": 21755,
+    "dense_n": 9689,
+    "dense_fraction": 0.44536888071707653
+  },
+  "largest_absolute_standardized_difference": {
+    "INSPIRE": 0.7906649012277541,
+    "MIMIC-IV": 0.34740756701113823,
+    "eICU": 0.878517801716077
+  },
+  "interpretation": "descriptive selection audit; dense-reference cohorts are not random or clinical gold standards"
+}

@@ -1,0 +1,34 @@
+{
+  "database": "MIMIC",
+  "replicates_per_condition": 300,
+  "conditions": 36,
+  "patient_n": 2838,
+  "events": 648,
+  "serial_rows": 24352,
+  "full_reference_metrics": {
+    "n": 2838,
+    "events": 648.0,
+    "event_rate": 0.22832980972515857,
+    "event_rate_se": 0.007879360549083246,
+    "mean_prediction": 0.2250349105876637,
+    "oe": 1.014641724383521,
+    "brier": 0.16846932387660193,
+    "auc": 0.6561516996448503,
+    "calibration_intercept": -0.18541045524139502,
+    "calibration_slope": 0.821146166940161,
+    "ess": 2838.0
+  },
+  "replicate_rows": 151200,
+  "parallel_workers": 12,
+  "seed_definition": "identical SHA256-derived seed as serial production runner",
+  "runner": "parallel condition runner",
+  "promotion_checks": {
+    "replicates_per_condition": true,
+    "conditions": true,
+    "replicate_rows": true,
+    "core_summary_replicates": true,
+    "reference_summary_replicates": true,
+    "methods": true,
+    "mechanisms": true
+  }
+}

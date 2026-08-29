@@ -1,0 +1,13 @@
+{
+  "replicates_per_database": 1000,
+  "fractions": [
+    0.05,
+    0.1,
+    0.2,
+    0.3
+  ],
+  "evaluation": "held-out retained operational reference",
+  "penalised_prior": "intercept Normal(0,2.5^2); slope Normal(1,1^2)",
+  "selection_use": "none; comparison prespecified as a stability sensitivity analysis",
+  "claim": "reference-event design audit, not an externally validated recalibration rule"
+}

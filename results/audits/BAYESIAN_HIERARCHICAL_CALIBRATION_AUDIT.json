@@ -1,0 +1,74 @@
+{
+  "analysis": "Bayesian hierarchical calibration of locked source-cohort LOCO predictions",
+  "prediction": "pred_PI_restricted_rf",
+  "n": 4014,
+  "events": 155,
+  "centres": {
+    "1": {
+      "n": 765,
+      "events": 39
+    },
+    "2": {
+      "n": 803,
+      "events": 43
+    },
+    "3": {
+      "n": 985,
+      "events": 56
+    },
+    "4": {
+      "n": 1286,
+      "events": 16
+    },
+    "5": {
+      "n": 175,
+      "events": 1
+    }
+  },
+  "model": "Bernoulli outcome; common positive calibration slope; centre-specific normally distributed intercepts",
+  "primary_priors": {
+    "population_intercept": "Normal(0,1.5)",
+    "between_centre_sd": "half-Normal(0,1)",
+    "log_common_slope": "Normal(0,0.5)"
+  },
+  "posterior": "joint-mode Laplace approximation with 30000 Gaussian draws",
+  "independent_unit": "analytic surgical record; repeat-operation patient identifier unavailable",
+  "reason_for_common_slope": "five centres and only one event in centre 5 do not support centre-specific slope estimation",
+  "diagnostics": [
+    {
+      "prior": "primary",
+      "optimizer_success": true,
+      "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "negative_log_posterior_at_mode": 557.5625091369236,
+      "gradient_max_abs": 1.0598261464211944e-05,
+      "hessian_min_eigenvalue_raw": 0.8055336384997213,
+      "hessian_condition_number_regularized": 2380.6774253157687,
+      "posterior_approximation": "joint-mode Laplace approximation"
+    },
+    {
+      "prior": "stronger_shrinkage",
+      "optimizer_success": true,
+      "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "negative_log_posterior_at_mode": 559.9172038637266,
+      "gradient_max_abs": 5.2316599522317375e-05,
+      "hessian_min_eigenvalue_raw": 0.9997306375477082,
+      "hessian_condition_number_regularized": 1841.5807041724788,
+      "posterior_approximation": "joint-mode Laplace approximation"
+    },
+    {
+      "prior": "weaker_shrinkage",
+      "optimizer_success": true,
+      "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "negative_log_posterior_at_mode": 556.6218619602089,
+      "gradient_max_abs": 0.00041976635502008475,
+      "hessian_min_eigenvalue_raw": 0.6378275948906386,
+      "hessian_condition_number_regularized": 3127.2742167294023,
+      "posterior_approximation": "joint-mode Laplace approximation"
+    }
+  ],
+  "limits": [
+    "Credible intervals are conditional on locked predictions and the Laplace approximation.",
+    "They do not propagate model-development or preprocessing uncertainty.",
+    "Five centres provide limited information about the between-centre variance and new-centre distribution."
+  ]
+}

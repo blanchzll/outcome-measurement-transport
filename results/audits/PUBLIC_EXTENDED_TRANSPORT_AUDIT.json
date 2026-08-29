@@ -1,0 +1,38 @@
+{
+  "analysis": "prespecified extended common-variable bidirectional transport",
+  "model_variants": {
+    "minimal": [
+      "age",
+      "log_baseline_creatinine",
+      "sex"
+    ],
+    "extended_common": [
+      "age",
+      "log_baseline_creatinine",
+      "baseline_albumin",
+      "baseline_bun",
+      "baseline_glucose",
+      "baseline_sodium",
+      "baseline_potassium",
+      "baseline_hemoglobin",
+      "baseline_wbc",
+      "baseline_platelet",
+      "sex"
+    ]
+  },
+  "selection_rule": "common pre-landmark availability and compatible units; no outcome or validation metric used",
+  "preprocessing": "training-database median imputation with missingness indicators, scaling and categorical encoding",
+  "model": "ridge logistic regression; C=0.25 fixed",
+  "local_recalibration": false,
+  "bootstrap": {
+    "replicates": 500,
+    "eICU_unit": "hospital",
+    "MIMIC_unit": "analytic record"
+  },
+  "limits": [
+    "The cohorts are conditioned on dense post-landmark creatinine measurement.",
+    "This transports a public-data model and does not externally validate the source surgery-end model.",
+    "Improved discrimination, if observed, is descriptive because the extension was not a new clinical model-development exercise."
+  ],
+  "patient_level_outputs_delivered": false
+}

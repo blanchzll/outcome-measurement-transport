@@ -1,0 +1,34 @@
+{
+  "inspire": {
+    "candidate_n": 7135,
+    "any_urine_output_n": 436,
+    "minimum_6h_sequence_proxy_n": 2,
+    "rrt_n": 5,
+    "full_urine_output_kdigo_estimable": false,
+    "reason": "post-landmark urine-output records were too sparse for continuous KDIGO duration criteria"
+  },
+  "mimic": {
+    "candidate_n": 9253,
+    "dense_n": 7094,
+    "dense_creatinine_events": 1598,
+    "dense_multicomponent_events": 5409,
+    "dense_urine_or_rrt_only_events": 3811,
+    "rrt_item_ids": [
+      225441,
+      225802,
+      225803,
+      225805,
+      225809,
+      225955
+    ],
+    "endpoint_is_clinician_adjudicated": false,
+    "endpoint_role": "algorithmic multicomponent KDIGO sensitivity endpoint"
+  },
+  "source_hashes": {
+    "inspire_ward_vitals_sha256": "1c70aee2ae25327b54f2ddee4bb29523bae57d6c74847f949e9e8d0fc4045e14",
+    "mimic_urine_database_size": 12744667136,
+    "mimic_procedureevents_sha256": "5ec6c252aae1f035de05c2053ad1279a138ee00d22d1569a712a1df7e31371c2",
+    "mimic_d_items_sha256": "7f223a9570da9c02bd12f281b398cb4951d5a560a51836540f357bc247366b7f"
+  },
+  "claim_boundary": "public operational endpoints do not reproduce site-level nephrologist adjudication"
+}

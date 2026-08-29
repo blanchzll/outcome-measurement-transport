@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "checks": {
+    "reference_id_unique": true,
+    "dense_n_is_9689": true,
+    "serial_hours_are_0_to_168": true,
+    "serial_creatinine_positive": true,
+    "exact_serum_creatinine_filter_in_code": true,
+    "hospital_groups_are_disjoint": true,
+    "test_hospitals_match_audit": true,
+    "test_size_matches_audit": true,
+    "all_core_conditions_have_300_replicates": true,
+    "primary_endpoint_is_creatinine_only": true,
+    "component_union_is_sensitivity_only": true
+  },
+  "dense_n": 9689,
+  "train_hospitals": 28,
+  "test_hospitals": 12,
+  "hospital_overlap": 0,
+  "patient_level_data_exported": false
+}

@@ -1,0 +1,34 @@
+{
+  "database": "INSPIRE",
+  "replicates_per_condition": 300,
+  "conditions": 36,
+  "patient_n": 1676,
+  "events": 138,
+  "serial_rows": 9363,
+  "full_reference_metrics": {
+    "n": 1676,
+    "events": 138.0,
+    "event_rate": 0.08233890214797136,
+    "event_rate_se": 0.006714391951077612,
+    "mean_prediction": 0.04579004420917477,
+    "oe": 1.7981835040786758,
+    "brier": 0.07401706045195605,
+    "auc": 0.739248223742485,
+    "calibration_intercept": 1.702506671223115,
+    "calibration_slope": 1.3724056553369128,
+    "ess": 1676.0
+  },
+  "replicate_rows": 151197,
+  "parallel_workers": 18,
+  "seed_definition": "identical SHA256-derived seed as serial production runner",
+  "runner": "parallel condition runner",
+  "promotion_checks": {
+    "replicates_per_condition": true,
+    "conditions": true,
+    "replicate_rows": true,
+    "core_summary_replicates": true,
+    "reference_summary_replicates": true,
+    "methods": true,
+    "mechanisms": true
+  }
+}

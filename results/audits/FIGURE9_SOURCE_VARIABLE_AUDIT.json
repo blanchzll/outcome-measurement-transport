@@ -1,0 +1,14 @@
+{
+  "figure": "Figure 9 source-variable availability and internal consistency",
+  "panels": 3,
+  "files": 12,
+  "formats_per_panel": [
+    "svg",
+    "pdf",
+    "tiff",
+    "source_data_csv"
+  ],
+  "palette": "Okabe-Ito colorblind-safe",
+  "aggregate_source_data_only": true,
+  "patient_level_data_read": false
+}

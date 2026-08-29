@@ -1,0 +1,44 @@
+# Code review guide
+
+This guide lets editors and reviewers trace each manuscript claim to the relevant workflow stage and aggregate output without accessing patient-level data.
+
+## Dataset and model roles
+
+| Canonical role | Dataset | Model or endpoint role | What it can establish | What it cannot establish |
+|---|---|---|---|---|
+| Source clinical case | Five-centre gastric/colorectal cohort | End-of-surgery source models; expert binary KDIGO endpoint | Internal-external transport, calibration heterogeneity, data-quality limits | Independent external validation or clinical impact |
+| Longitudinal measurement testbed | INSPIRE | Surgery-anchored retained creatinine reference and deletion experiments | Measurement-induced endpoint and calibration changes | Full KDIGO or population-wide performance |
+| ICU replication | MIMIC-IV and eICU | ICU-admission operational references and database-native models | Replication of the measurement mechanism | Validation of the source clinical model |
+| Locked public external validation | INSPIRE to MIMIC-IV/eICU | Same serialized model, ICU landmark, common variables, creatinine endpoint | True public same-model external validation | Clinical readiness; source-model validation |
+| Endpoint-transport clinical bridge | INSPIRE gastrointestinal model to MIMIC-IV and five-centre cohort | Same predictors and model; reference endpoint changes in the source cohort | Risk transport under an endpoint-reference change | Strict same-endpoint external validation |
+
+## Claim-to-code map
+
+| Manuscript claim | Primary code | Key aggregate outputs |
+|---|---|---|
+| Dense-reference populations are selected | `workflow/00_provenance_and_estimands/78_dense_reference_selection_audit.py`; `workflow/02_public_reference_cohorts/50_inspire_observability_reference.py` | `results/figure_source_data/Figure1`; dense-reference audit JSON |
+| Longitudinal deletion changes endpoint reconstruction and apparent calibration | `workflow/04_measurement_deletion_simulation/52_measurement_deletion_simulation.py`; `64_parallel_measurement_simulation.py` | Figure 2 source data; main Table 2; simulation audits |
+| Weighting works for pure label selection under its identifying conditions | `workflow/03_observability_selection_and_fairness/72_pure_label_selection_control.py` | Positive-control audit JSON and supplementary tables |
+| Recalibration can fit the reconstructed target but miss the retained reference | `workflow/04_measurement_deletion_simulation/52_measurement_deletion_simulation.py`; `67_resummarize_simulations.py` | Figure 3 source data; main Table 3 |
+| Reference-event count controls updating precision | `workflow/05_reference_sampling_and_correction/77_reference_event_design.py` | Figure 3 source data; main Table 4 |
+| The failure mode persists at designed discrimination levels | `workflow/04_measurement_deletion_simulation/83_discrimination_strength_stress_test.py` | Figure 4 source data and discrimination audit |
+| Source model transport is internal-external, not independent external validation | `workflow/01_source_cohort_and_models/54_regenerate_loco_predictions.py`; `79_source_fixed_geography_validation.py`; `88_source_temporal_validation.py` | Main Table 1; temporal and geography audits |
+| INSPIRE-locked models transport poorly to MIMIC-IV and eICU | `workflow/06_transport_external_validation/84_build_inspire_surgical_icu_reference.py`; `85_inspire_locked_public_icu_transport.py` | `Table_inspire_locked_external_validation.csv`; Supplementary Figure 7 source data |
+| The public gastrointestinal model is a clinical endpoint bridge | `workflow/06_transport_external_validation/86_inspire_gi_model_to_mimic_and_source.py` | `Table_public_model_to_source_clinical_bridge.csv`; Supplementary Figure 8 source data |
+
+## Recommended review order
+
+1. Read `protocols/STATISTICAL_ANALYSIS_PLAN.md` and `protocols/TERMINOLOGY_LEDGER.md`.
+2. Inspect `WORKFLOW_MANIFEST.csv` and stages 00-02 for cohort and endpoint construction.
+3. Inspect stages 03-05 for selection, deletion, correction, and reference sampling.
+4. Inspect stage 06 for transport and external validation.
+5. Match numerical claims to `results/key_tables`, then inspect panel-level values under `results/figure_source_data`.
+6. Review machine-readable completion and boundary checks under `results/audits`.
+
+## Reproduction levels
+
+- **Level 1, unrestricted:** Run the synthetic package and tests. No clinical data are required.
+- **Level 2, credentialed public data:** Rebuild INSPIRE, MIMIC-IV, and eICU operational cohorts after obtaining authorised access.
+- **Level 3, governed source data:** Reproduce the five-centre analyses inside the approved institutional environment. The repository documents the workflow but does not distribute the data.
+
+All reported manuscript numbers can be inspected in aggregate outputs. Patient-level verification requires the relevant data-governance permissions.

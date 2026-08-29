@@ -1,0 +1,173 @@
+{
+  "scenarios": [
+    "as_recorded_refit_with_original_locks",
+    "current_predictor_plausible_ranges_to_missing",
+    "exclude_binary_stage_inconsistency",
+    "combined_data_quality_sensitivity"
+  ],
+  "range_rules": {
+    "Age": [
+      16,
+      105
+    ],
+    "PreopHb": [
+      30,
+      220
+    ],
+    "PreopAlb": [
+      10,
+      70
+    ],
+    "PreopCr": [
+      20,
+      1500
+    ],
+    "IntraopTransfusion": [
+      0,
+      20000
+    ]
+  },
+  "values_set_to_missing_by_variable": {
+    "Age": 0,
+    "PreopHb": 6,
+    "PreopAlb": 9,
+    "PreopCr": 6,
+    "IntraopTransfusion": 0
+  },
+  "binary_stage_inconsistencies_excluded": 3,
+  "combined_inconsistencies_excluded": 3,
+  "model": "PI restricted random forest",
+  "hyperparameters": "original locked parameters; no model or feature selection",
+  "fold_preprocessing": "imputation and all estimated preprocessing fitted in each development fold",
+  "patient_level_predictions_public": false,
+  "fits": {
+    "as_recorded_refit_with_original_locks": [
+      {
+        "outer_center": 1,
+        "development_n": 3249,
+        "validation_n": 765,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 2,
+        "development_n": 3211,
+        "validation_n": 803,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 3,
+        "development_n": 3029,
+        "validation_n": 985,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 4,
+        "development_n": 2728,
+        "validation_n": 1286,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 5,
+        "development_n": 3839,
+        "validation_n": 175,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      }
+    ],
+    "current_predictor_plausible_ranges_to_missing": [
+      {
+        "outer_center": 1,
+        "development_n": 3249,
+        "validation_n": 765,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 2,
+        "development_n": 3211,
+        "validation_n": 803,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 3,
+        "development_n": 3029,
+        "validation_n": 985,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 4,
+        "development_n": 2728,
+        "validation_n": 1286,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 5,
+        "development_n": 3839,
+        "validation_n": 175,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      }
+    ],
+    "exclude_binary_stage_inconsistency": [
+      {
+        "outer_center": 1,
+        "development_n": 3246,
+        "validation_n": 765,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 2,
+        "development_n": 3209,
+        "validation_n": 802,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 3,
+        "development_n": 3027,
+        "validation_n": 984,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 4,
+        "development_n": 2726,
+        "validation_n": 1285,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 5,
+        "development_n": 3836,
+        "validation_n": 175,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      }
+    ],
+    "combined_data_quality_sensitivity": [
+      {
+        "outer_center": 1,
+        "development_n": 3246,
+        "validation_n": 765,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 2,
+        "development_n": 3209,
+        "validation_n": 802,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 3,
+        "development_n": 3027,
+        "validation_n": 984,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 4,
+        "development_n": 2726,
+        "validation_n": 1285,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      },
+      {
+        "outer_center": 5,
+        "development_n": 3836,
+        "validation_n": 175,
+        "locked_parameters": "{\"model__max_depth\": 5, \"model__min_samples_leaf\": 15}"
+      }
+    ]
+  }
+}

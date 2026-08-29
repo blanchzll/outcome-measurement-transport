@@ -1,0 +1,76 @@
+{
+  "analysis": "true external validation of a frozen INSPIRE surgical-ICU public-data model",
+  "development_database": "INSPIRE 1.4.2",
+  "external_validation_databases": [
+    "MIMIC-IV 3.1",
+    "eICU 2.0"
+  ],
+  "datasets": {
+    "INSPIRE": {
+      "n": 7654,
+      "events": 1195
+    },
+    "MIMIC-IV": {
+      "n": 7094,
+      "events": 1598
+    },
+    "eICU": {
+      "n": 9689,
+      "events": 2216
+    }
+  },
+  "prediction_landmark": "ICU admission",
+  "endpoint": "0-168 h creatinine-defined KDIGO AKI in dense-reference surgical-ICU cohorts",
+  "model_lock": {
+    "minimal": {
+      "predictors": [
+        "age",
+        "log_baseline_creatinine",
+        "sex"
+      ],
+      "model_file": "secure_work/INSPIRE_minimal_LOCKED_MODEL.joblib",
+      "model_sha256": "849fdf36a6cabb7ff066ab7b718d6adee996075d7e1d97a3a7622803f1cb79f1",
+      "ridge_C": 0.25,
+      "training_only_preprocessing": true
+    },
+    "extended_common": {
+      "predictors": [
+        "age",
+        "log_baseline_creatinine",
+        "baseline_albumin",
+        "baseline_bun",
+        "baseline_glucose",
+        "baseline_sodium",
+        "baseline_potassium",
+        "baseline_hemoglobin",
+        "baseline_wbc",
+        "baseline_platelet",
+        "sex"
+      ],
+      "model_file": "secure_work/INSPIRE_extended_common_LOCKED_MODEL.joblib",
+      "model_sha256": "da46969ec138abb46fd17ad4643c194007bd1d3f389df5bf46425dd9b7ca9a8d",
+      "ridge_C": 0.25,
+      "training_only_preprocessing": true
+    }
+  },
+  "preprocessing": "INSPIRE-only median imputation with missingness indicators, scaling and categorical encoding",
+  "external_outcomes_used_for_selection_or_tuning": false,
+  "local_recalibration_before_primary_evaluation": false,
+  "bootstrap": {
+    "replicates": 1000,
+    "MIMIC-IV_unit": "patient",
+    "eICU_unit": "hospital"
+  },
+  "limits": [
+    "The estimand is conditional on dense post-ICU creatinine measurement.",
+    "The endpoint is operational creatinine-only AKI, not full clinician-adjudicated KDIGO.",
+    "This validates the public surgical-ICU model, not the five-centre surgery-end model."
+  ],
+  "patient_level_outputs_delivered": false,
+  "seed": 20260829,
+  "software": {
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.9.0"
+  }
+}

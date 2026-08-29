@@ -1,0 +1,34 @@
+database,cohort,predictor,unit,n,n_observed,missing_fraction,selection_status
+INSPIRE,dense_reference,age,years,7654,7654,0.0,prespecified_common_predictor
+INSPIRE,dense_reference,log_baseline_creatinine,natural log mg/dL,7654,7654,0.0,prespecified_common_predictor
+INSPIRE,dense_reference,baseline_albumin,g/dL,7654,7550,0.01358766657956624,prespecified_common_predictor
+INSPIRE,dense_reference,baseline_bun,mg/dL,7654,7637,0.002221060883198328,prespecified_common_predictor
+INSPIRE,dense_reference,baseline_glucose,mg/dL,7654,7575,0.010321400574862817,prespecified_common_predictor
+INSPIRE,dense_reference,baseline_sodium,mmol/L,7654,7652,0.0002613012803762738,prespecified_common_predictor
+INSPIRE,dense_reference,baseline_potassium,mmol/L,7654,7652,0.0002613012803762738,prespecified_common_predictor
+INSPIRE,dense_reference,baseline_hemoglobin,g/dL,7654,7598,0.0073164358505356675,prespecified_common_predictor
+INSPIRE,dense_reference,baseline_wbc,K/uL,7654,7585,0.009014894172981448,prespecified_common_predictor
+INSPIRE,dense_reference,baseline_platelet,K/uL,7654,7580,0.009668147373922133,prespecified_common_predictor
+INSPIRE,dense_reference,sex,category,7654,7654,0.0,prespecified_common_predictor
+MIMIC-IV,dense_reference,age,years,7094,7094,0.0,prespecified_common_predictor
+MIMIC-IV,dense_reference,log_baseline_creatinine,natural log mg/dL,7094,7094,0.0,prespecified_common_predictor
+MIMIC-IV,dense_reference,baseline_albumin,g/dL,7094,3887,0.4520721736678884,prespecified_common_predictor
+MIMIC-IV,dense_reference,baseline_bun,mg/dL,7094,7074,0.00281928390188892,prespecified_common_predictor
+MIMIC-IV,dense_reference,baseline_glucose,mg/dL,7094,6924,0.023963913166055822,prespecified_common_predictor
+MIMIC-IV,dense_reference,baseline_sodium,mmol/L,7094,6956,0.01945305892303355,prespecified_common_predictor
+MIMIC-IV,dense_reference,baseline_potassium,mmol/L,7094,6966,0.01804341697208909,prespecified_common_predictor
+MIMIC-IV,dense_reference,baseline_hemoglobin,g/dL,7094,6934,0.02255427121511136,prespecified_common_predictor
+MIMIC-IV,dense_reference,baseline_wbc,K/uL,7094,6927,0.023541020580772485,prespecified_common_predictor
+MIMIC-IV,dense_reference,baseline_platelet,K/uL,7094,6926,0.02368198477586693,prespecified_common_predictor
+MIMIC-IV,dense_reference,sex,category,7094,7094,0.0,prespecified_common_predictor
+eICU,dense_reference,age,years,9689,9689,0.0,prespecified_common_predictor
+eICU,dense_reference,log_baseline_creatinine,natural log mg/dL,9689,9689,0.0,prespecified_common_predictor
+eICU,dense_reference,baseline_albumin,g/dL,9689,6786,0.29961812364537105,prespecified_common_predictor
+eICU,dense_reference,baseline_bun,mg/dL,9689,9656,0.0034059242439880275,prespecified_common_predictor
+eICU,dense_reference,baseline_glucose,mg/dL,9689,9633,0.005779750232222107,prespecified_common_predictor
+eICU,dense_reference,baseline_sodium,mmol/L,9689,9641,0.004954071627618949,prespecified_common_predictor
+eICU,dense_reference,baseline_potassium,mmol/L,9689,9613,0.007843946743730004,prespecified_common_predictor
+eICU,dense_reference,baseline_hemoglobin,g/dL,9689,9466,0.023015791103313036,prespecified_common_predictor
+eICU,dense_reference,baseline_wbc,K/uL,9689,9389,0.030962947672618434,prespecified_common_predictor
+eICU,dense_reference,baseline_platelet,K/uL,9689,9307,0.03942615336980081,prespecified_common_predictor
+eICU,dense_reference,sex,category,9689,9689,0.0,prespecified_common_predictor

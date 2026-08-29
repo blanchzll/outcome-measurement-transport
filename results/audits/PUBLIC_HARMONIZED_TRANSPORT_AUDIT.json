@@ -1,0 +1,28 @@
+{
+  "analysis": "bidirectional public-database transport with a fixed harmonized model specification",
+  "datasets": {
+    "MIMIC-IV": {
+      "n": 7094,
+      "events": 1598
+    },
+    "eICU": {
+      "n": 9689,
+      "events": 2216
+    }
+  },
+  "fixed_predictors": [
+    "age",
+    "log_baseline_creatinine",
+    "sex"
+  ],
+  "model": "ridge logistic regression with C=0.25",
+  "endpoint": "0-168 h creatinine-defined KDIGO AKI in dense-reference surgical-ICU cohorts",
+  "prediction_landmark": "ICU admission",
+  "limits": [
+    "This validates a minimal public-data model, not the five-centre surgical source model.",
+    "Dense-reference conditioning changes the target population and does not recover full-cohort performance.",
+    "MIMIC-IV record intervals do not account for unobserved site clustering; eICU intervals resample hospitals.",
+    "No local recalibration was performed before external evaluation."
+  ],
+  "patient_level_outputs_delivered": false
+}

@@ -1,0 +1,63 @@
+{
+  "source_rows": 4014,
+  "source_columns_raw": 110,
+  "source_columns_deidentified": 104,
+  "major_id_unique": 4014,
+  "direct_identifier_columns_not_exported": [
+    5,
+    6,
+    7
+  ],
+  "date_columns_audit_only": [
+    8,
+    9,
+    10
+  ],
+  "primary_model_predictor_count": 14,
+  "postlandmark_or_ambiguous_columns_excluded": 55,
+  "aki_stage_binary_mismatches": 3,
+  "rrt_code_1_among_non_aki": 10,
+  "rrt_invalid_codes_2_to_5": 4,
+  "gender_effectively_unresolved": 295,
+  "gastric_colon_rectum_code_missing": 2216,
+  "structural_missingness_by_center": {
+    "BMI": {
+      "1": 1.0,
+      "2": 0.009962640099626401,
+      "3": 0.023350253807106598,
+      "4": 0.8639191290824261,
+      "5": 0.0
+    },
+    "ASAGrade": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0020304568527918783,
+      "4": 0.6119751166407466,
+      "5": 0.0
+    },
+    "OperationTime": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0010152284263959391,
+      "4": 0.6111975116640747,
+      "5": 0.0
+    },
+    "IntraopVasoactive": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0020304568527918783,
+      "4": 0.6119751166407466,
+      "5": 0.0
+    },
+    "IntraopFluid": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0010152284263959391,
+      "4": 0.6135303265940902,
+      "5": 0.0
+    }
+  },
+  "prediction_landmark": "end of surgery",
+  "primary_policy": "retain the prespecified low-dimensional P and PI feature sets; do not add postoperative or structurally absent fields",
+  "patient_level_data_exported": false
+}

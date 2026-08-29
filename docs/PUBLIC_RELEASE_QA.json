@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "repository": "outcome-measurement-transport",
+  "checks": {
+    "no_internal_paths": true,
+    "no_detected_secrets": true,
+    "no_restricted_data_or_model_files": true,
+    "no_patient_level_filenames": true,
+    "aggregate_csv_headers_exclude_direct_identifiers": true,
+    "python_compilation": true,
+    "synthetic_and_contract_tests": true
+  },
+  "counts": {
+    "files": 199,
+    "python_files": 75,
+    "workflow_scripts": 71,
+    "tests": 3
+  },
+  "test_result": {
+    "returncode": 0,
+    "stdout_tail": ".........                                                                [100%]\n9 passed in 2.24s\n",
+    "stderr_tail": ""
+  },
+  "privacy_findings": {
+    "internal_path_hits": [],
+    "secret_hits": [],
+    "restricted_files": [],
+    "patient_filename_hits": [],
+    "identifier_header_hits": []
+  }
+}

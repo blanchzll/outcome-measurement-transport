@@ -1,0 +1,5 @@
+stage,object,role
+1,Retained longitudinal trajectory,Operational reference target
+2,Locally retained measurements,Observation process
+3,Reconstructed binary endpoint,Apparent evaluation target
+4,Fixed risk predictions,Evaluated against either target

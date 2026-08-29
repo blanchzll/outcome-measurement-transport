@@ -1,0 +1,6 @@
+center,n,postop_aki_events,stage_0,stage_1,stage_2,stage_3,aki_stage_binary_mismatch,rrt_code_1,rrt_invalid_code_2_to_5,rrt_code_1_among_non_aki
+1,765,39,726,28,9,2,0,3,0,1
+2,803,43,761,40,1,1,1,7,0,6
+3,985,56,928,47,8,2,1,6,4,2
+4,1286,16,1269,8,4,5,1,1,0,1
+5,175,1,174,1,0,0,0,0,0,0

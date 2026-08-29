@@ -1,0 +1,27 @@
+# Terminology Ledger
+
+| Canonical term | First-use definition | Avoid/variant | Decision |
+|---|---|---|---|
+| site-level nephrologist-adjudicated postoperative AKI outcome | the source cohort's binary `PostopAKI` outcome, adjudicated at each centre by two nephrologists using 2012 KDIGO creatinine, urine-output and RRT criteria; disagreements resolved by a third coordinating-centre nephrologist | database label only, centrally adjudicated outcome, newly recomputed KDIGO | Adjudicators were masked to model predictions and candidate predictors; the analytic extract cannot support a new central readjudication or component-level audit |
+| retained operational creatinine reference endpoint | AKI defined before deletion from all available 0–168-h creatinine measurements: +0.3 mg/dL by 48 h or >=1.5-fold by 168 h | ground truth, gold standard, complete KDIGO | Operational reference only; no clinician adjudication, and urine-output/RRT roles are dataset-specific |
+| two-window operational endpoint | the same creatinine rule requiring at least one retained test in >0–48 h and one in >48–96 h; measurements through 168 h can contribute to the 1.5-fold criterion but not to the second-window observability requirement | full reference | Executable boundary tests cover 48 h, 96 h and 168 h |
+| outcome observability | availability of the prespecified measurement pattern required to evaluate the operational endpoint | outcome missingness alone | Distinguish missing endpoint from false-negative reconstruction |
+| ascertainment intensity | frequency and temporal coverage of postoperative creatinine testing | monitoring quality | Do not equate more testing with better care |
+| measurement-induced apparent drift | change in evaluated performance caused by observation/reconstruction of the outcome | model drift | Use “apparent” unless algorithmic drift is independently shown |
+| apparent calibration | calibration against the endpoint reconstructed after measurement deletion | true calibration | Always name the evaluation target |
+| retained-reference calibration | calibration against the retained operational reference endpoint | biological calibration | Still limited by the operational reference definition |
+| design-probability inverse probability of ascertainment weighting (IPAW) | weighting by the simulated probability that the required outcome measurement pattern is observed | oracle correction, IPW without definition | Report untruncated and 99th-percentile-truncated results, ESS and weight tails; for observed-history mechanisms the recorded probability is a conditional realised-history approximation |
+| augmented IPAW (AIPW) | doubly robust estimating equation using an ascertainment model and an outcome model | fully robust AIPW | State which nuisance component is known/estimated in each analysis |
+| local recalibration | intercept-only or intercept-and-slope updating against the local observed endpoint | correction | May fit local ascertainment rather than latent risk |
+| reference-sample recalibration | updating in random 5%, 10%, 20% or 30% samples retaining the operational reference and evaluating in held-out patients | external validation | Simulation design analysis, not a collected clinical reference sample |
+| pure label-selection positive control | patient-level labels are hidden without altering their values, and oracle untruncated IPW is compared with naive evaluation | longitudinal measurement experiment | Demonstrates recovery when only selection acts and its probability is known; the MNAR oracle uses unavailable outcome information and is not implementable |
+| algorithmic multicomponent KDIGO sensitivity endpoint | MIMIC-IV endpoint combining executable creatinine, urine-output-duration and RRT components | adjudicated KDIGO, same endpoint external validation | Used only to quantify outcome-target dependence; source adjudication is not reproduced |
+| leave-one-centre-out internal-external validation (LOCO) | five fits, each holding out one source centre | external validation | Internal-external validation, not independent external validation |
+| source cohort | five-centre gastric/colorectal cancer surgical cohort | derivation database | 4014 primary records and 155 adjudicated events; 3710-record legacy-filter analysis is a sensitivity analysis |
+| INSPIRE cohort | public perioperative methodological validation cohort | multicentre external cohort | One Korean academic centre |
+| MIMIC-IV 3.1 surgical-ICU testbed | first-surgical-ICU-admission methodological replication | surgery-end external validation | Different landmark and database-native risk model |
+| P / PI / H feature sets | preoperative / perioperative incremental / harmonized feature sets | basic/full features | Use these labels consistently in tables only; expand in text |
+| restricted random forest | prespecified low-complexity random forest | RF | Define once; do not imply unrestricted algorithm search |
+| gradient boosting | prespecified histogram gradient-boosting model | XGBoost | Do not call it XGBoost |
+| representativeness audit | subgroup performance and interval assessment | fairness certification | No causal or normative fairness claim |
+| clinical-utility scenario analysis | decision curves and monitoring-allocation burden/capture calculations | clinical impact study | No observed change in clinician behaviour or patient outcomes |

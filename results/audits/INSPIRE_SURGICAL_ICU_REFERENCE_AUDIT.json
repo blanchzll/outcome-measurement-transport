@@ -1,0 +1,24 @@
+{
+  "analysis": "INSPIRE adult postoperative surgical-ICU operational reference cohort",
+  "prediction_landmark": "ICU admission within 24 hours after operation end",
+  "patient_unit": "first qualifying operation per patient",
+  "predictor_lookback": "-30 days to immediately before ICU admission",
+  "endpoint": "0-168 h creatinine-defined KDIGO AKI",
+  "dense_reference_rule": "at least 3 measurements, at least 1 at 0-48 h, at least 1 at 48-96 h, span at least 72 h",
+  "candidate_n": 11530,
+  "candidate_unique_patients": 11530,
+  "longitudinal_n": 11074,
+  "longitudinal_events": 1311,
+  "dense_n": 7654,
+  "dense_events": 1195,
+  "reference_is_clinician_adjudicated": false,
+  "reference_is_full_kdigo": false,
+  "urine_output_included": false,
+  "rrt_included": false,
+  "patient_level_output_delivered": false,
+  "seed": 20260829,
+  "input_sha256": {
+    "operations_csv_gz": "0c366d4945f258ecf317261f54a36b116bb170c583b2c6c59c558711b15cebf7",
+    "labs_csv_gz": "297858717e286273a14e502d5ef17bce7e633893e376625a368757c7162d66eb"
+  }
+}

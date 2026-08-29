@@ -1,0 +1,30 @@
+{
+  "analysis": "controlled discrimination-strength stress test",
+  "databases": {
+    "MIMIC-IV": {
+      "n": 7094,
+      "events": 1598,
+      "serial_measurements": 60101
+    },
+    "eICU": {
+      "n": 9689,
+      "events": 2216,
+      "serial_measurements": 68477
+    }
+  },
+  "target_auc_values": [
+    0.6,
+    0.7,
+    0.8
+  ],
+  "replicates_per_database_auc": 100,
+  "deletion_condition": {
+    "mechanism": "mixed_MNAR",
+    "strength": "strong",
+    "target_per_measurement_retention": 0.55
+  },
+  "score_construction": "synthetic equal-variance Gaussian class score, then logistic calibration to the retained endpoint",
+  "independent_unit": "Monte Carlo replicate",
+  "interpretation_boundary": "The synthetic scores are controlled design objects, not deployable clinical prediction models.",
+  "patient_level_outputs_delivered": false
+}

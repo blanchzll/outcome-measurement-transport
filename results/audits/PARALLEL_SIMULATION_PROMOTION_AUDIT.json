@@ -1,0 +1,32 @@
+{
+  "promoted": true,
+  "databases": {
+    "INSPIRE": {
+      "replicates_per_condition": true,
+      "conditions": true,
+      "replicate_rows": true,
+      "core_summary_replicates": true,
+      "reference_summary_replicates": true,
+      "methods": true,
+      "mechanisms": true
+    },
+    "MIMIC": {
+      "replicates_per_condition": true,
+      "conditions": true,
+      "replicate_rows": true,
+      "core_summary_replicates": true,
+      "reference_summary_replicates": true,
+      "methods": true,
+      "mechanisms": true
+    },
+    "EICU": {
+      "replicates_per_condition": true,
+      "conditions": true,
+      "replicate_rows": true,
+      "core_summary_replicates": true,
+      "reference_summary_replicates": true,
+      "methods": true,
+      "mechanisms": true
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "analysis": "source patient/date integrity, inpatient observation opportunity, and temporal validation",
+  "source_workbook": "${SOURCE_ROOT}/source_data/20260823/inter3.xlsx",
+  "source_workbook_sha256": "cfa4eb87a6a1d8612762521d1f60d3c79dc9ed2d55265aa81fda7b462461dc3b",
+  "sheet": "Sheet1",
+  "n_unique_patients": 4014,
+  "n_unique_majorid": 4014,
+  "events": 155,
+  "surgery_date_start": "2017-12-04",
+  "surgery_date_end": "2024-06-25",
+  "reported_2015_start_supported_by_sheet1": false,
+  "date_missingness": {
+    "AdmissionDate": 0,
+    "SurgeryDate": 0,
+    "DischargeDate": 1
+  },
+  "date_order_violations": {
+    "admission_after_surgery": 17,
+    "surgery_after_discharge": 6
+  },
+  "postoperative_inpatient_days": {
+    "missing": 0,
+    "at_least_7": 3843,
+    "less_than_7": 171,
+    "median": 10.0,
+    "q1": 8.429861111,
+    "q3": 13.0,
+    "exact_date_pairs": 4013,
+    "chronology_valid_date_pairs": 3990,
+    "median_exact_minus_recorded_days": 0.0,
+    "within_one_day": 3945
+  },
+  "primary_temporal_split": "earliest 70% within each centre by SurgeryDate; same-day records kept together",
+  "secondary_temporal_split": "calendar cutoff 2022-01-01; centre composition changes across the cutoff",
+  "date_quality_sensitivity": "within-centre 70/30 models refitted after excluding invalid admission-surgery-discharge chronology",
+  "models": [
+    "ridge",
+    "restricted_rf",
+    "gradient_boosting",
+    "soft_voting_secondary"
+  ],
+  "feature_sets": [
+    "P",
+    "PI"
+  ],
+  "prediction_landmark": "end of surgery",
+  "date_variables_used_as_predictors": false,
+  "postoperative_length_of_stay_used_as_predictor": false,
+  "bootstrap": "1000 patient resamples within validation centre, conditional on locked temporal predictions",
+  "inference_boundaries": [
+    "Temporal validation reuses participating centres and is not independent external validation.",
+    "AdmissionDate is complete and DischargeDate is missing once, but 23 records have invalid date order.",
+    "PostopHospitalDays is an inpatient observation-opportunity proxy, not proof of complete 0-168 h ascertainment.",
+    "The fixed 2022 split mixes temporal change with changing centre composition."
+  ]
+}

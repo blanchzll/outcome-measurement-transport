@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "dataset_role_rows": 4,
+  "estimand_rows": 5,
+  "files": {
+    "dataset_roles": {
+      "path": "tables/Table_dataset_roles_and_inference_boundaries.csv",
+      "sha256": "18e48acb0dec721c44f09b062db47c5a6d4f407a8acb40d4540a17c4dc495d2e",
+      "bytes": 2563
+    },
+    "estimands": {
+      "path": "tables/Table_estimand_ledger.csv",
+      "sha256": "4fbaf3700f17210416360f25f1560abb89930154461d5eff47ec1508ca8e0d48",
+      "bytes": 1752
+    }
+  }
+}

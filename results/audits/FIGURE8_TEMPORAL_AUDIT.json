@@ -1,0 +1,14 @@
+{
+  "figure": "Figure 8 source temporal and observation-opportunity audit",
+  "panels": 4,
+  "files": 16,
+  "formats_per_panel": [
+    "svg",
+    "pdf",
+    "tiff",
+    "source_data_csv"
+  ],
+  "palette": "Okabe-Ito colorblind-safe",
+  "patient_level_data_read": false,
+  "aggregate_source_data_only": true
+}

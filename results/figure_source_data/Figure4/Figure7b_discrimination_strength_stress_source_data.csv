@@ -1,0 +1,19 @@
+database,target_auc,method,evaluation_target,metric,n_replicates,mean,sd,q025,q975,independent_unit
+MIMIC-IV,0.6,full_reference_score,retained_reference,oe,100,0.999980220033591,0.0002700214445514,0.9995657376051652,1.0003338508004842,Monte Carlo replicate
+MIMIC-IV,0.6,local_recalibration_apparent,reconstructed_observed,oe,100,1.0000486604409518,5.5081884865864165e-05,0.9999520894781306,1.0001928305714372,Monte Carlo replicate
+MIMIC-IV,0.6,local_recalibration_truth,retained_reference,oe,100,0.8866978113477362,0.0114824993786212,0.8648457125170921,0.9071818660373092,Monte Carlo replicate
+MIMIC-IV,0.7,full_reference_score,retained_reference,oe,100,0.9997869947004728,6.0381066401489616e-05,0.999669955869981,0.999889011609362,Monte Carlo replicate
+MIMIC-IV,0.7,local_recalibration_apparent,reconstructed_observed,oe,100,1.0000382613771357,9.12826490616226e-05,0.9999085183421214,1.0003082841421242,Monte Carlo replicate
+MIMIC-IV,0.7,local_recalibration_truth,retained_reference,oe,100,0.9066799896285912,0.0103659453564742,0.8907848505179136,0.9304111960173388,Monte Carlo replicate
+MIMIC-IV,0.8,full_reference_score,retained_reference,oe,100,0.999848472210822,0.0001430958190518,0.9996152808736296,1.0000469656744777,Monte Carlo replicate
+MIMIC-IV,0.8,local_recalibration_apparent,reconstructed_observed,oe,100,1.0000121616378062,4.112737164858353e-05,0.9999791760118256,1.000130424409851,Monte Carlo replicate
+MIMIC-IV,0.8,local_recalibration_truth,retained_reference,oe,100,0.9368477971080592,0.0087266381627547,0.9226849552370292,0.9518089586270182,Monte Carlo replicate
+eICU,0.6,full_reference_score,retained_reference,oe,100,1.0000299160802624,0.0002746734495041,0.9995740974045286,1.000400414062507,Monte Carlo replicate
+eICU,0.6,local_recalibration_apparent,reconstructed_observed,oe,100,1.0000474218762092,5.602636509793252e-05,0.9999751570939106,1.000185273651085,Monte Carlo replicate
+eICU,0.6,local_recalibration_truth,retained_reference,oe,100,0.8552297772965559,0.01002721708912,0.8373299949425442,0.8734333132665922,Monte Carlo replicate
+eICU,0.7,full_reference_score,retained_reference,oe,100,0.9998280268321664,4.916812922051569e-05,0.9997111822650852,0.9999034714469393,Monte Carlo replicate
+eICU,0.7,local_recalibration_apparent,reconstructed_observed,oe,100,1.0000164831031717,0.0001048392204155,0.9998941337571748,1.000290862113572,Monte Carlo replicate
+eICU,0.7,local_recalibration_truth,retained_reference,oe,100,0.8758389893710359,0.0100377538463078,0.8556105145266969,0.8945003974900831,Monte Carlo replicate
+eICU,0.8,full_reference_score,retained_reference,oe,100,0.9998294288459848,0.0001155455491442,0.9996410944675392,1.0000012772014286,Monte Carlo replicate
+eICU,0.8,local_recalibration_apparent,reconstructed_observed,oe,100,1.0000074171378788,5.181797905925466e-05,0.9999775621596712,1.000177186813059,Monte Carlo replicate
+eICU,0.8,local_recalibration_truth,retained_reference,oe,100,0.907610958539828,0.0088945153774283,0.8889600089982792,0.9252593383792074,Monte Carlo replicate

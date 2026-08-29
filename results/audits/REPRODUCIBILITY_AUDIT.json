@@ -1,0 +1,20 @@
+{
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.5.2",
+    "pandas": "2.3.3",
+    "scipy": "1.18.0",
+    "scikit-learn": "1.9.0",
+    "matplotlib": "3.11.1",
+    "statsmodels": null,
+    "duckdb": "1.4.3",
+    "pyarrow": null,
+    "joblib": "1.5.3"
+  },
+  "manifest_files": 413,
+  "patient_level_files_in_manifest": [],
+  "skipped_unreadable_files": [],
+  "remote_workspace": "${ANALYSIS_ROOT}",
+  "release_core_matches_analysis_core": true
+}

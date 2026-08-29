@@ -1,0 +1,35 @@
+{
+  "database": "eICU Collaborative Research Database 2.0",
+  "role": "database-native computational replication; not external validation of the surgery-end source model",
+  "independent_unit": "first ICU unit stay within each deidentified hospital stay",
+  "centres": 40,
+  "landmark": "ICU admission",
+  "population": "adults in explicit surgical ICU types: SICU, CSICU, CTICU, or CCU-CTICU",
+  "baseline": "last valid serum creatinine from -30 days to immediately before ICU admission",
+  "operational_reference": "creatinine-only: >=0.3 mg/dL above baseline by 48h or >=1.5-fold above baseline by 168h",
+  "exclusions": [
+    "age <18 years",
+    "not first ICU unit stay in the hospital stay",
+    "no valid pre-ICU baseline creatinine",
+    "flagged chronic dialysis or end-stage kidney disease"
+  ],
+  "limitations": [
+    "not chart-adjudicated",
+    "ICU admission is not surgery end",
+    "patient identity across separate hospital stays is unavailable",
+    "creatinine-only primary target"
+  ],
+  "n_candidate_after_baseline_and_chronic_rrt_exclusion": 21755,
+  "n_longitudinal": 20290,
+  "events_longitudinal": 3225,
+  "n_two_slot": 12851,
+  "events_two_slot": 2590,
+  "n_dense": 9689,
+  "events_dense": 2216,
+  "source_integrity": {
+    "patient_sha256": "2acf25f75144c5fc8a2a5b68c6741edac2dc7ca51021127f73e12f7428dc392b",
+    "lab_sha256": "91b55ed330015d31c424499cdae3b68e3b4cfe0c10e542548b5461520d93bc7a",
+    "checksum_manifest_sha256": "f2a4c0be23fece1b41eabf497a00461938d63462791381e528c90d9302d59fd0"
+  },
+  "patient_level_data_exported_outside_secure_directory": false
+}

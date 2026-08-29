@@ -1,0 +1,15 @@
+{
+  "workflow": "two_round_blind_review_and_correction",
+  "round1_score": 5.0,
+  "round2_scores": {
+    "technical_statistical": 5,
+    "originality_importance": 6,
+    "clinical_relevance_readability": 4,
+    "combined": 15
+  },
+  "round2_review_sha256": "866351d718d9b072cb8f1ef85e9e2a764632cd6d184d99412925a5bccf1987f2",
+  "analysis_corrections_complete": true,
+  "delivery_rebuild_pending": false,
+  "submission_ready": false,
+  "remaining_blockers_are_author_or_source_metadata_controlled": true
+}

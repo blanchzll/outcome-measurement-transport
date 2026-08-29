@@ -1,0 +1,80 @@
+{
+  "analysis": "outcome-blind extraction of eICU predictors shared with MIMIC-IV",
+  "landmark": "ICU admission",
+  "lookback_window": "-30 days to immediately before ICU admission",
+  "selection": "latest valid value within predictor-specific prespecified range",
+  "predictors": {
+    "baseline_albumin": {
+      "source_labname": "albumin",
+      "unit": "g/dL",
+      "valid_range": [
+        1.0,
+        6.0
+      ]
+    },
+    "baseline_bun": {
+      "source_labname": "bun",
+      "unit": "mg/dL",
+      "valid_range": [
+        2.0,
+        200.0
+      ]
+    },
+    "baseline_glucose": {
+      "source_labname": "glucose",
+      "unit": "mg/dL",
+      "valid_range": [
+        20.0,
+        1000.0
+      ]
+    },
+    "baseline_sodium": {
+      "source_labname": "sodium",
+      "unit": "mmol/L",
+      "valid_range": [
+        100.0,
+        180.0
+      ]
+    },
+    "baseline_potassium": {
+      "source_labname": "potassium",
+      "unit": "mmol/L",
+      "valid_range": [
+        2.0,
+        8.0
+      ]
+    },
+    "baseline_hemoglobin": {
+      "source_labname": "hgb",
+      "unit": "g/dL",
+      "valid_range": [
+        3.0,
+        25.0
+      ]
+    },
+    "baseline_wbc": {
+      "source_labname": "wbc x 1000",
+      "unit": "K/uL",
+      "valid_range": [
+        0.1,
+        100.0
+      ]
+    },
+    "baseline_platelet": {
+      "source_labname": "platelets x 1000",
+      "unit": "K/uL",
+      "valid_range": [
+        5.0,
+        2000.0
+      ]
+    }
+  },
+  "n_candidate": 21755,
+  "n_dense": 9689,
+  "patient_level_output": "eicu/secure/EICU_COMMON_PREDICTORS_SECURE.csv.gz",
+  "patient_level_output_delivered": false,
+  "input_sha256": {
+    "eicu_lab_csv_gz": "91b55ed330015d31c424499cdae3b68e3b4cfe0c10e542548b5461520d93bc7a",
+    "eicu_reference_csv_gz": "2476a3e36c823485832211e16529862b6edbc4406c180b04afb4c3e5dc3d77db"
+  }
+}

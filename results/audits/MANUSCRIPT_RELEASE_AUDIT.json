@@ -1,0 +1,60 @@
+{
+  "manuscript": "${SOURCE_ROOT}/ascertainment_framework_20260826/manuscript/MANUSCRIPT_FINAL.md",
+  "title": "Outcome-measurement transport in AKI prediction: a multicentre surgical case study and three-database longitudinal stress test",
+  "summary_word_count": 297,
+  "article_introduction_through_discussion_word_count": 3345,
+  "persistent_reference_identifiers": 19,
+  "required_phrases": {
+    "retained_reference_target": "retained operational reference",
+    "cross_fitted_recalibration": "two-fold cross-fitted",
+    "positive_control": "pure label-selection",
+    "endpoint_component_audit": "component-availability audit",
+    "icu_replication_role": "both icu databases used admission landmarks and database-native models",
+    "clinical_impact_boundary": "not clinical impact",
+    "source_kdigo": "2012 kdigo",
+    "source_two_nephrologists": "two nephrologists",
+    "source_masking": "masked to model predictions and candidate predictors",
+    "source_third_reviewer": "third nephrologist at the coordinating centre",
+    "source_not_central": "rather than by a single central panel",
+    "eicu_unseen_hospital_role": "unseen-hospital computational replication",
+    "three_database_claim": "across all three public databases",
+    "retrospective_nonregistration": "not prospectively registered",
+    "harmonized_transport_boundary": "not external validation of the source model",
+    "record_bootstrap_unit": "analytic-record bootstrap"
+  },
+  "dynamic_numerical_anchors": {
+    "source_n": "4014",
+    "source_events": "155",
+    "source_auc": "0.703",
+    "inspire_recalibration_apparent_oe": "1.000",
+    "inspire_recalibration_reference_oe": "0.485",
+    "mimic_recalibration_apparent_oe": "1.000",
+    "mimic_recalibration_reference_oe": "0.771",
+    "eicu_recalibration_apparent_oe": "1.000",
+    "eicu_recalibration_reference_oe": "0.736",
+    "monte_carlo_replicates": "300",
+    "master_seed": "20260826"
+  },
+  "unresolved_author_fields": [
+    "[AUTHOR INPUT NEEDED: CRediT roles]",
+    "[AUTHOR INPUT NEEDED: committee, approval number/date, public-data credentials, and confirmation that colorectal surgery, the analysed centres, and follow-up through June 2024 were covered.]",
+    "[AUTHOR INPUT NEEDED: repository and persistent URL]",
+    "[AUTHOR INPUT NEEDED]",
+    "[AUTHOR REVIEW REQUIRED: disclose language-editing and coding assistance according to the target journal's current policy. The authors remain responsible for every statistical claim and code-derived result.]"
+  ],
+  "analysis_release_checks": {
+    "summary_words_le_300": true,
+    "article_words_le_3500": true,
+    "title_does_not_use_paradox": true,
+    "no_stale_false_alert_language": true,
+    "no_stale_in_sample_recalibration_claim": true,
+    "no_draft_result_placeholders": true,
+    "all_required_phrases_present": true,
+    "all_dynamic_anchors_present": true,
+    "overclaim_patterns_absent": true,
+    "references_include_doi_or_persistent_url": true
+  },
+  "analysis_release_passed": true,
+  "submission_ready": false,
+  "patient_level_data_read": false
+}

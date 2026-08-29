@@ -1,0 +1,123 @@
+{
+  "analysis": "secondary fixed-geography validation",
+  "train_centres": [
+    3,
+    4,
+    5
+  ],
+  "test_centres": [
+    1,
+    2
+  ],
+  "n_train": 2446,
+  "events_train": 73,
+  "n_test": 1568,
+  "events_test": 82,
+  "interpretation_boundary": "Centres 1 and 2 were outer folds in the primary LOCO analysis; this is a clinically familiar fixed-geography transport summary, not an untouched external validation.",
+  "interval_estimand": "Percentile intervals from analytic-record resampling within test centre, conditional on the fitted development model; they do not include repeated-patient clustering because no patient identifier exists.",
+  "patient_level_outputs_delivered": false,
+  "fits": [
+    {
+      "feature_set": "P",
+      "model": "ridge",
+      "best_params": {
+        "model__C": 0.1
+      },
+      "inner_selection_metric": "negative_brier_score",
+      "n_train": 2446,
+      "events_train": 73
+    },
+    {
+      "feature_set": "P",
+      "model": "restricted_rf",
+      "best_params": {
+        "model__max_depth": 3,
+        "model__min_samples_leaf": 15
+      },
+      "inner_selection_metric": "negative_brier_score",
+      "n_train": 2446,
+      "events_train": 73
+    },
+    {
+      "feature_set": "P",
+      "model": "gradient_boosting",
+      "best_params": {
+        "model__learning_rate": 0.03,
+        "model__max_iter": 100,
+        "model__max_leaf_nodes": 3,
+        "model__min_samples_leaf": 20
+      },
+      "inner_selection_metric": "negative_brier_score",
+      "n_train": 2446,
+      "events_train": 73
+    },
+    {
+      "feature_set": "PI",
+      "model": "ridge",
+      "best_params": {
+        "model__C": 0.03
+      },
+      "inner_selection_metric": "negative_brier_score",
+      "n_train": 2446,
+      "events_train": 73
+    },
+    {
+      "feature_set": "PI",
+      "model": "restricted_rf",
+      "best_params": {
+        "model__max_depth": 5,
+        "model__min_samples_leaf": 15
+      },
+      "inner_selection_metric": "negative_brier_score",
+      "n_train": 2446,
+      "events_train": 73
+    },
+    {
+      "feature_set": "PI",
+      "model": "gradient_boosting",
+      "best_params": {
+        "model__learning_rate": 0.03,
+        "model__max_iter": 100,
+        "model__max_leaf_nodes": 3,
+        "model__min_samples_leaf": 20
+      },
+      "inner_selection_metric": "negative_brier_score",
+      "n_train": 2446,
+      "events_train": 73
+    },
+    {
+      "feature_set": "H",
+      "model": "ridge",
+      "best_params": {
+        "model__C": 0.03
+      },
+      "inner_selection_metric": "negative_brier_score",
+      "n_train": 2446,
+      "events_train": 73
+    },
+    {
+      "feature_set": "H",
+      "model": "restricted_rf",
+      "best_params": {
+        "model__max_depth": 3,
+        "model__min_samples_leaf": 15
+      },
+      "inner_selection_metric": "negative_brier_score",
+      "n_train": 2446,
+      "events_train": 73
+    },
+    {
+      "feature_set": "H",
+      "model": "gradient_boosting",
+      "best_params": {
+        "model__learning_rate": 0.03,
+        "model__max_iter": 100,
+        "model__max_leaf_nodes": 3,
+        "model__min_samples_leaf": 20
+      },
+      "inner_selection_metric": "negative_brier_score",
+      "n_train": 2446,
+      "events_train": 73
+    }
+  ]
+}

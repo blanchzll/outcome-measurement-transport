@@ -1,0 +1,23 @@
+{
+  "n_train": 6436,
+  "events_train": 1485,
+  "hospitals_train": 28,
+  "n_unseen_hospital_test": 3253,
+  "events_unseen_hospital_test": 731,
+  "hospitals_test": 12,
+  "split": "70% vs 30% deterministic group split by hospital; no hospital appears in both sets",
+  "role": "database-native ridge risk engine for measurement-mechanism replication",
+  "full_reference_metrics": {
+    "n": 3253,
+    "events": 731.0,
+    "event_rate": 0.22471564709498923,
+    "event_rate_se": 0.007318214499668828,
+    "mean_prediction": 0.27185942811245,
+    "oe": 0.8265876547126386,
+    "brier": 0.17317082820044874,
+    "auc": 0.6075628857300625,
+    "calibration_intercept": -0.5713041050456754,
+    "calibration_slope": 0.669538562489046,
+    "ess": 3253.0
+  }
+}

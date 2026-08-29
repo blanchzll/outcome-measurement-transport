@@ -1,0 +1,14 @@
+step,n,events,database,stage,event_rate
+candidate_operations,7135,,INSPIRE,,
+longitudinal_0_168h_creatinine_observed,6333,238.0,INSPIRE,,
+two_slot_observed,2073,98.0,INSPIRE,,
+dense_longitudinal_reference,1676,138.0,INSPIRE,,
+,9253,1777.0,MIMIC,"adult first ICU stay, surgical service, baseline creatinine",0.1939109559144478
+,9164,1777.0,MIMIC,at least one 0-168h creatinine,0.1939109559144478
+,7978,1669.0,MIMIC,two-slot operational reference,0.209200300827275
+,7094,1598.0,MIMIC,dense longitudinal reference,0.2252607837609247
+,21755,3225.0,EICU,adult first ICU stay in explicit surgical unit,0.1589452932479053
+,21755,3225.0,EICU,valid pre-ICU baseline creatinine and no chronic-RRT flag,0.1589452932479053
+,20290,3225.0,EICU,at least one 0-168h serum creatinine,0.1589452932479053
+,12851,2590.0,EICU,two-slot operational reference,0.2015407361294841
+,9689,2216.0,EICU,dense longitudinal operational reference,0.2287129734750748

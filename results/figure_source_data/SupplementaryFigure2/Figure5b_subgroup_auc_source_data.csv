@@ -1,0 +1,19 @@
+database,group_variable,group,n,events,metric,estimate,ci_lower,ci_upper,inference_status,label
+INSPIRE_dense,age,75+,404,49,auc,0.7041103765449842,0.6312266918930528,0.7734736854208346,bootstrap_500,INSPIRE dense: age=75+
+INSPIRE_dense,age,65-74,496,40,auc,0.7188870614035088,0.6396549455044418,0.7930347176171529,bootstrap_500,INSPIRE dense: age=65-74
+INSPIRE_dense,age,<65,776,49,auc,0.7642955393987031,0.7010155765829769,0.8161356683740478,bootstrap_500,INSPIRE dense: age=<65
+INSPIRE_dense,cancer_site,colorectal,504,89,auc,0.6340056856640043,0.5727023467675642,0.6963010044883203,bootstrap_500,INSPIRE dense: cancer site=colorectal
+INSPIRE_dense,cancer_site,gastric,1172,49,auc,0.7493230595889291,0.6816058130137616,0.8052735190923818,bootstrap_500,INSPIRE dense: cancer site=gastric
+INSPIRE_dense,sex,Male,1138,118,auc,0.7231804586241277,0.677652374219297,0.7693658631650578,bootstrap_500,INSPIRE dense: sex=Male
+INSPIRE_dense,sex,Female,538,20,auc,0.7784749034749034,0.7111734278052372,0.8461115380705918,bootstrap_500,INSPIRE dense: sex=Female
+INSPIRE_dense,surgical_approach,0,765,98,auc,0.6833292537404769,0.6326284120122279,0.7307473928021202,bootstrap_500,INSPIRE dense: recorded approach code=0
+INSPIRE_dense,surgical_approach,4,909,40,auc,0.7215333716915996,0.6352721381778887,0.7887725975624555,bootstrap_500,INSPIRE dense: recorded approach code=4
+source_4014,age,<65,1989,46,auc,0.5724451207232204,0.4694781566405069,0.6686180156639207,bootstrap_500,Source cohort: age=<65
+source_4014,age,65-74,1355,56,auc,0.6958237105465743,0.6188485435856469,0.7678130664137823,bootstrap_500,Source cohort: age=65-74
+source_4014,age,75+,669,53,auc,0.7260781671159029,0.6443641601107453,0.8004644894339674,bootstrap_500,Source cohort: age=75+
+source_4014,cancer_site,1,1279,36,auc,0.6656610351300617,0.5570062833974919,0.7631880688758421,bootstrap_500,Source cohort: cancer site=gastric
+source_4014,cancer_site,2,2735,119,auc,0.7171350191452729,0.6631706905236882,0.7739191935869911,bootstrap_500,Source cohort: cancer site=colorectal
+source_4014,sex,Male,2267,115,auc,0.6787255535800873,0.6198270024183713,0.7293949355989611,bootstrap_500,Source cohort: sex=Male
+source_4014,sex,Female,1452,38,auc,0.7546341100275442,0.6477774373638344,0.8304514748862762,bootstrap_500,Source cohort: sex=Female
+source_4014,surgical_approach,2.0,3092,109,auc,0.6922284382141001,0.6317482068667019,0.747706200088742,bootstrap_500,Source cohort: surgical approach=laparoscopic
+source_4014,surgical_approach,1.0,438,34,auc,0.7744612696563774,0.6822843053781751,0.8531699143173023,bootstrap_500,Source cohort: surgical approach=open

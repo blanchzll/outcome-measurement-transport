@@ -1,0 +1,34 @@
+{
+  "database": "EICU",
+  "replicates_per_condition": 300,
+  "conditions": 36,
+  "patient_n": 3253,
+  "events": 731,
+  "serial_rows": 22335,
+  "full_reference_metrics": {
+    "n": 3253,
+    "events": 731.0,
+    "event_rate": 0.22471564709498923,
+    "event_rate_se": 0.007318214499668828,
+    "mean_prediction": 0.27185942811245,
+    "oe": 0.8265876547126386,
+    "brier": 0.17317082820044874,
+    "auc": 0.6075628857300625,
+    "calibration_intercept": -0.5713041050456754,
+    "calibration_slope": 0.669538562489046,
+    "ess": 3253.0
+  },
+  "replicate_rows": 151200,
+  "parallel_workers": 16,
+  "seed_definition": "identical SHA256-derived seed as serial production runner",
+  "runner": "parallel condition runner",
+  "promotion_checks": {
+    "replicates_per_condition": true,
+    "conditions": true,
+    "replicate_rows": true,
+    "core_summary_replicates": true,
+    "reference_summary_replicates": true,
+    "methods": true,
+    "mechanisms": true
+  }
+}

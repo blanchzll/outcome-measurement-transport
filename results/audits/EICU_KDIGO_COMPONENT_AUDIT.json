@@ -1,0 +1,41 @@
+{
+  "database": "eICU Collaborative Research Database 2.0",
+  "primary_public_endpoint": "creatinine-only operational reference",
+  "sensitivity_endpoint": "available-component algorithmic union of creatinine, conservative fixed-bin urine output, and RRT",
+  "urine_rule": "any fixed 6-hour bin with at least 3 recorded urine-volume entries and total <0.5 mL/kg/h",
+  "urine_rule_status": "conservative algorithmic proxy; not full duration-certified KDIGO adjudication",
+  "rrt_rule": "non-chronic dialysis/RRT treatment string or nonzero dialysis total within 0-168h",
+  "reference_candidates": 21755,
+  "urine_output_observable": 8917,
+  "rrt_cases": 368,
+  "test_set_metrics": {
+    "creatinine_only": {
+      "n": 3253,
+      "events": 731.0,
+      "event_rate": 0.22471564709498923,
+      "event_rate_se": 0.007318214499668828,
+      "mean_prediction": 0.27185942811245,
+      "oe": 0.8265876547126386,
+      "brier": 0.17317082820044874,
+      "auc": 0.6075628857300625,
+      "calibration_intercept": -0.5713041050456754,
+      "calibration_slope": 0.669538562489046,
+      "ess": 3253.0
+    },
+    "available_component_union": {
+      "n": 3253,
+      "events": 984.0,
+      "event_rate": 0.3024900092222564,
+      "event_rate_se": 0.008053574903049024,
+      "mean_prediction": 0.27185942811245,
+      "oe": 1.112670659695262,
+      "brier": 0.20657857539641256,
+      "auc": 0.6005698939757136,
+      "calibration_intercept": -0.18099588687048832,
+      "calibration_slope": 0.6450047567830318,
+      "ess": 3253.0
+    }
+  },
+  "interpretation": "component sensitivity analysis; not replacement of the harmonised creatinine target",
+  "patient_level_data_exported_outside_secure_directory": false
+}
