@@ -3,11 +3,6 @@
   "generated_utc": "2026-08-29",
   "files": [
     {
-      "path": ".github/workflows/tests.yml",
-      "bytes": 358,
-      "sha256": "3174ada270779c11257fbef0b10c745353e18a80a37239cff59d5e66aa14498e"
-    },
-    {
       "path": ".gitignore",
       "bytes": 140,
       "sha256": "e039f7c2ef86ee2c1b7286cc0c3ee064e6dd5df386ef6e50cc4a8bcf8b6fbd62"
@@ -43,6 +38,11 @@
       "sha256": "2ecc8ce088307b2c303ed2d05e49e49114a1d7b0d0a886151ffeffbff7395ef5"
     },
     {
+      "path": "ci/github-actions-tests.yml",
+      "bytes": 358,
+      "sha256": "3174ada270779c11257fbef0b10c745353e18a80a37239cff59d5e66aa14498e"
+    },
+    {
       "path": "docs/AUTHOR_INPUT_REQUIRED.md",
       "bytes": 6526,
       "sha256": "6521fcc87e5da7beffe456f38d65c667d962d9ac27fcc63b51e404ab68ad27b2"
@@ -60,7 +60,7 @@
     {
       "path": "docs/PUBLIC_RELEASE_QA.json",
       "bytes": 847,
-      "sha256": "4a0e60ae10457bc7340bd73f78636cc9d3c73bb00a2c234869947467c7852b4d"
+      "sha256": "eb24cb5a94eafcaec1d49b8a32c7b14376c0904ab3a9f24180deb199edcbb84a"
     },
     {
       "path": "docs/TERMINOLOGY_LEDGER.md",
