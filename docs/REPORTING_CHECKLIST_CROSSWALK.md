@@ -16,7 +16,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Sex and gender | Source sex coding and 295 unresolved records are reported. Public database fields are administrative sex variables; the basis of assignment is not available from the extracts. | Complete with limitation |
 | Ethics | Waiver is documented in supplied materials, but exact committee names, approval numbers and scope covering colorectal surgery, the analysed centres and June 2024 remain unresolved. | Submission blocker |
 | Data availability | Public database access routes and source restrictions are stated. Repository DOI and institutional request procedure are placeholders. | Submission blocker |
-| Code availability | Frozen code, tests and audits are public at GitHub release v1.2.0 under the MIT License; an independent archive DOI is still required. | Complete except archive DOI |
+| Code availability | Frozen code, tests and audits are public at GitHub tagged release v1.2.1 under the MIT License; an independent archive DOI is still required. | Complete except archive DOI |
 
 ## Nature machine-learning reporting summary
 
@@ -71,7 +71,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Model updating | Cross-fitted apparent-target and reference-sample updating; targets explicitly separated. | Complete |
 | Subgroups and fairness | Measurement-aware descriptive audit; no fairness certification. | Complete with limitation |
 | Clinical utility | Retrospective decision analysis only; no prospective impact claim. | Complete with limitation |
-| Open science | Aggregate Source Data and public release v1.2.0 are ready; independent archive DOI pending. | Submission blocker |
+| Open science | Aggregate Source Data and tagged release v1.2.1 are ready; independent archive DOI pending. | Submission blocker |
 
 ## PROBAST+AI self-audit
 
@@ -97,7 +97,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Explainability | Not a central claim; feature stability and incremental value are supplementary. | Not applicable |
 | Fairness | Measurement-aware descriptive audits; sex uncertainty retained rather than imputed. | Complete with limitation |
 | Clinical deployment and impact | Not performed; monitoring workload is decision-analytic only. | Complete and limited |
-| Reproducibility | Code, Source Data and audits prepared in GitHub release v1.2.0; archive DOI pending. | Submission blocker |
+| Reproducibility | Code, Source Data and audits prepared in GitHub tagged release v1.2.1; archive DOI pending. | Submission blocker |
 
 ## Author actions required on the official forms
 

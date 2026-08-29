@@ -1,6 +1,6 @@
 {
   "release": "outcome-measurement-transport",
-  "version": "v1.2.0",
+  "version": "v1.2.1",
   "generated_utc": "2026-08-29",
   "files": [
     {
@@ -10,8 +10,8 @@
     },
     {
       "path": "CITATION.md",
-      "bytes": 399,
-      "sha256": "01a87ec56bbd6c2a47b38c302ba9a385b1f5b7c966bbcb38d7022649ae6778bf"
+      "bytes": 391,
+      "sha256": "79b81d61fa0c50a3a8fa48db9ac19feb27454dd57c6acd45da342559ed6d8113"
     },
     {
       "path": "CODE_REVIEW_GUIDE.md",
@@ -25,8 +25,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5159,
-      "sha256": "ac29d5e8a5f54ad4064e67bf13f1fab93cb83373116238a03a162312306a26ab"
+      "bytes": 5158,
+      "sha256": "6a3a33fe94a3ec1a520e99d4652682887763e9fdf5e751357579838454f7df22"
     },
     {
       "path": "WORKFLOW_MANIFEST.csv",
@@ -45,8 +45,8 @@
     },
     {
       "path": "docs/AUTHOR_INPUT_REQUIRED.md",
-      "bytes": 6558,
-      "sha256": "8e9295fbf5bcb093cd71c59f28489060035f9c5854fb72d225d1cde212ca7fca"
+      "bytes": 6550,
+      "sha256": "e502ac435de9a2a7a7a9eff765db40a19fd98978b3ad2e419f8dc3d20a2dac11"
     },
     {
       "path": "docs/CLAIM_EVIDENCE_MAP.md",
@@ -60,18 +60,18 @@
     },
     {
       "path": "docs/MODEL_CARD.md",
-      "bytes": 3616,
-      "sha256": "3472287de75ab9ea5c2f9b9652fc05a3d2c0ae0fb2003513570b473a6a584df0"
+      "bytes": 3615,
+      "sha256": "9b1bcc9f0db6f9a18167e3c677458e2f3587471f98faa82ee7437ab22e8b8d9f"
     },
     {
       "path": "docs/PUBLIC_RELEASE_QA.json",
       "bytes": 895,
-      "sha256": "8161038d8c751761767c8b9ac6c1cde8c0ebb0b3b456d33ce67873de0e0f0e27"
+      "sha256": "a237a0de94652cccfe55ab79cd65c69a944d2c9d021cc643bc95e7e547512adc"
     },
     {
       "path": "docs/REPORTING_CHECKLIST_CROSSWALK.md",
-      "bytes": 11318,
-      "sha256": "ec1d73faefaf6f8ae4b27429effe4abc3cf05b6ab534857b8d7adfff4be70365"
+      "bytes": 11332,
+      "sha256": "1a2fc5157a393aca8b9df4e17acb1dd16a860aa98e935ac75f5302836d419ab7"
     },
     {
       "path": "docs/TERMINOLOGY_LEDGER.md",

@@ -77,7 +77,7 @@ submission fields and scope reconciliations remain unresolved:
 ## Reproducibility and submission administration
 
 1. The public repository URL, version tag and MIT License are fixed at
-   https://github.com/blanchzll/outcome-measurement-transport/releases/tag/v1.2.0.
+   https://github.com/blanchzll/outcome-measurement-transport/tree/v1.2.1.
    Add the archive DOI after author-controlled deposit.
 2. Confirmation that public-data use statements and required INSPIRE and MIMIC
    acknowledgements meet the applicable data-use agreements.
