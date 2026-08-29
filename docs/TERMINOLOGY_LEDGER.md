@@ -8,6 +8,8 @@
 | apparent calibration | Calibration assessed against the reconstructed endpoint | local calibration | Reserve “local recalibration” for the updating procedure. |
 | retained-reference calibration | Calibration of the same predictions against the retained operational reference endpoint | true calibration; corrected calibration | Use to distinguish target choice from model updating. |
 | outcome observability | Whether the measurements required to determine an endpoint are present | ascertainment intensity; monitoring completeness | Measurement density is a component, not a synonym. |
+| source clinical case | Five-centre cohort used to motivate the outcome-audit problem and show its auditability limits | source validation cohort; mechanism cohort | Do not use it to identify the cause of centre-level calibration differences. |
+| observation-opportunity proxy | Availability of scheduled postoperative creatinine fields in the source extract | testing frequency; complete surveillance | May reflect clinical surveillance, documentation or data extraction. |
 | inverse-probability-of-ascertainment weighting (IPAW) | Weighting by estimated outcome-observability probability | IPW; inverse probability weighting | Use IPAW for measurement-pattern analyses; use oracle IPW only for the pure label-selection control. |
 | acute kidney injury (AKI) | Source cohort outcome adjudicated under 2012 Kidney Disease Improving Global Outcomes criteria | postoperative renal injury | Public-database endpoints are operational creatinine endpoints, not expert-adjudicated AKI. |
 | observed-to-expected ratio (O/E) | Observed event count divided by the sum of predicted probabilities | calibration ratio | Define once and use O/E thereafter. |

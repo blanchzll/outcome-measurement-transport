@@ -1,6 +1,6 @@
 {
   "release": "outcome-measurement-transport",
-  "version": "v1.1.0",
+  "version": "v1.2.0",
   "generated_utc": "2026-08-29",
   "files": [
     {
@@ -11,12 +11,12 @@
     {
       "path": "CITATION.md",
       "bytes": 399,
-      "sha256": "7172b0792911342ecd501d785aca50c0ab8dbaf7aece1ce895957d97252f8d94"
+      "sha256": "01a87ec56bbd6c2a47b38c302ba9a385b1f5b7c966bbcb38d7022649ae6778bf"
     },
     {
       "path": "CODE_REVIEW_GUIDE.md",
-      "bytes": 6595,
-      "sha256": "edf2b29c1ca8bc2f4a771e2029208a4f321b35962070bc281c657379ad055bd6"
+      "bytes": 6953,
+      "sha256": "a314f089d135dae2d1c12c13ac057c069e823600e33e279b9778377368cfa20a"
     },
     {
       "path": "LICENSE",
@@ -26,7 +26,7 @@
     {
       "path": "README.md",
       "bytes": 5159,
-      "sha256": "50fe1add9e255457d9b38fda0f517305f0002cf63f6e6717d792be6ae78a23d5"
+      "sha256": "ac29d5e8a5f54ad4064e67bf13f1fab93cb83373116238a03a162312306a26ab"
     },
     {
       "path": "WORKFLOW_MANIFEST.csv",
@@ -46,12 +46,12 @@
     {
       "path": "docs/AUTHOR_INPUT_REQUIRED.md",
       "bytes": 6558,
-      "sha256": "71ffc25c5e9ff06e98018b1d83388636aa84c925ecd2be5b60f4610462883ef7"
+      "sha256": "8e9295fbf5bcb093cd71c59f28489060035f9c5854fb72d225d1cde212ca7fca"
     },
     {
       "path": "docs/CLAIM_EVIDENCE_MAP.md",
-      "bytes": 4294,
-      "sha256": "cf76cfae65ec5eca8d5ff6391903c472a4bb513ade06c5ae0ba788d4a87e3cfa"
+      "bytes": 4672,
+      "sha256": "8a254f2df393e7d8c567fc7b17edf0fc0d6ae04c944bd0188caab599a97c8361"
     },
     {
       "path": "docs/CROSS_DATABASE_EXTERNAL_VALIDATION_REPORT_ZH.md",
@@ -61,22 +61,22 @@
     {
       "path": "docs/MODEL_CARD.md",
       "bytes": 3616,
-      "sha256": "2669db039199ea800e5f44a0d5fefa4983a8e27f4384895a16ac531b78ec90fa"
+      "sha256": "3472287de75ab9ea5c2f9b9652fc05a3d2c0ae0fb2003513570b473a6a584df0"
     },
     {
       "path": "docs/PUBLIC_RELEASE_QA.json",
       "bytes": 895,
-      "sha256": "102fe172207f259f4cb023e4f174e8decfe186ffa3dce3563b79734f55014bf1"
+      "sha256": "8161038d8c751761767c8b9ac6c1cde8c0ebb0b3b456d33ce67873de0e0f0e27"
     },
     {
       "path": "docs/REPORTING_CHECKLIST_CROSSWALK.md",
       "bytes": 11318,
-      "sha256": "e2446de5460f03cbf9984cca16d6a60e6ad3fe8a063f092e47fa8b584ccec2e6"
+      "sha256": "ec1d73faefaf6f8ae4b27429effe4abc3cf05b6ab534857b8d7adfff4be70365"
     },
     {
       "path": "docs/TERMINOLOGY_LEDGER.md",
-      "bytes": 5125,
-      "sha256": "0468dc69ff794b8b7caea47577674e207bd7d9be2ff15e8e0d83f1bc701c5463"
+      "bytes": 5601,
+      "sha256": "2dea0c40ceb779941e524b3700e3565494f8034c243ac710fcf2f3fb05c43874"
     },
     {
       "path": "environment.example",
