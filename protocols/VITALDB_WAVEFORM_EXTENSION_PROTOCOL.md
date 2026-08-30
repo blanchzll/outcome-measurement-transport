@@ -20,7 +20,11 @@ enhanced fixed ridge score as for the existing clinical-table ridge score?
 
 - Dataset: VitalDB 1.0.0, with all files verified against the official
   `SHA256SUMS.txt` manifest before analysis.
-- Prediction landmark: recorded operation end (`opend`).
+- Prediction landmark: recorded operation end (`opend`). `opstart` and `opend`
+  are interpreted as seconds from waveform-record start. Requested and available
+  operation-window durations, boundary truncation and the available fraction are
+  audited for every case. Boundary truncation is reported as data quality and is
+  not a post hoc exclusion rule.
 - Primary cohort: adults with exactly one recorded operation and the existing
   dense creatinine reference.
 - Secondary cohort: adults with exactly one operation and an observable 0-168 h

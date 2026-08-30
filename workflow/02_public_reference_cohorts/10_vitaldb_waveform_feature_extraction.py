@@ -75,8 +75,12 @@ def extract_case(payload: tuple[int, float, float, str]) -> dict[str, object]:
         data = record.to_numpy(TRACKS, interval=INTERVAL_SECONDS)
     except Exception as exc:
         return {**base, "extraction_status": "read_failure", "error_class": type(exc).__name__}
-    start = max(0, int(np.floor(opstart)))
-    stop = min(len(data), int(np.ceil(opend)))
+    record_duration_seconds = len(data)
+    requested_start = int(np.floor(opstart))
+    requested_stop = int(np.ceil(opend))
+    requested_duration = requested_stop - requested_start
+    start = max(0, requested_start)
+    stop = min(record_duration_seconds, requested_stop)
     if stop <= start:
         return {**base, "extraction_status": "window_outside_record"}
     data = data[start:stop]
@@ -95,7 +99,11 @@ def extract_case(payload: tuple[int, float, float, str]) -> dict[str, object]:
     result: dict[str, object] = {
         **base,
         "extraction_status": "ok",
+        "record_duration_seconds": int(record_duration_seconds),
+        "requested_operation_window_seconds": int(requested_duration),
         "operation_window_seconds": int(duration_seconds),
+        "operation_window_available_fraction": float(duration_seconds / requested_duration),
+        "operation_window_truncated": bool(start != requested_start or stop != requested_stop),
         "art_map_track": art_name,
         "hr_track": hr_name,
         "art_map_raw_samples": int(np.isfinite(art_raw).sum()),
@@ -174,6 +182,8 @@ def main() -> None:
 
     ok = features.extraction_status.eq("ok")
     usable = features.get("art_map_duration_features_usable", pd.Series(False, index=features.index)).fillna(False)
+    truncated = features.get("operation_window_truncated", pd.Series(False, index=features.index)).fillna(False)
+    available_fraction = pd.to_numeric(features.get("operation_window_available_fraction"), errors="coerce")
     coverage = pd.to_numeric(features.get("art_map_coverage_fraction"), errors="coerce")
     audit = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -188,6 +198,11 @@ def main() -> None:
         },
         "n_usable_art_map_duration_features": int(usable.sum()),
         "usable_art_map_percent": float(100 * usable.mean()),
+        "n_operation_windows_truncated": int(truncated.sum()),
+        "operation_window_truncated_percent": float(100 * truncated.mean()),
+        "operation_window_available_fraction_minimum": (
+            float(available_fraction.min()) if available_fraction.notna().any() else None
+        ),
         "art_map_coverage_median": float(coverage.median()) if coverage.notna().any() else None,
         "art_map_track_counts": {
             str(key): int(value)

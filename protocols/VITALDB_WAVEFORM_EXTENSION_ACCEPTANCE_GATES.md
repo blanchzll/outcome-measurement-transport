@@ -23,6 +23,9 @@ reported clinical-table ridge model; it was not used to set performance gates.
 - All waveform summaries end at `opend`; the retained creatinine outcome begins
   after `opend`. No held-out outcome may inform feature selection, preprocessing,
   tuning, or fitting.
+- Report the number and percentage of operation windows truncated by waveform
+  record boundaries and the minimum available-window fraction. Do not use these
+  quantities for post hoc patient exclusion or model selection.
 
 ## Waveform-quality gate
 

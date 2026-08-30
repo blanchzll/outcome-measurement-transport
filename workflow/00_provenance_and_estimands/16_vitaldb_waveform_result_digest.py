@@ -143,6 +143,11 @@ def main() -> None:
             "overall_usable_art_map_percent": waveform.get("usable_art_map_percent"),
             "heldout_usable_art_map_n": model_audit.get("test_usable_art_map_n"),
             "heldout_usable_art_map_percent": model_audit.get("test_usable_art_map_percent"),
+            "operation_windows_truncated_n": waveform.get("n_operation_windows_truncated"),
+            "operation_windows_truncated_percent": waveform.get("operation_window_truncated_percent"),
+            "operation_window_available_fraction_minimum": waveform.get(
+                "operation_window_available_fraction_minimum"
+            ),
             "art_map_track_counts": waveform.get("art_map_track_counts"),
         },
         "model_performance": performance,
