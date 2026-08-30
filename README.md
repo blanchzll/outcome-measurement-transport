@@ -76,6 +76,14 @@ export VITALDB_ROOT=/path/to/vitaldb/1.0.0
 export MIMIC_DUCKDB=/path/to/mimiciv31.duckdb
 ```
 
+The optional waveform extension requires the complete VitalDB 1.0.0 mirror
+(6,394 official objects; approximately 95.4 GiB). Verify every object against
+the release `SHA256SUMS.txt` before running
+`10_vitaldb_waveform_feature_extraction.py`. The frozen protocol and acceptance
+gates are in `protocols/`. Patient-level waveform features and predictions are
+restricted outputs and must not be committed; only aggregate audits and tables
+belong in a public release.
+
 Scripts retain their frozen numerical settings, seeds, cohort rules, model specifications, and output contracts. Internal server paths have been replaced by environment-based configuration in the public copy.
 
 ## Main evidentiary boundaries
