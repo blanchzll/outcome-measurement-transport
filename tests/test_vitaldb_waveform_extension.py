@@ -71,3 +71,22 @@ def test_waveform_measurement_qa_requires_direction_and_magnitude():
     assert result["passed"] is True
     assert result["metrics"]["calibration_intercept"]["n_replicates"] == 300
     assert result["metrics"]["calibration_intercept"]["directional_consistency"] == 1.0
+
+
+def test_vitaldb_rerun_decision_separates_shared_code():
+    decision = load(
+        "workflow/00_provenance_and_estimands/17_vitaldb_core_rerun_decision.py",
+        "vitaldb_rerun_decision_test",
+    )
+    classified = decision.classify_changed_paths(
+        [
+            "README.md",
+            "workflow/04_measurement_deletion_simulation/11_vitaldb_waveform_model_comparison.py",
+            "ascertainment_stress.py",
+        ]
+    )
+    assert classified["release_metadata"] == ["README.md"]
+    assert classified["vitaldb_specific"] == [
+        "workflow/04_measurement_deletion_simulation/11_vitaldb_waveform_model_comparison.py"
+    ]
+    assert classified["shared_scientific_or_unclassified"] == ["ascertainment_stress.py"]
