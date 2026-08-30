@@ -1,0 +1,17 @@
+{
+  "dataset": "VitalDB",
+  "version": "1.0.0",
+  "prediction_landmark": "opend",
+  "creatinine_lab_name": "cr",
+  "creatinine_plausible_range_mg_dl": [0.1, 20.0],
+  "postoperative_windows_hours": [48, 96, 168],
+  "dense_reference_rule": {
+    "minimum_postoperative_creatinine_measurements": 3,
+    "require_measurement_0_to_48h": true,
+    "require_measurement_48_to_96h": true,
+    "minimum_measurement_span_hours": 72
+  },
+  "primary_endpoint": "creatinine-only KDIGO operational reference",
+  "patient_level_primary_rule": "patients with exactly one operation in VitalDB",
+  "all_operations_sensitivity": "patient-cluster bootstrap"
+}

@@ -1,0 +1,4 @@
+cohort,n_operations,n_patients,n_reference_observable,reference_observable_percent,n_dense_reference,dense_reference_percent,n_creatinine_events_observable,event_rate_observable_percent,n_creatinine_events_dense,event_rate_dense_percent
+all operations,6388,6090,3296,51.596743894802756,1259,19.708829054477146,216,6.553398058252427,155,12.311358220810167
+adult operations,6323,6041,3250,51.39965206389372,1230,19.45279139648901,205,6.3076923076923075,146,11.869918699186991
+adult stomach or colorectal operations,2017,1947,957,47.446703024293505,158,7.833415964303421,29,3.0303030303030303,15,9.49367088607595

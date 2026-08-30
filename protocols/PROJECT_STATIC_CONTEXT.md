@@ -16,16 +16,19 @@ be copied here.
 
 ## Source cohort
 
-- Primary analysis population: 4014 unique patients, one operation per patient, across five
-  centres; 155 recorded AKI events. `MajorID` links one-to-one between authoritative Sheet1
-  and the deidentified cohort, with no centre or outcome discrepancies.
-- Observed surgery dates run from 4 December 2017 to 25 June 2024. Admission and surgery
-  dates are complete; discharge date is missing for one patient. Seventeen patients have
-  admission after surgery and six have surgery after discharge; the primary results retain
-  them and a full-refit sensitivity analysis excludes them.
-- Recorded postoperative inpatient stay is at least seven days for 3843 patients and under
-  seven days for 171. Length of stay audits opportunity for inpatient observation but does
-  not prove complete creatinine or urine-output surveillance through day 7.
+- Screened population: 4014 unique patients, one operation per patient, across five centres;
+  155 recorded AKI events. The primary modelling population contains 3710 patients and 152
+  events after reproducing the legacy valid-sex-code filter. The 304 exclusions cannot be
+  reproduced from the stated greater-than-25% row-missingness rule and are therefore reported
+  as a provenance limitation, not re-labelled as missingness exclusions. `MajorID` links
+  one-to-one between authoritative Sheet1 and the deidentified cohort.
+- Observed surgery dates run from 4 December 2017 to 25 June 2024. Admission, surgery and
+  discharge dates support temporal splitting and observation-opportunity auditing. Date
+  inconsistencies are retained in the provenance audit rather than silently corrected.
+- In the 3710-patient modelling cohort, recorded postoperative inpatient stay is under seven
+  days for 165 patients, including 162 recorded non-events. Length of stay audits opportunity
+  for inpatient observation but does not prove complete creatinine or urine-output surveillance
+  through day 7.
 - Authoritative Sheet1 has 110 columns. Columns 5-7 are direct identifiers and never leave
   governed source storage; columns 8-10 are dates used only for linkage, temporal splitting,
   and observation-opportunity audits. The deidentified analytic cohort has 104 columns.
@@ -35,11 +38,9 @@ be copied here.
 - BMI, ASA grade, operation time, intraoperative fluid, and intraoperative vasoactive use
   are structurally missing in centre 1 and substantially missing in centre 4. They are not
   eligible for addition to the primary model through ordinary imputation.
-- `PostopAKI` and `AKIStage` disagree in three patients. The RRT field has four values outside
-  the documented 0/1 code and ten non-AKI patients coded RRT=1. These require source-system
-  resolution; they are not silently corrected.
-- Historical 3710 cohort: sensitivity analysis reproducing a legacy valid-sex-code filter,
-  not the primary missingness rule.
+- In the 3710-patient cohort, two recorded non-AKI patients have stage I, one AKI patient has
+  missing stage, ten non-AKI patients are coded RRT=1 and six RRT values are missing. These
+  require source-system resolution; they are not silently corrected.
 - Cancer site: `Gastrocolorectal=1` means gastric cancer; `2` means colorectal cancer.
 - Gender: `1` means male; `2` means female in the original dictionary; malformed text such
   as `濂` is an encoding artefact and must not be assigned a clinical meaning.
@@ -76,8 +77,12 @@ be copied here.
 
 - INSPIRE 1.4.2: perioperative harmonised-feature transport and primary longitudinal
   measurement-deletion testbed.
-- MIMIC-IV 3.1: different ICU landmark and database-native model; independent replication
-  of the measurement-evaluation mechanism, not external validation of the source model.
+- MIMIC-IV 3.1 and eICU-CRD 2.0: different ICU landmarks and database-native models;
+  independent replications of the measurement-evaluation mechanism, not external validation
+  of the source model.
+- VitalDB 1.0.0: a non-ICU perioperative replication using a creatinine-only operational
+  reference and observed measurement schedules; not full KDIGO adjudication or a causal test
+  of hospital testing policy.
 - Public creatinine endpoints are operational references, not expert-adjudicated full KDIGO
   or biological ground truth.
 - Public data may extend methodologic evidence but do not substitute for prospective

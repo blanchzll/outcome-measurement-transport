@@ -1,0 +1,11 @@
+audit_item,value,status,note
+analytic_patients,3710,PASS,one operation per unique MajorID; investigator-confirmed unique patients
+unique_MajorID,3710,PASS,complete and unique
+Sheet1_to_analysis_ID_matches,3710,PASS,one-to-one linkage
+Sheet1_to_analysis_center_mismatches,0,PASS,checked after linkage
+Sheet1_to_analysis_outcome_mismatches,0,PASS,checked after linkage
+missing_AdmissionDate,0,PASS,complete in Sheet1
+missing_SurgeryDate,0,PASS,mixed date formats harmonised deterministically
+missing_DischargeDate,1,LIMIT,not suitable for full-cohort discharge-time analysis
+admission_after_surgery,17,DATA_QUALITY_FLAG,retained in the primary cohort and excluded in a temporal sensitivity analysis
+surgery_after_discharge,6,DATA_QUALITY_FLAG,retained in the primary cohort and excluded in a temporal sensitivity analysis

@@ -1,0 +1,23 @@
+{
+  "analysis": "VitalDB all-surgery ridge model transported unchanged to five-centre clinical cohort",
+  "prediction_landmark": "surgery end in both datasets",
+  "predictors": [
+    "Age",
+    "LogPreopCr",
+    "PreopHb",
+    "Gender",
+    "Diabetes"
+  ],
+  "development_endpoint": "VitalDB 0-168 h creatinine-only operational reference in dense-reference all-surgery cohort",
+  "validation_endpoint": "site-adjudicated KDIGO 2012 using creatinine, urine output, and RRT",
+  "same_model": true,
+  "same_prediction_landmark": true,
+  "same_predictor_definitions_after_unit_harmonization": true,
+  "same_endpoint_reference": false,
+  "same_clinical_case_mix": false,
+  "claim_boundary": "independent endpoint-transport validation, not same-endpoint expert-KDIGO validation",
+  "n_development": 1078,
+  "events_development": 120,
+  "n_external": 3710,
+  "events_external": 152
+}

@@ -1,0 +1,18 @@
+{
+  "analysis": "assumption-based post-discharge sensitivity bound",
+  "n": 3710,
+  "events": 152,
+  "short_stays_lt7_days": 165,
+  "short_stay_recorded_negatives": 162,
+  "fractions": [
+    0.0,
+    0.02,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "random_replicates": 1000,
+  "seed": 20260830,
+  "prediction": "pred_PI_restricted_rf",
+  "boundary": "No unrecorded event is identified; scenarios are partial-identification assumptions."
+}

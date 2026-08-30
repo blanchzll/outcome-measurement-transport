@@ -3,4 +3,5 @@ AKI_SOURCE_ROOT=/path/to/restricted_source_data
 INSPIRE_ROOT=/path/to/inspire/1.4.2
 MIMIC_ROOT=/path/to/mimic
 EICU_ROOT=/path/to/eicu/2.0
+VITALDB_ROOT=/path/to/vitaldb/1.0.0
 MIMIC_DUCKDB=/path/to/mimiciv31.duckdb

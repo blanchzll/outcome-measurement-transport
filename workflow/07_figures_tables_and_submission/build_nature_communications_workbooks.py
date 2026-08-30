@@ -4,10 +4,10 @@
 
 # %%
 from __future__ import annotations
-from release_paths import release_path as _release_path
 
 import hashlib
 import json
+import os
 import re
 import shutil
 from pathlib import Path
@@ -17,8 +17,12 @@ from openpyxl import load_workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
-ROOT = Path(str(_release_path('analysis')))
-NC = ROOT / 'nature_communications'
+NC = Path(os.environ.get('NC_ROOT', Path(__file__).resolve().parents[1])).resolve()
+source_root_value = os.environ.get('AKI_SOURCE_ROOT')
+if not source_root_value:
+    raise RuntimeError('AKI_SOURCE_ROOT must identify the frozen analysis workspace')
+ROOT = Path(source_root_value).resolve()
+EXTENSION_SOURCE = Path(os.environ.get('EXTENSION_TABLE_ROOT', NC.parent / 'work' / 'tables')).resolve()
 MAIN_SOURCE = ROOT / 'delivery' / 'main' / 'tables'
 SUPP_SOURCE = ROOT / 'delivery' / 'supplement' / 'tables'
 MAIN_OUT = NC / 'tables' / 'main'
@@ -26,6 +30,7 @@ SUPP_OUT = NC / 'tables' / 'supplement'
 SOURCE_OUT = NC / 'source_data'
 for directory in (MAIN_OUT, SUPP_OUT, SOURCE_OUT):
     directory.mkdir(parents=True, exist_ok=True)
+(NC / 'qa').mkdir(parents=True, exist_ok=True)
 
 MAIN_TABLES = [
     'Table1_source_model_results.csv',
@@ -46,6 +51,14 @@ CROSSDB_SUPP_TABLES = [
     'Table_public_model_to_source_calibration_curve.csv',
     'Table_public_model_to_source_decision_curve.csv',
     'Table_public_model_to_source_by_centre.csv',
+]
+EXTENSION_SUPP_TABLES = [
+    'Table_method_identification_conditions_v2.csv',
+    'Table_empirical_schedule_transport.csv',
+    'Table_optimized_reference_sampling.csv',
+    'Table_source_postdischarge_sensitivity_bounds.csv',
+    'Table_hemoglobin_endpoint_replication.csv',
+    'Table_hemoglobin_endpoint_flow.csv',
 ]
 
 
@@ -131,6 +144,14 @@ for name in CROSSDB_SUPP_TABLES:
     target = SUPP_OUT / name
     shutil.copy2(source, target)
     supp_csvs.append(target)
+for name in EXTENSION_SUPP_TABLES:
+    source = EXTENSION_SOURCE / name
+    if not source.exists():
+        raise FileNotFoundError(source)
+    target = SUPP_OUT / name
+    shutil.copy2(source, target)
+    supp_csvs.append(target)
+supp_csvs = list(dict.fromkeys(path.resolve() for path in supp_csvs))
 
 # %% Main and supplementary table workbooks
 main_audit = workbook_from_csvs(
@@ -155,7 +176,7 @@ source_audit = workbook_from_csvs(
     SOURCE_OUT / 'Source_Data.xlsx',
     [
         ['Field', 'Value'],
-        ['Article title', 'Outcome measurement transport can govern calibration of clinical AI across health systems'],
+        ['Article title', 'Transported outcome-measurement schedules can alter calibration of clinical prediction models'],
         ['Scope', 'Aggregate source values for every main and supplementary figure panel'],
         ['Data level', 'Aggregate or Monte Carlo summary only; no stable patient identifiers or row-level predictions'],
         ['Endpoint note', 'Public endpoints are operational creatinine references, not biological truth or expert-adjudicated full KDIGO'],

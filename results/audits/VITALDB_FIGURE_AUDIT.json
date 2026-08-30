@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "figures": [
+    "Figure5_empirical_schedule_observability.pdf",
+    "SupplementaryFigure13_empirical_schedule_sensitivity.pdf",
+    "SupplementaryFigure14_vitaldb_selection_correction.pdf"
+  ],
+  "formats": [
+    "PDF vector",
+    "TIFF 600 dpi"
+  ],
+  "palette": "cividis plus Okabe-Ito colorblind-safe accents",
+  "schedule_tolerance_hours": 24,
+  "numeric_labels": "percentages derived directly from source tables"
+}

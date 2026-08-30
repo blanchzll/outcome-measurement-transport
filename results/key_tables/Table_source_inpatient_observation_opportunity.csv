@@ -1,0 +1,11 @@
+center,observation_group,n,events,event_rate,event_rate_ci_lower,event_rate_ci_upper,postop_days_median,postop_days_q1,postop_days_q3,interpretation
+1,>=7 postoperative inpatient days,675,39,0.057777777777777775,0.042550972889853114,0.07800951698192315,10.36666667,8.0,14.36111111,inpatient opportunity proxy; not proof of complete 0-168 h ascertainment
+1,<7 postoperative inpatient days,90,0,0.0,0.0,0.04093562556432678,10.36666667,8.0,14.36111111,inpatient opportunity proxy; not proof of complete 0-168 h ascertainment
+2,>=7 postoperative inpatient days,775,42,0.05419354838709677,0.04034101741977264,0.07244375774320069,10.0,8.0,13.0,inpatient opportunity proxy; not proof of complete 0-168 h ascertainment
+2,<7 postoperative inpatient days,19,0,0.0,0.0,0.16817922405261626,10.0,8.0,13.0,inpatient opportunity proxy; not proof of complete 0-168 h ascertainment
+3,>=7 postoperative inpatient days,965,53,0.054922279792746116,0.04223291411073853,0.07114111403458545,10.0,8.0,13.0,inpatient opportunity proxy; not proof of complete 0-168 h ascertainment
+3,<7 postoperative inpatient days,20,3,0.15,0.052368745896216595,0.36041886474075696,10.0,8.0,13.0,inpatient opportunity proxy; not proof of complete 0-168 h ascertainment
+4,>=7 postoperative inpatient days,963,14,0.014537902388369679,0.008679397436842446,0.024254087707177737,10.0,9.0,11.0,inpatient opportunity proxy; not proof of complete 0-168 h ascertainment
+4,<7 postoperative inpatient days,28,0,0.0,1.3877787807814457e-17,0.12064330476584563,10.0,9.0,11.0,inpatient opportunity proxy; not proof of complete 0-168 h ascertainment
+5,>=7 postoperative inpatient days,167,1,0.005988023952095809,0.00105781647748409,0.033134462498692306,9.0,9.0,11.0,inpatient opportunity proxy; not proof of complete 0-168 h ascertainment
+5,<7 postoperative inpatient days,8,0,0.0,0.0,0.32440756488388023,9.0,9.0,11.0,inpatient opportunity proxy; not proof of complete 0-168 h ascertainment

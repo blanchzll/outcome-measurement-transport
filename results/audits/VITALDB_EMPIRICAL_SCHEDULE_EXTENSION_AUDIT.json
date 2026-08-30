@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "replicates_per_condition": 200,
+  "computed_pairs": [
+    "EICU->VitalDB",
+    "INSPIRE->VitalDB",
+    "MIMIC->VitalDB",
+    "VitalDB->EICU",
+    "VitalDB->INSPIRE",
+    "VitalDB->MIMIC",
+    "VitalDB->VitalDB"
+  ],
+  "target_n": {
+    "INSPIRE": 1676,
+    "MIMIC": 2838,
+    "EICU": 3253,
+    "VitalDB": 324
+  },
+  "donor_schedule_n": {
+    "INSPIRE": 7059,
+    "MIMIC": 9164,
+    "EICU": 20288,
+    "VitalDB": 1078
+  },
+  "vitaldb_target_audit": {
+    "eligible_dense_adult_unique_patients": 1078,
+    "train_n": 754,
+    "train_events": 74,
+    "test_n": 324,
+    "test_events": 46,
+    "test_gi_n": 40,
+    "numeric_predictors": [
+      "age",
+      "height",
+      "weight",
+      "bmi",
+      "asa",
+      "preop_hb",
+      "preop_plt",
+      "preop_na",
+      "preop_k",
+      "preop_gluc",
+      "preop_alb",
+      "preop_bun",
+      "preop_cr",
+      "baseline_cr",
+      "intraop_ebl",
+      "intraop_uo",
+      "intraop_rbc",
+      "intraop_ffp",
+      "intraop_crystalloid",
+      "intraop_colloid",
+      "intraop_eph",
+      "intraop_phe",
+      "intraop_epi"
+    ],
+    "categorical_predictors": [
+      "sex",
+      "emop",
+      "department",
+      "optype",
+      "approach",
+      "ane_type",
+      "preop_htn",
+      "preop_dm"
+    ],
+    "full_reference_metrics": {
+      "n": 324,
+      "events": 46.0,
+      "event_rate": 0.1419753086419753,
+      "event_rate_se": 0.019390267411834264,
+      "mean_prediction": 0.10021019721845854,
+      "oe": 1.4167750646420612,
+      "brier": 0.11053590028892503,
+      "auc": 0.7044103847356897,
+      "calibration_intercept": -0.22511057884817762,
+      "calibration_slope": 0.6581631632744903,
+      "ess": 324.0
+    },
+    "split": "70/30 patient-disjoint random group split; fixed seed; no tuning against test performance",
+    "primary_operation_rule": "patients with exactly one VitalDB operation; repeat-operation patients excluded",
+    "model_role": "database-native ridge risk engine for outcome-measurement mechanism replication"
+  },
+  "raw_rows": 11184,
+  "summary_rows": 504,
+  "interpretation_boundary": "Observed donor schedules are descriptive measurement patterns, not randomized or causal hospital policies. Nearest retained target measurements are mapped within prespecified 12-hour and 24-hour tolerances."
+}

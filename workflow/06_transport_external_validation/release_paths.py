@@ -10,6 +10,7 @@ DEFAULTS = {
     "inspire": REPOSITORY_ROOT / "restricted_data/physionet/inspire/1.4.2",
     "mimic": REPOSITORY_ROOT / "restricted_data/physionet/mimic",
     "eicu": REPOSITORY_ROOT / "restricted_data/physionet/eicu/2.0",
+    "vitaldb": REPOSITORY_ROOT / "restricted_data/physionet/vitaldb/1.0.0",
     "mimic_duckdb": REPOSITORY_ROOT / "restricted_data/mimiciv31.duckdb",
 }
 ENVIRONMENT = {
@@ -18,6 +19,7 @@ ENVIRONMENT = {
     "inspire": "INSPIRE_ROOT",
     "mimic": "MIMIC_ROOT",
     "eicu": "EICU_ROOT",
+    "vitaldb": "VITALDB_ROOT",
     "mimic_duckdb": "MIMIC_DUCKDB",
 }
 

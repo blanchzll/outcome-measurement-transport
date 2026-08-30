@@ -1,0 +1,65 @@
+{
+  "generated_at_utc": "2026-08-30T08:20:15.777848+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "endpoint explicitly creatinine-only",
+      "status": "PASS",
+      "evidence": "creatinine-only postoperative AKI operational reference"
+    },
+    {
+      "check": "dense-reference event count supports mechanism model",
+      "status": "PASS",
+      "evidence": 1259
+    },
+    {
+      "check": "simulation uses 300 replicates",
+      "status": "PASS",
+      "evidence": 300
+    },
+    {
+      "check": "held-out model discrimination is informative",
+      "status": "PASS",
+      "evidence": 0.7044103847356897
+    },
+    {
+      "check": "simulation method contract complete",
+      "status": "PASS",
+      "evidence": []
+    },
+    {
+      "check": "empirical schedule extension has all VitalDB pairs",
+      "status": "PASS",
+      "evidence": [
+        "EICU->VitalDB",
+        "INSPIRE->VitalDB",
+        "MIMIC->VitalDB",
+        "VitalDB->EICU",
+        "VitalDB->INSPIRE",
+        "VitalDB->MIMIC",
+        "VitalDB->VitalDB"
+      ]
+    },
+    {
+      "check": "empirical schedule uses 200 replicates",
+      "status": "PASS",
+      "evidence": 200
+    },
+    {
+      "check": "schedule summary has no duplicate estimand rows",
+      "status": "PASS",
+      "evidence": 0
+    },
+    {
+      "check": "reported simulation means are finite",
+      "status": "PASS",
+      "evidence": 5292
+    }
+  ],
+  "claim_boundaries": [
+    "VitalDB outcome is a creatinine-only operational reference, not complete KDIGO.",
+    "Dense-reference estimates are conditional on intense postoperative measurement.",
+    "Empirical schedules are observed measurement patterns and not causal hospital policies.",
+    "VitalDB-to-source model transport is endpoint transport, not same-expert-endpoint validation."
+  ]
+}

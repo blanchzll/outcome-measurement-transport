@@ -257,7 +257,7 @@ source_temporal_ok = exists_all(
     OUTPUTS / "FIGURE8_TEMPORAL_AUDIT.json",
 )
 record("must", 25, "Source patient-date integrity and chronological transport audit", source_temporal_ok,
-       "4014 unique patients linked one-to-one; within-centre later-patient validation and date-quality refit present")
+       "3710-patient locked analysis linked to the 4014-record screen; within-centre later-patient validation and date-quality refit present")
 
 source_variable_ok = exists_all(
     TABLES / "Table_source_variable_dictionary_110_columns.csv",

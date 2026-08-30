@@ -1,0 +1,44 @@
+{
+  "analysis": "public-development model transported unchanged to MIMIC-IV and the five-centre source cohort",
+  "development": {
+    "database": "INSPIRE 1.4.2",
+    "n": 1676,
+    "events": 138
+  },
+  "validation": {
+    "MIMIC-IV": {
+      "n": 4240,
+      "events": 331
+    },
+    "five-centre-source": {
+      "n": 3710,
+      "events": 152
+    }
+  },
+  "model": "ridge logistic regression with fixed C=0.25",
+  "predictors": [
+    "Age",
+    "LogPreopCr",
+    "PreopHb",
+    "Gender",
+    "Diabetes",
+    "Gastrocolorectal"
+  ],
+  "training_only_preprocessing": true,
+  "model_file": "secure_work/INSPIRE_GI_C6_RIDGE_LOCKED_MODEL.joblib",
+  "model_sha256": "fdf28a95afa6f681ed3b95a7c7dade4131c74d37d41cc5ad7dfc5cd797271174",
+  "external_outcomes_used_for_model_selection_or_tuning": false,
+  "local_recalibration_before_primary_evaluation": false,
+  "interpretation": "MIMIC is an operational same-creatinine-endpoint transport; the five-centre test is an endpoint-transport clinical bridge, not strict same-endpoint external validation.",
+  "limits": [
+    "MIMIC uses a procedure calendar-date landmark rather than exact operation end.",
+    "The five-centre endpoint is expert full KDIGO and therefore intentionally richer than the public creatinine-only endpoint.",
+    "The INSPIRE development sample is conditioned on dense postoperative creatinine measurement."
+  ],
+  "patient_level_outputs_delivered": false,
+  "input_sha256": {
+    "source_3710": "37e7a0949687860c957c0f310e934a85e2bdcbe81f77d027139a50bfb95a1182",
+    "inspire_analysis": "bc119b6315e9c1b9b074187f844c09ca1e4cc3c82bc083a2a0def34c4644c5ba"
+  },
+  "seed": 20260829
+}

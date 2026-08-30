@@ -3,6 +3,10 @@
 #
 # Aggregate-only checks for word limits, evidence-role boundaries, corrected simulation
 # language, numerical anchors, and unresolved author-controlled fields.
+#
+# This script records the three-database v1.2.1 manuscript audit. The v1.3.0
+# Nature Communications package is audited by the submission-build QA scripts;
+# this file is retained to preserve the analysis history.
 
 # %%
 from __future__ import annotations

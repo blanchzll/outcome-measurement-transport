@@ -1,4 +1,6 @@
 {
+  "status": "SUPERSEDED_BY_V1.3.0_SUBMISSION_AUDIT",
+  "provenance_note": "Historical three-database v1.2.1 manuscript audit retained for traceability; not the active submission audit.",
   "manuscript": "${SOURCE_ROOT}/ascertainment_framework_20260826/manuscript/MANUSCRIPT_FINAL.md",
   "title": "Outcome-measurement transport in AKI prediction: a multicentre surgical case study and three-database longitudinal stress test",
   "summary_word_count": 297,

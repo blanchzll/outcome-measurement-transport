@@ -1,0 +1,23 @@
+{
+  "analysis": "VitalDB GI ridge model transported unchanged to five-centre clinical cohort",
+  "prediction_landmark": "surgery end in both datasets",
+  "predictors": [
+    "Age",
+    "LogPreopCr",
+    "PreopHb",
+    "Gender",
+    "Diabetes",
+    "Gastrocolorectal"
+  ],
+  "development_endpoint": "VitalDB 0-168 h creatinine-only operational reference in dense-reference GI cohort",
+  "validation_endpoint": "site-adjudicated KDIGO 2012 using creatinine, urine output, and RRT",
+  "same_model": true,
+  "same_prediction_landmark": true,
+  "same_predictor_definitions_after_unit_harmonization": true,
+  "same_endpoint_reference": false,
+  "claim_boundary": "independent endpoint-transport validation, not same-endpoint expert-KDIGO validation",
+  "n_development": 133,
+  "events_development": 13,
+  "n_external": 3710,
+  "events_external": 152
+}

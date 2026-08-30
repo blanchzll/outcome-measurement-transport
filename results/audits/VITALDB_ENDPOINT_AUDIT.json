@@ -1,0 +1,66 @@
+{
+  "generated_at_utc": "2026-08-30T07:18:32.138222+00:00",
+  "dataset": "VitalDB 1.0.0",
+  "prediction_landmark": "operation end (opend)",
+  "endpoint": "creatinine-only postoperative AKI operational reference",
+  "endpoint_components": {
+    "absolute": ">=0.3 mg/dL increase within 48 hours",
+    "ratio": ">=1.5 times the latest timestamped pre-operation-end creatinine within 168 hours"
+  },
+  "not_available": [
+    "complete postoperative urine output",
+    "timed RRT initiation",
+    "expert KDIGO adjudication"
+  ],
+  "audit": {
+    "n_raw_creatinine_rows": 37311,
+    "n_valid_creatinine_rows": 37260,
+    "n_exact_duplicate_creatinine_rows_removed": 6,
+    "n_cases_with_timestamped_preop_baseline": 4107,
+    "n_cases_with_any_postop_cr_168h": 4285,
+    "n_reference_observable": 3296,
+    "n_dense_reference": 1259,
+    "n_discharge_time_invalid": 27
+  },
+  "cohorts": [
+    {
+      "cohort": "all operations",
+      "n_operations": 6388,
+      "n_patients": 6090,
+      "n_reference_observable": 3296,
+      "reference_observable_percent": 51.596743894802756,
+      "n_dense_reference": 1259,
+      "dense_reference_percent": 19.708829054477146,
+      "n_creatinine_events_observable": 216,
+      "event_rate_observable_percent": 6.553398058252427,
+      "n_creatinine_events_dense": 155,
+      "event_rate_dense_percent": 12.311358220810167
+    },
+    {
+      "cohort": "adult operations",
+      "n_operations": 6323,
+      "n_patients": 6041,
+      "n_reference_observable": 3250,
+      "reference_observable_percent": 51.39965206389372,
+      "n_dense_reference": 1230,
+      "dense_reference_percent": 19.45279139648901,
+      "n_creatinine_events_observable": 205,
+      "event_rate_observable_percent": 6.3076923076923075,
+      "n_creatinine_events_dense": 146,
+      "event_rate_dense_percent": 11.869918699186991
+    },
+    {
+      "cohort": "adult stomach or colorectal operations",
+      "n_operations": 2017,
+      "n_patients": 1947,
+      "n_reference_observable": 957,
+      "reference_observable_percent": 47.446703024293505,
+      "n_dense_reference": 158,
+      "dense_reference_percent": 7.833415964303421,
+      "n_creatinine_events_observable": 29,
+      "event_rate_observable_percent": 3.0303030303030303,
+      "n_creatinine_events_dense": 15,
+      "event_rate_dense_percent": 9.49367088607595
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 # Outcome measurement transport and calibration
 
-Tagged release: <https://github.com/blanchzll/outcome-measurement-transport/tree/v1.2.1>
+Tagged release: <https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.0>
 
 This repository contains the release-safe analysis code and aggregate outputs for the manuscript:
 
-> **Outcome measurement transport alters calibration of clinical prediction models across health systems**
+> **Transported outcome-measurement schedules can alter calibration of clinical prediction models**
 
 The study asks whether a fixed set of predictions can receive different calibration assessments when a health system changes which longitudinal measurements are observed and how the endpoint is reconstructed.
 
@@ -14,6 +14,7 @@ The study asks whether a fixed set of predictions can receive different calibrat
 - Analysis scripts arranged in the order used for the study.
 - Fixed simulation protocols and estimand definitions.
 - Empirical cross-database measurement-schedule transport experiments.
+- A fourth, non-ICU perioperative mechanism replication in VitalDB.
 - A second, haemoglobin-decline operational endpoint replication.
 - Probability-sampled reference-review designs and source follow-up bounds.
 - Synthetic unit and contract tests.
@@ -22,7 +23,7 @@ The study asks whether a fixed set of predictions can receive different calibrat
 
 ## What this repository does not contain
 
-No patient-level source data, row-level predictions, fitted clinical models, direct identifiers, or restricted INSPIRE, MIMIC-IV, or eICU extracts are distributed. Access to the public clinical databases remains subject to their original credentialing and data-use agreements. The five-centre clinical data are not publicly distributable.
+No patient-level source data, row-level predictions, fitted clinical models, direct identifiers, or row-level public-database extracts are distributed. Access to INSPIRE, MIMIC-IV and eICU remains subject to their original data-use requirements; VitalDB clinical and laboratory tables are openly available from PhysioNet. The five-centre clinical data are not publicly distributable.
 
 The public operational endpoint is a creatinine-based computational reference. It is not biological truth, full Kidney Disease Improving Global Outcomes adjudication, or a substitute for the five-centre expert endpoint.
 
@@ -71,6 +72,7 @@ export AKI_SOURCE_ROOT=/path/to/restricted_source_data
 export INSPIRE_ROOT=/path/to/inspire/1.4.2
 export MIMIC_ROOT=/path/to/mimic
 export EICU_ROOT=/path/to/eicu/2.0
+export VITALDB_ROOT=/path/to/vitaldb/1.0.0
 export MIMIC_DUCKDB=/path/to/mimiciv31.duckdb
 ```
 
@@ -78,14 +80,15 @@ Scripts retain their frozen numerical settings, seeds, cohort rules, model speci
 
 ## Main evidentiary boundaries
 
-1. The source five-centre model is a motivating clinical case and does not have an untouched independent clinical external validation.
+1. The 3,710-patient source analysis is a motivating clinical case and does not have an untouched independent clinical external validation; 4,014 is the screened denominator, not the primary modelling cohort.
 2. INSPIRE-to-MIMIC-IV/eICU is true same-model public-database external validation, but performance was weak.
 3. Applying the INSPIRE gastrointestinal model to the five-centre cohort is an endpoint-transport clinical bridge, not strict same-endpoint validation.
 4. Dense-reference analyses are conditional on selected, highly monitored populations.
 5. Retrospective decision analysis does not establish clinical impact.
 6. Empirically sampled measurement schedules reproduce observed timing distributions; they are not estimates of causal hospital testing policies.
 7. The haemoglobin-decline endpoint is an operational laboratory endpoint, not adjudicated bleeding.
+8. VitalDB analyses use a creatinine-only operational reference and observed measurement schedules; they are not full KDIGO adjudication or causal tests of hospital policy.
 
 ## Licence and citation
 
-Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite tagged release `v1.2.1` and the associated manuscript; an archive DOI will be added after author-controlled archival deposit.
+Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite tagged release `v1.3.0` and the associated manuscript; an archive DOI will be added after author-controlled archival deposit.
