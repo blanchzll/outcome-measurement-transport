@@ -30,12 +30,14 @@ import pandas as pd
 
 COLORS = {
     "clinical_table_ridge": "#0072B2",
+    "duration_adjusted_clinical_ridge": "#009E73",
     "waveform_enhanced_ridge": "#D55E00",
     "apparent": "#56B4E9",
     "retained": "#E69F00",
 }
 MODEL_LABELS = {
-    "clinical_table_ridge": "Clinical-table ridge",
+    "clinical_table_ridge": "Historical clinical ridge",
+    "duration_adjusted_clinical_ridge": "Clinical + duration ridge",
     "waveform_enhanced_ridge": "Clinical + waveform ridge",
 }
 
@@ -74,7 +76,7 @@ def model_auc_plot(table: pd.DataFrame, output: Path) -> pd.DataFrame:
     ].copy()
     data["label"] = data.model.map(MODEL_LABELS)
     data = data.set_index("model").loc[list(MODEL_LABELS)].reset_index()
-    fig, ax = plt.subplots(figsize=(3.5, 2.25))
+    fig, ax = plt.subplots(figsize=(4.3, 2.45))
     y = np.arange(len(data))
     for index, row in data.iterrows():
         ax.errorbar(
@@ -131,7 +133,7 @@ def calibration_plot(summary: pd.DataFrame, metric: str, label: str, ideal: floa
     data = summary.loc[summary.metric.eq(metric)].copy()
     targets = ["Apparent reconstructed endpoint", "Retained reference endpoint"]
     models = list(MODEL_LABELS)
-    fig, ax = plt.subplots(figsize=(4.6, 2.55))
+    fig, ax = plt.subplots(figsize=(5.4, 2.75))
     x = np.arange(len(models))
     offsets = {targets[0]: -0.12, targets[1]: 0.12}
     for target in targets:
@@ -199,7 +201,8 @@ def main() -> None:
     )
 
     delta = model.loc[
-        model.comparison.eq("waveform_minus_clinical_paired_delta") & model.metric.eq("auc")
+        model.comparison.eq("waveform_minus_duration_adjusted_clinical_paired_delta")
+        & model.metric.eq("auc")
     ].iloc[0]
     audit = {
         "status": "PASS",
@@ -212,7 +215,8 @@ def main() -> None:
         ],
         "formats": ["PDF vector", "TIFF 600 dpi"],
         "palette": "Okabe-Ito colourblind-safe",
-        "paired_auc_delta": {
+        "paired_auc_delta_primary": {
+            "comparison": "waveform minus duration-adjusted clinical ridge",
             "estimate": float(delta.estimate),
             "ci_lower": float(delta.ci_lower),
             "ci_upper": float(delta.ci_upper),

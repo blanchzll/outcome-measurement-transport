@@ -26,8 +26,17 @@ import pandas as pd
 
 
 MODEL_LABELS = {
-    "clinical_table_ridge": "clinical-table ridge",
+    "clinical_table_ridge": "historical clinical-table ridge",
+    "duration_adjusted_clinical_ridge": "duration-adjusted clinical ridge",
     "waveform_enhanced_ridge": "clinical-plus-waveform ridge",
+}
+DELTA_LABELS = {
+    "waveform_minus_duration_adjusted_clinical_paired_delta": (
+        "waveform minus duration-adjusted clinical ridge"
+    ),
+    "waveform_minus_historical_clinical_paired_delta": (
+        "waveform minus historical clinical-table ridge"
+    ),
 }
 
 
@@ -81,18 +90,21 @@ def main() -> None:
             }
             for row in subset.itertuples(index=False)
         }
-    delta = model_table.loc[
-        model_table.comparison.eq("waveform_minus_clinical_paired_delta")
-    ]
-    paired_deltas = {
-        row.metric: {
-            "estimate": float(row.estimate),
-            "ci_lower": float(row.ci_lower),
-            "ci_upper": float(row.ci_upper),
-            "bootstrap_replicates": int(row.bootstrap_replicates),
+    paired_deltas = {}
+    for comparison, label in DELTA_LABELS.items():
+        delta = model_table.loc[model_table.comparison.eq(comparison)]
+        paired_deltas[comparison] = {
+            "label": label,
+            "metrics": {
+                row.metric: {
+                    "estimate": float(row.estimate),
+                    "ci_lower": float(row.ci_lower),
+                    "ci_upper": float(row.ci_upper),
+                    "bootstrap_replicates": int(row.bootstrap_replicates),
+                }
+                for row in delta.itertuples(index=False)
+            },
         }
-        for row in delta.itertuples(index=False)
-    }
 
     stress_digest: dict[str, object] = {}
     methods = {
@@ -151,7 +163,7 @@ def main() -> None:
             "art_map_track_counts": waveform.get("art_map_track_counts"),
         },
         "model_performance": performance,
-        "paired_waveform_minus_clinical_deltas": paired_deltas,
+        "paired_waveform_deltas": paired_deltas,
         "measurement_stress": stress_digest,
         "qa_gate_status": {
             item["gate"]: item["passed"] for item in qa.get("gates", [])
@@ -162,7 +174,9 @@ def main() -> None:
     args.json_output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
     waveform_auc = performance["waveform_enhanced_ridge"]["auc"]
-    auc_delta = paired_deltas["auc"]
+    auc_delta = paired_deltas[
+        "waveform_minus_duration_adjusted_clinical_paired_delta"
+    ]["metrics"]["auc"]
     waveform_stress = stress_digest["waveform_enhanced_ridge"]
     lines = [
         "# VitalDB waveform extension: audited result drafting aid",
@@ -176,7 +190,7 @@ def main() -> None:
             f"{model_audit.get('test_events')} creatinine-reference events), the prespecified "
             f"clinical-plus-waveform ridge model had an AUC of {waveform_auc['estimate']:.3f} "
             f"(95% CI {waveform_auc['ci_lower']:.3f}-{waveform_auc['ci_upper']:.3f}); the paired "
-            f"difference from the clinical-table ridge was {auc_delta['estimate']:+.3f} "
+            f"difference from the duration-adjusted clinical ridge was {auc_delta['estimate']:+.3f} "
             f"({auc_delta['ci_lower']:+.3f} to {auc_delta['ci_upper']:+.3f})."
         ),
         (

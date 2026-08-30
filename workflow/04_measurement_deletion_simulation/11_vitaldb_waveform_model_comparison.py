@@ -9,11 +9,12 @@
 # ---
 
 # %% [markdown]
-# # VitalDB clinical versus waveform-enhanced ridge comparison
+# # VitalDB clinical, duration-adjusted, and waveform-enhanced ridge comparison
 #
 # The original patient-disjoint split and clinical-table ridge specification
-# are reconstructed exactly. The only new model adds prespecified waveform
-# summaries. No held-out outcome is used for feature selection or tuning.
+# are reconstructed exactly. A duration-adjusted clinical comparator prevents
+# waveform coverage variables from obtaining an unfair advantage by proxying
+# operation length. No held-out outcome is used for feature selection or tuning.
 
 # %%
 from __future__ import annotations
@@ -58,6 +59,11 @@ WAVEFORM_FEATURES = [
     "hr_raw_samples", "hr_covered_seconds", "hr_coverage_fraction", "hr_median", "hr_sd",
     "hr_above_100_fraction_observed", "nibp_map_count", "nibp_map_median",
 ]
+PRIMARY_COMPARATOR = "duration_adjusted_clinical_ridge"
+DELTA_COMPARISONS = {
+    "waveform_minus_duration_adjusted_clinical_paired_delta": PRIMARY_COMPARATOR,
+    "waveform_minus_historical_clinical_paired_delta": "clinical_table_ridge",
+}
 
 
 def load_module(path: Path, name: str):
@@ -151,38 +157,41 @@ def comparison_table(
 
     wide = bootstrap.pivot(index="replicate", columns="model", values=list(METRICS))
     delta_summary: dict[str, object] = {}
-    for metric in METRICS:
-        delta = (
-            wide[(metric, "waveform_enhanced_ridge")]
-            - wide[(metric, "clinical_table_ridge")]
-        ).dropna()
-        estimate = float(
-            point["waveform_enhanced_ridge"][metric]
-            - point["clinical_table_ridge"][metric]
-        )
-        lower = float(delta.quantile(0.025)) if len(delta) else np.nan
-        upper = float(delta.quantile(0.975)) if len(delta) else np.nan
-        rows.append(
-            {
-                "comparison": "waveform_minus_clinical_paired_delta",
-                "model": "waveform_enhanced_ridge_minus_clinical_table_ridge",
-                "metric": metric,
+    for comparison, comparator in DELTA_COMPARISONS.items():
+        comparison_summary: dict[str, object] = {}
+        for metric in METRICS:
+            delta = (
+                wide[(metric, "waveform_enhanced_ridge")]
+                - wide[(metric, comparator)]
+            ).dropna()
+            estimate = float(
+                point["waveform_enhanced_ridge"][metric]
+                - point[comparator][metric]
+            )
+            lower = float(delta.quantile(0.025)) if len(delta) else np.nan
+            upper = float(delta.quantile(0.975)) if len(delta) else np.nan
+            rows.append(
+                {
+                    "comparison": comparison,
+                    "model": f"waveform_enhanced_ridge_minus_{comparator}",
+                    "metric": metric,
+                    "estimate": estimate,
+                    "ci_lower": lower,
+                    "ci_upper": upper,
+                    "bootstrap_replicates": int(len(delta)),
+                }
+            )
+            comparison_summary[metric] = {
                 "estimate": estimate,
                 "ci_lower": lower,
                 "ci_upper": upper,
-                "bootstrap_replicates": int(len(delta)),
+                "direction_note": (
+                    "positive favours waveform model" if metric == "auc"
+                    else "negative favours waveform model" if metric == "brier"
+                    else "difference is descriptive; closeness to the metric target determines calibration"
+                ),
             }
-        )
-        delta_summary[metric] = {
-            "estimate": estimate,
-            "ci_lower": lower,
-            "ci_upper": upper,
-            "direction_note": (
-                "positive favours waveform model" if metric == "auc"
-                else "negative favours waveform model" if metric == "brier"
-                else "difference is descriptive; closeness to the metric target determines calibration"
-            ),
-        }
+        delta_summary[comparison] = comparison_summary
     return pd.DataFrame(rows), {"point_metrics": point, "paired_deltas": delta_summary}
 
 
@@ -206,6 +215,10 @@ def main() -> None:
     eligible = cases.loc[
         cases["adult"] & cases["dense_reference"] & cases["subjectid"].isin(single_patients)
     ].copy()
+    operation_seconds = pd.to_numeric(eligible["opend"], errors="coerce") - pd.to_numeric(
+        eligible["opstart"], errors="coerce"
+    )
+    eligible["operation_duration_hours"] = operation_seconds.where(operation_seconds > 0) / 3600.0
     eligible["__row_order"] = np.arange(len(eligible))
     eligible = eligible.merge(waveform, on="caseid", how="left", validate="one_to_one", sort=False)
     eligible = eligible.sort_values("__row_order", kind="stable").reset_index(drop=True)
@@ -224,7 +237,8 @@ def main() -> None:
     probabilities = {}
     model_specs = {
         "clinical_table_ridge": baseline_numeric,
-        "waveform_enhanced_ridge": baseline_numeric + waveform_numeric,
+        "duration_adjusted_clinical_ridge": baseline_numeric + ["operation_duration_hours"],
+        "waveform_enhanced_ridge": baseline_numeric + ["operation_duration_hours"] + waveform_numeric,
     }
     for label, numeric in model_specs.items():
         features = numeric + categorical
@@ -261,8 +275,24 @@ def main() -> None:
         "train_caseid_sha256": digest_ids(train.caseid),
         "test_caseid_sha256": digest_ids(test.caseid),
         "baseline_numeric_predictors": baseline_numeric,
+        "duration_adjustment_predictor": "operation_duration_hours",
         "categorical_predictors": categorical,
         "waveform_predictors": waveform_numeric,
+        "predictor_roles": {
+            "clinical_table_ridge": "exact historical continuity model",
+            "duration_adjusted_clinical_ridge": (
+                "fair primary comparator controlling operation length before waveform coverage is added"
+            ),
+            "waveform_enhanced_ridge": (
+                "duration-adjusted clinical predictors plus prespecified waveform summaries"
+            ),
+        },
+        "operation_duration_hours": {
+            "eligible_nonmissing_n": int(eligible.operation_duration_hours.notna().sum()),
+            "eligible_median": float(eligible.operation_duration_hours.median()),
+            "eligible_q025": float(eligible.operation_duration_hours.quantile(0.025)),
+            "eligible_q975": float(eligible.operation_duration_hours.quantile(0.975)),
+        },
         "test_usable_art_map_n": int(usable.sum()),
         "test_usable_art_map_percent": float(100 * usable.mean()),
         "baseline_auc_reproduced": baseline_auc,
@@ -275,7 +305,8 @@ def main() -> None:
             "feature selection, tuning, imputation, scaling, or fitting."
         ),
         "interpretation_boundary": (
-            "descriptive incremental value and stronger-real-model stress-test input; "
+            "descriptive incremental value against the duration-adjusted comparator and "
+            "stronger-real-model stress-test input; "
             "not model selection, causal hypotension evidence, or clinical impact"
         ),
     }

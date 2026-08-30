@@ -68,16 +68,25 @@ derived after `opend`.
 
 ## Models and evaluation
 
-Two fixed ridge logistic models will be compared:
+Three fixed ridge logistic models will be compared:
 
-1. the existing VitalDB clinical-table feature set;
-2. the same feature set plus the prespecified waveform summaries.
+1. the existing VitalDB clinical-table feature set, retained unchanged for exact
+   historical continuity;
+2. the same clinical feature set plus operation duration, derived as
+   (`opend` - `opstart`)/3600, as the fair primary comparator;
+3. the duration-adjusted clinical feature set plus the prespecified waveform
+   summaries.
+
+Operation duration is included in both models 2 and 3 because raw sample counts,
+covered seconds and hypotension minutes may otherwise proxy operation length.
+The primary incremental contrast is model 3 minus model 2. Model 3 minus model 1
+is secondary and is reported only for continuity with the historical model.
 
 Preprocessing remains fold-contained. There is no broad model comparison,
 stacking, feature selection against held-out performance or hyperparameter search.
 Held-out AUC, Brier score, O/E, calibration intercept and slope are reported with
 patient bootstrap intervals. Incremental performance is descriptive and is not a
-claim of clinical benefit.
+claim of clinical benefit. No model is selected by held-out performance.
 
 ## Outcome-measurement stress test
 
@@ -85,7 +94,8 @@ The primary condition is strong mixed-MNAR deletion at 35% target
 per-measurement retention with 300 replicates. The existing reconstructed and
 retained operational endpoints, cross-fitted apparent-target recalibration,
 IPAW/AIPW, reference sampling and sensitivity-region definitions are unchanged.
-The empirical schedule-transport experiment is repeated for both fixed scores.
+The empirical schedule-transport experiment is repeated for all three fixed
+scores.
 
 The primary contrast is the retained-reference O/E after apparent-target local
 recalibration. The relevant conclusion is whether its direction and material

@@ -39,16 +39,19 @@ reported clinical-table ridge model; it was not used to set performance gates.
 
 ## Model-comparison gate
 
-- Compare only the frozen clinical-table ridge and the otherwise identical ridge
-  model with prespecified waveform summaries.
+- Compare only the frozen historical clinical-table ridge, a clinical ridge with
+  operation duration, and the duration-adjusted ridge with prespecified waveform
+  summaries.
 - Report AUC, Brier score, O/E, calibration intercept, and calibration slope with
   1,000 patient-level paired-bootstrap intervals.
-- Report paired waveform-minus-clinical differences; do not infer superiority
-  from overlapping or non-overlapping marginal confidence intervals.
+- The primary paired difference is waveform minus duration-adjusted clinical.
+  Waveform minus historical clinical is secondary continuity evidence. Do not
+  infer superiority from overlapping or non-overlapping marginal intervals.
 - The waveform model may be described as a stronger real risk engine only when
   its held-out AUC is at least 0.70 and the lower 95% paired-bootstrap bound for
-  the AUC difference is greater than -0.02. Otherwise it is a descriptive
-  sensitivity model, not evidence of predictive improvement.
+  its AUC difference from the duration-adjusted comparator is greater than
+  -0.02. Otherwise it is a descriptive sensitivity model, not evidence of
+  predictive improvement.
 
 ## Measurement-process robustness gate
 

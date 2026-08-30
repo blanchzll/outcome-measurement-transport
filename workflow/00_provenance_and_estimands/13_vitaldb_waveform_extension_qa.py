@@ -102,7 +102,15 @@ def main() -> None:
     waveform_quality_pass = np.isfinite(coverage) and coverage >= 60.0
     auc_metrics = model.get("comparison_metrics", {}).get("point_metrics", {})
     enhanced_auc = float(auc_metrics.get("waveform_enhanced_ridge", {}).get("auc", np.nan))
-    auc_delta = model.get("comparison_metrics", {}).get("paired_deltas", {}).get("auc", {})
+    duration_adjusted_auc = float(
+        auc_metrics.get("duration_adjusted_clinical_ridge", {}).get("auc", np.nan)
+    )
+    auc_delta = (
+        model.get("comparison_metrics", {})
+        .get("paired_deltas", {})
+        .get("waveform_minus_duration_adjusted_clinical_paired_delta", {})
+        .get("auc", {})
+    )
     auc_delta_lower = float(auc_delta.get("ci_lower", np.nan))
     model_strength_pass = (
         np.isfinite(enhanced_auc)
@@ -147,10 +155,12 @@ def main() -> None:
             model_strength_pass,
             {
                 "waveform_model_auc": enhanced_auc,
+                "duration_adjusted_clinical_auc": duration_adjusted_auc,
                 "minimum_auc": 0.70,
                 "paired_auc_delta_lower_95": auc_delta_lower,
                 "minimum_noninferiority_bound": -0.02,
                 "paired_auc_delta": auc_delta,
+                "primary_comparator": "duration_adjusted_clinical_ridge",
             },
         ),
         gate("measurement_stress_contract", stress_contract_pass, stress_audit.get("condition", {})),

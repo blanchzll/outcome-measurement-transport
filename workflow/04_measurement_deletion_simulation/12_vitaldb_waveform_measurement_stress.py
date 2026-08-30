@@ -36,6 +36,7 @@ PRIMARY_STRENGTH = "strong"
 DEFAULT_REPLICATES = 300
 MODEL_COLUMNS = {
     "clinical_table_ridge": "risk_clinical_table_ridge",
+    "duration_adjusted_clinical_ridge": "risk_duration_adjusted_clinical_ridge",
     "waveform_enhanced_ridge": "risk_waveform_enhanced_ridge",
 }
 
@@ -151,7 +152,8 @@ def main() -> None:
         "diagnostic_summary": diagnostic.to_dict(orient="records"),
         "base_analysis_audit": base_audit,
         "interpretation_boundary": (
-            "Tests robustness of the measurement-process conclusion to a stronger real risk engine; "
+            "Tests robustness of the measurement-process conclusion across the historical clinical, "
+            "duration-adjusted clinical, and waveform-enhanced real risk engines; "
             "does not establish causal effects of hypotension, transportability, or clinical impact."
         ),
     }
