@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "bootstrap_replicates": 1000,
+  "bootstrap_unit": "analytic record within centre",
+  "centre_sizes_preserved": true,
+  "outcome_stratified": false,
+  "event_count_mean": 151.814,
+  "event_count_sd": 11.931293297868415,
+  "event_count_q025": 130.0,
+  "event_count_q975": 176.0,
+  "uncertainty_included": "validation-sample uncertainty conditional on locked outer-fold predictions",
+  "uncertainty_excluded": "model development, tuning and model-selection uncertainty",
+  "input_sha256": "9bdb49e39a5e3eed7057a5ebfe91ac10e15353b6d64ee55809ac0cab1a5df1c7",
+  "output_sha256": "f102a007f39e72f058acfd118634580d09a7220645974596ddaf95cff5bcb556",
+  "patient_level_output_written": false
+}

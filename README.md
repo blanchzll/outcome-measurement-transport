@@ -1,6 +1,6 @@
 # Outcome measurement transport and calibration
 
-Tagged release: <https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.0>
+Tagged release: <https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.1>
 
 This repository contains the release-safe analysis code and aggregate outputs for the manuscript:
 
@@ -17,6 +17,8 @@ The study asks whether a fixed set of predictions can receive different calibrat
 - A fourth, non-ICU perioperative mechanism replication in VitalDB.
 - A second, haemoglobin-decline operational endpoint replication.
 - Probability-sampled reference-review designs and source follow-up bounds.
+- A 4,014-record screened-population sensitivity and a non-outcome-stratified source-model uncertainty rebuild.
+- A complete four-database 12-hour primary schedule-compatibility matrix with indexed source data.
 - Synthetic unit and contract tests.
 - Aggregate main tables, cross-database validation tables, figure source data, and machine-readable audits.
 - A reviewer guide linking claims and display items to generating scripts.
@@ -84,19 +86,34 @@ gates are in `protocols/`. Patient-level waveform features and predictions are
 restricted outputs and must not be committed; only aggregate audits and tables
 belong in a public release.
 
+The submitted release was checked against all 6,394 official VitalDB objects
+(102,456,164,496 bytes); no object was missing or hash-mismatched. The
+machine-readable verification record is
+`results/audits/VITALDB_FULL_MANIFEST_VERIFICATION.json`.
+
+The primary 35% strong mixed-MNAR experiment also separates the change from the
+full operational cohort to the retained-reference cohort (selection) from the
+change introduced when the endpoint is reconstructed within that same retained
+cohort. Fixed-cohort deletion draws and nested patient or hospital resampling
+are reported separately in
+`Table_primary_selection_reconstruction_decomposition.csv`.
+
 Scripts retain their frozen numerical settings, seeds, cohort rules, model specifications, and output contracts. Internal server paths have been replaced by environment-based configuration in the public copy.
 
 ## Main evidentiary boundaries
 
 1. The 3,710-patient source analysis is a motivating clinical case and does not have an untouched independent clinical external validation; 4,014 is the screened denominator, not the primary modelling cohort.
-2. INSPIRE-to-MIMIC-IV/eICU is true same-model public-database external validation, but performance was weak.
+2. INSPIRE-to-MIMIC-IV/eICU is locked cross-database external validation of a public-data model against the harmonised creatinine endpoint, but performance was weak.
 3. Applying the INSPIRE gastrointestinal model to the five-centre cohort is an endpoint-transport clinical bridge, not strict same-endpoint validation.
 4. Dense-reference analyses are conditional on selected, highly monitored populations.
 5. Retrospective decision analysis does not establish clinical impact.
 6. Empirically sampled measurement schedules reproduce observed timing distributions; they are not estimates of causal hospital testing policies.
 7. The haemoglobin-decline endpoint is an operational laboratory endpoint, not adjudicated bleeding.
 8. VitalDB analyses use a creatinine-only operational reference and observed measurement schedules; they are not full KDIGO adjudication or causal tests of hospital policy.
+9. The VitalDB waveform extension failed its prespecified model-strength gate and is retained only as a supplementary measurement-stress sensitivity.
+10. The 4,014-record source sensitivity uses separately fitted leave-one-centre-out models; it evaluates numerical robustness but does not identify the effect of the unexplained 304-record exclusion.
+11. The decomposition and nested intervals are empirical stress-test summaries. They do not identify a biological target under MNAR or resample source-model development.
 
 ## Licence and citation
 
-Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite tagged release `v1.3.0` and the associated manuscript; an archive DOI will be added after author-controlled archival deposit.
+Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite tagged release `v1.3.1` and the associated manuscript; an archive DOI will be added after author-controlled archival deposit.

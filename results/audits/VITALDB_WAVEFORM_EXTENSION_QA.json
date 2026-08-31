@@ -1,0 +1,136 @@
+{
+  "generated_at_utc": "2026-08-30T20:13:21.249207+00:00",
+  "status": "PASS",
+  "all_prespecified_gates_passed": false,
+  "manuscript_integration": "supplementary_only",
+  "gates": [
+    {
+      "gate": "full_official_manifest_integrity",
+      "passed": true,
+      "evidence": {
+        "status": "PASS",
+        "download_summary_status": "PASS",
+        "manifest_entries": 6394,
+        "verified_files": 6394,
+        "missing": [],
+        "mismatched": [],
+        "verified_bytes": 102456164496,
+        "verification_seconds": 710.9
+      }
+    },
+    {
+      "gate": "frozen_cohort_timing_and_baseline_reproduction",
+      "passed": true,
+      "evidence": {
+        "test_n": 324,
+        "test_events": 46,
+        "baseline_auc_reproduced": 0.7044103847356897,
+        "expected_baseline_auc": 0.7044103847356897,
+        "leakage_boundary": "All clinical predictors and waveform summaries end at opend; the retained creatinine reference outcome starts after opend. The frozen held-out outcomes are not used for feature selection, tuning, imputation, scaling, or fitting."
+      }
+    },
+    {
+      "gate": "waveform_quality",
+      "passed": true,
+      "evidence": {
+        "heldout_usable_art_map_percent": 89.19753086419753,
+        "minimum_percent": 60.0,
+        "overall_waveform_audit": {
+          "generated_at_utc": "2026-08-30T20:08:27.714647+00:00",
+          "dataset": "VitalDB 1.0.0",
+          "manifest_verification": "PASS; 6394 official objects",
+          "prediction_landmark": "opend",
+          "n_clinical_cases": 6388,
+          "n_extraction_ok": 6388,
+          "status_counts": {
+            "ok": 6388
+          },
+          "n_usable_art_map_duration_features": 3444,
+          "usable_art_map_percent": 53.91358797745773,
+          "n_operation_windows_truncated": 25,
+          "operation_window_truncated_percent": 0.3913587977457733,
+          "operation_window_available_fraction_minimum": 0.6675,
+          "art_map_coverage_median": 0.9835189659556289,
+          "art_map_track_counts": {
+            "Solar8000/ART_MBP": 3523,
+            "none": 2857,
+            "Solar8000/FEM_MBP": 5,
+            "EV1000/ART_MBP": 3
+          },
+          "hr_track_counts": {
+            "Solar8000/HR": 6388
+          },
+          "feature_protocol": {
+            "interval_seconds": 1,
+            "maximum_forward_hold_seconds": 5,
+            "art_map_valid_range_mmHg": [
+              20,
+              200
+            ],
+            "heart_rate_valid_range_bpm": [
+              20,
+              250
+            ],
+            "duration_feature_minimum_seconds": 1800,
+            "duration_feature_minimum_coverage": 0.2
+          },
+          "patient_level_output_public": false
+        }
+      }
+    },
+    {
+      "gate": "prespecified_real_model_strength",
+      "passed": false,
+      "evidence": {
+        "waveform_model_auc": 0.6768063809821707,
+        "duration_adjusted_clinical_auc": 0.7002658742571161,
+        "minimum_auc": 0.7,
+        "paired_auc_delta_lower_95": -0.07006568411480381,
+        "minimum_noninferiority_bound": -0.02,
+        "paired_auc_delta": {
+          "estimate": -0.023459493274945342,
+          "ci_lower": -0.07006568411480381,
+          "ci_upper": 0.020963253978166306,
+          "direction_note": "positive favours waveform model"
+        },
+        "primary_comparator": "duration_adjusted_clinical_ridge"
+      }
+    },
+    {
+      "gate": "measurement_stress_contract",
+      "passed": true,
+      "evidence": {
+        "mechanism": "mixed_MNAR",
+        "target_measurement_retention": 0.35,
+        "strength": "strong",
+        "replicates": 300
+      }
+    },
+    {
+      "gate": "measurement_process_robustness",
+      "passed": true,
+      "evidence": {
+        "passed": true,
+        "metrics": {
+          "calibration_intercept": {
+            "n_replicates": 300,
+            "mean": -0.5927808584559107,
+            "mean_deviation_from_ideal": -0.5927808584559107,
+            "mean_absolute_deviation_from_ideal": 0.6043425636994806,
+            "directional_consistency": 0.97,
+            "dominant_direction": "below_ideal"
+          },
+          "calibration_slope": {
+            "n_replicates": 300,
+            "mean": 0.7896767921334733,
+            "mean_deviation_from_ideal": -0.2103232078665267,
+            "mean_absolute_deviation_from_ideal": 0.2800571016569329,
+            "directional_consistency": 0.8166666666666667,
+            "dominant_direction": "below_ideal"
+          }
+        }
+      }
+    }
+  ],
+  "interpretation_boundary": "A passed extension supports robustness of the measurement-process thesis only; it is not prospective clinical impact evidence, strict source-model external validation, or causal evidence for intraoperative haemodynamics."
+}

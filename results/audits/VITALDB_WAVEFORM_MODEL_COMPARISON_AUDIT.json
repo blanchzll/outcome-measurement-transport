@@ -1,0 +1,198 @@
+{
+  "analysis": "prespecified VitalDB waveform-enhanced ridge comparison",
+  "eligible_n": 1078,
+  "eligible_events": 120,
+  "train_n": 754,
+  "train_events": 74,
+  "test_n": 324,
+  "test_events": 46,
+  "train_caseid_sha256": "3ef834ece6bee01ea3fb160c71048c106db0f5755b6b0d8ffd2c4e3ebc944383",
+  "test_caseid_sha256": "29ef6fc780ef34f831ae409624bff49ff7f780ee6ea874ebf3c2f0c90455ced8",
+  "baseline_numeric_predictors": [
+    "age",
+    "height",
+    "weight",
+    "bmi",
+    "asa",
+    "preop_hb",
+    "preop_plt",
+    "preop_na",
+    "preop_k",
+    "preop_gluc",
+    "preop_alb",
+    "preop_bun",
+    "preop_cr",
+    "baseline_cr",
+    "intraop_ebl",
+    "intraop_uo",
+    "intraop_rbc",
+    "intraop_ffp",
+    "intraop_crystalloid",
+    "intraop_colloid",
+    "intraop_eph",
+    "intraop_phe",
+    "intraop_epi"
+  ],
+  "duration_adjustment_predictor": "operation_duration_hours",
+  "categorical_predictors": [
+    "sex",
+    "emop",
+    "department",
+    "optype",
+    "approach",
+    "ane_type",
+    "preop_htn",
+    "preop_dm"
+  ],
+  "waveform_predictors": [
+    "art_map_raw_samples",
+    "art_map_covered_seconds",
+    "art_map_coverage_fraction",
+    "art_map_median",
+    "art_map_p05",
+    "art_map_sd",
+    "art_map_below_65_minutes",
+    "art_map_below_65_fraction_observed",
+    "art_map_below_60_minutes",
+    "art_map_below_60_fraction_observed",
+    "art_map_below_55_minutes",
+    "art_map_below_55_fraction_observed",
+    "art_map_deficit_65_mmHg_minutes",
+    "art_map_twa_deficit_65",
+    "hr_raw_samples",
+    "hr_covered_seconds",
+    "hr_coverage_fraction",
+    "hr_median",
+    "hr_sd",
+    "hr_above_100_fraction_observed",
+    "nibp_map_count",
+    "nibp_map_median"
+  ],
+  "predictor_roles": {
+    "clinical_table_ridge": "exact historical continuity model",
+    "duration_adjusted_clinical_ridge": "fair primary comparator controlling operation length before waveform coverage is added",
+    "waveform_enhanced_ridge": "duration-adjusted clinical predictors plus prespecified waveform summaries"
+  },
+  "operation_duration_hours": {
+    "eligible_nonmissing_n": 1078,
+    "eligible_median": 3.5,
+    "eligible_q025": 0.9166666666666666,
+    "eligible_q975": 8.256250000000003
+  },
+  "test_usable_art_map_n": 289,
+  "test_usable_art_map_percent": 89.19753086419753,
+  "baseline_auc_reproduced": 0.7044103847356897,
+  "baseline_expected_auc": 0.7044103847356897,
+  "bootstrap_replicates": 1000,
+  "comparison_metrics": {
+    "point_metrics": {
+      "clinical_table_ridge": {
+        "n": 324,
+        "events": 46.0,
+        "event_rate": 0.1419753086419753,
+        "event_rate_se": 0.019390267411834264,
+        "mean_prediction": 0.10021019721845854,
+        "oe": 1.4167750646420612,
+        "brier": 0.11053590028892503,
+        "auc": 0.7044103847356897,
+        "calibration_intercept": -0.22511057884817762,
+        "calibration_slope": 0.6581631632744903,
+        "ess": 324.0
+      },
+      "duration_adjusted_clinical_ridge": {
+        "n": 324,
+        "events": 46.0,
+        "event_rate": 0.1419753086419753,
+        "event_rate_se": 0.019390267411834264,
+        "mean_prediction": 0.09956992418206417,
+        "oe": 1.4258854750393566,
+        "brier": 0.10984553020871128,
+        "auc": 0.7002658742571161,
+        "calibration_intercept": -0.23078272819728887,
+        "calibration_slope": 0.6493834923538793,
+        "ess": 324.0
+      },
+      "waveform_enhanced_ridge": {
+        "n": 324,
+        "events": 46.0,
+        "event_rate": 0.1419753086419753,
+        "event_rate_se": 0.019390267411834264,
+        "mean_prediction": 0.09577050725424484,
+        "oe": 1.4824533430220765,
+        "brier": 0.11259204816046513,
+        "auc": 0.6768063809821707,
+        "calibration_intercept": -0.38139304244997974,
+        "calibration_slope": 0.55425778391009,
+        "ess": 324.0
+      }
+    },
+    "paired_deltas": {
+      "waveform_minus_duration_adjusted_clinical_paired_delta": {
+        "auc": {
+          "estimate": -0.023459493274945342,
+          "ci_lower": -0.07006568411480381,
+          "ci_upper": 0.020963253978166306,
+          "direction_note": "positive favours waveform model"
+        },
+        "brier": {
+          "estimate": 0.0027465179517538463,
+          "ci_lower": -0.003530422272870098,
+          "ci_upper": 0.008820379295618502,
+          "direction_note": "negative favours waveform model"
+        },
+        "oe": {
+          "estimate": 0.056567867982719955,
+          "ci_lower": -0.05372275383950977,
+          "ci_upper": 0.1742816282835696,
+          "direction_note": "difference is descriptive; closeness to the metric target determines calibration"
+        },
+        "calibration_intercept": {
+          "estimate": -0.15061031425269086,
+          "ci_lower": -0.4915313839345019,
+          "ci_upper": 0.12663426782133677,
+          "direction_note": "difference is descriptive; closeness to the metric target determines calibration"
+        },
+        "calibration_slope": {
+          "estimate": -0.09512570844378931,
+          "ci_lower": -0.24792737219791655,
+          "ci_upper": 0.02962649775596873,
+          "direction_note": "difference is descriptive; closeness to the metric target determines calibration"
+        }
+      },
+      "waveform_minus_historical_clinical_paired_delta": {
+        "auc": {
+          "estimate": -0.027604003753519013,
+          "ci_lower": -0.08412380886006295,
+          "ci_upper": 0.019825940457339226,
+          "direction_note": "positive favours waveform model"
+        },
+        "brier": {
+          "estimate": 0.0020561478715400983,
+          "ci_lower": -0.004960667620293858,
+          "ci_upper": 0.008335685174364489,
+          "direction_note": "negative favours waveform model"
+        },
+        "oe": {
+          "estimate": 0.06567827838001539,
+          "ci_lower": -0.0505849601062175,
+          "ci_upper": 0.19367004325834755,
+          "direction_note": "difference is descriptive; closeness to the metric target determines calibration"
+        },
+        "calibration_intercept": {
+          "estimate": -0.15628246360180212,
+          "ci_lower": -0.5461527507699083,
+          "ci_upper": 0.16504611781315864,
+          "direction_note": "difference is descriptive; closeness to the metric target determines calibration"
+        },
+        "calibration_slope": {
+          "estimate": -0.10390537936440036,
+          "ci_lower": -0.27169285396799137,
+          "ci_upper": 0.03762286845561597,
+          "direction_note": "difference is descriptive; closeness to the metric target determines calibration"
+        }
+      }
+    }
+  },
+  "leakage_boundary": "All clinical predictors and waveform summaries end at opend; the retained creatinine reference outcome starts after opend. The frozen held-out outcomes are not used for feature selection, tuning, imputation, scaling, or fitting.",
+  "interpretation_boundary": "descriptive incremental value against the duration-adjusted comparator and stronger-real-model stress-test input; not model selection, causal hypotension evidence, or clinical impact"
+}

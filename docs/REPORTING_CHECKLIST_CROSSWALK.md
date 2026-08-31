@@ -13,10 +13,10 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Randomisation | Not applicable to the retrospective cohorts. Simulation seeds and random reference sampling were prespecified and reproducible. | Complete |
 | Blinding | Source adjudicators were reportedly masked to predictions and candidate predictors. Analysts could not be blinded to computational conditions. Original adjudication records remain unavailable. | Author verification required |
 | Replication | Longitudinal stress tests used INSPIRE, MIMIC-IV, eICU and VitalDB; extensions transported empirical schedules and repeated the dual-target analysis for a haemoglobin-decline endpoint. | Complete |
-| Sex and gender | The 3710-patient analysis is restricted to records with valid source sex codes; 304 excluded records had other codes. Public database fields are administrative sex variables; the basis of assignment is not available from the extracts. | Complete with selection-provenance limitation |
-| Ethics | Coordinating-centre approval SH9H-2022-T369-1 dated 12 January 2023 was verified, but the verbatim waiver and scope covering colorectal surgery, all analysed centres and June 2024 remain unresolved. | Submission blocker |
-| Data availability | Public database access routes and source restrictions are stated. Repository DOI and institutional request procedure are placeholders. | Submission blocker |
-| Code availability | Frozen code, tests and audits are public at GitHub tagged release v1.3.0 under the MIT License; an independent archive DOI is still required. | Complete except archive DOI |
+| Sex and gender | The locked 3710-patient cohort uses valid source sex codes. Among the 304 screened records not present in that file, 295 had unresolved sex coding and nine were female-coded. Public database fields are administrative sex variables; the basis of assignment is not available from the extracts. | Complete with selection-provenance limitation |
+| Ethics | Five approval identifiers and the retrospective consent waiver are reported. Investigators confirmed coverage of the analysed gastric and colorectal cohorts through 25 June 2024; supporting local-governance records remain author-controlled. | Complete subject to portal attestation |
+| Data availability | Public database access routes, source-data restrictions and the governed request route through the corresponding author are stated. | Complete |
+| Code availability | Frozen code, tests and audits are released under the MIT License at GitHub tag v1.3.1. An archival DOI is optional for review and can be added if deposited. | Complete for review |
 
 ## Nature machine-learning reporting summary
 
@@ -24,7 +24,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 |---|---|---|
 | Intended use | Evaluation of outcome-measurement transport and calibration, not clinical deployment. Abstract, Discussion and Model Card. | Complete |
 | Data provenance and versions | Five-centre source data; INSPIRE 1.4.2; MIMIC-IV 3.1; eICU 2.0; VitalDB 1.0.0. Methods. | Complete |
-| Prediction landmark | End of surgery for the source, INSPIRE and VitalDB; ICU admission for MIMIC-IV and eICU. Methods. | Complete |
+| Prediction landmark | End of surgery for the source and VitalDB. The locked public cross-database model uses ICU admission in INSPIRE, MIMIC-IV and eICU; database-native mechanism experiments retain their declared index times. Methods. | Complete |
 | Target definition | Source `PostopAKI` is expert-reported KDIGO adjudication; public targets are creatinine-only operational endpoints. Methods and Supplementary Information section 4. | Complete with source audit limitation |
 | Train-validation separation | LOCO internal-external validation, within-centre chronological validation and unseen-hospital public replication; no external outcomes used for model selection. | Complete |
 | Leakage prevention | Post-landmark and timing-ambiguous variables excluded; imputation, encoding, scaling and tuning confined to training folds. | Complete |
@@ -34,7 +34,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Evaluation metrics | AUC, Brier score, O/E, calibration intercept and slope, decision curves, bias, RMSE, coverage, positivity and effective sample size. | Complete |
 | Uncertainty | Patient or hospital bootstrap, Monte Carlo percentiles and Bayesian credible intervals are labelled by inferential unit. | Complete |
 | Independent data | The INSPIRE-locked public model underwent unchanged same-endpoint validation in MIMIC-IV and eICU, with weak transport. No equivalent independent validation exists for the source clinical model. | Complete and prominently limited |
-| Reproducibility | Fixed seeds, Jupytext `py:percent` code, input hashes, machine-readable audits, 49 figure-source CSVs and synthetic tests. | Complete pending archive DOI |
+| Reproducibility | Fixed seeds, Jupytext `py:percent` code, input hashes, machine-readable audits, 51 figure-source CSVs grouped into 21 final-display sheets and synthetic tests. | Complete for review |
 
 ## STROBE observational-study mapping
 
@@ -43,7 +43,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Design in title or abstract | Abstract states five-centre cohort and public-database stress tests; Methods states retrospective design. | Complete |
 | Background and objectives | Introduction. | Complete |
 | Setting and dates | Methods, clinical cohort; exact source dates 4 December 2017 to 25 June 2024. | Complete |
-| Participants and eligibility | Methods and Supplementary Information sections 2 and 4. Source denominator construction, consecutive enrolment and the non-reproducible stated missingness rule need author confirmation. | Submission blocker |
+| Participants and eligibility | Methods and Supplementary Information sections 2 and 4 report the source denominator, unique patients, study dates and consecutive enrolment status. The stated missingness rule still does not reproduce the supplied 3710-patient file and is retained as a provenance limitation. | Complete with limitation |
 | Variables and measurement | Methods; Supplementary Information sections 2-6; 110-variable dictionary in Supplementary Tables. | Complete with source outcome audit limitation |
 | Bias | Dense-reference selection, observability, preoperative-AKI bounds, source-data quality and missingness audits. | Complete |
 | Study size | Available cohorts plus precision analyses and limitations. | Complete |
@@ -53,7 +53,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Outcome data and main results | Results and Tables 1-4. | Complete |
 | Other analyses | Sensitivity, subgroup, temporal and simulation analyses labelled. | Complete |
 | Limitations and interpretation | Discussion. | Complete |
-| Funding | Placeholder. | Submission blocker |
+| Funding | Grant identifiers and funder-role statement are included from the supplied source manuscript. | Complete subject to author sign-off |
 
 ## TRIPOD+AI mapping
 
@@ -71,7 +71,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Model updating | Cross-fitted apparent-target and reference-sample updating; targets explicitly separated. | Complete |
 | Subgroups and fairness | Measurement-aware descriptive audit; no fairness certification. | Complete with limitation |
 | Clinical utility | Retrospective decision analysis only; no prospective impact claim. | Complete with limitation |
-| Open science | Aggregate Source Data and tagged release v1.3.0 are ready; independent archive DOI pending. | Submission blocker |
+| Open science | Aggregate Source Data and tagged release v1.3.1 are prepared for review; an archive DOI is optional and can be added later. | Complete for review |
 
 ## PROBAST+AI self-audit
 
@@ -97,12 +97,12 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Explainability | Not a central claim; feature stability and incremental value are supplementary. | Not applicable |
 | Fairness | Measurement-aware descriptive audits; sex uncertainty retained rather than imputed. | Complete with limitation |
 | Clinical deployment and impact | Not performed; monitoring workload is decision-analytic only. | Complete and limited |
-| Reproducibility | Code, Source Data and audits prepared in GitHub tagged release v1.3.0; archive DOI pending. | Submission blocker |
+| Reproducibility | Code, Source Data and audits are prepared in GitHub tagged release v1.3.1; an archive DOI is optional for peer-review access. | Complete for review |
 
 ## Author actions required on the official forms
 
 1. Insert corresponding-author identity and date in both Nature smart PDFs.
 2. Confirm ethics and consent-waiver wording verbatim.
 3. Confirm sex-field provenance and whether sex or gender was collected.
-4. Enter final repository URLs, archive DOIs and software licence.
+4. Verify the final repository tag and software licence; add an archive DOI only if one is created.
 5. Verify that every response matches the manuscript and portal after author information is inserted.

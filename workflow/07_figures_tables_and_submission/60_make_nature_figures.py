@@ -21,8 +21,8 @@ FIGURES.mkdir(parents=True, exist_ok=True)
 
 plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = ['Arial', 'DejaVu Sans', 'Liberation Sans']
-mpl.rcParams.update({"svg.fonttype":"none","pdf.fonttype":42,"font.size":7,"axes.labelsize":7,"axes.titlesize":8,
-                     "xtick.labelsize":6.5,"ytick.labelsize":6.5,"legend.fontsize":6.5,
+mpl.rcParams.update({"svg.fonttype":"none","pdf.fonttype":42,"font.size":16,"axes.labelsize":16,"axes.titlesize":17,
+                     "xtick.labelsize":15,"ytick.labelsize":15,"legend.fontsize":15.5,
                      "axes.spines.right":False,"axes.spines.top":False,"axes.linewidth":.7,
                      "legend.frameon":False,"savefig.bbox":"tight"})
 
@@ -58,7 +58,7 @@ def heatmap_panel(data,index,columns,value,title,cbar_label,folder,name,vcenter=
     for i in range(pivot.shape[0]):
         for j in range(pivot.shape[1]):
             shown=0.0 if abs(pivot.iloc[i,j])<0.005 else pivot.iloc[i,j]
-            ax.text(j,i,f"{shown:.2f}",ha="center",va="center",fontsize=5.5,
+            ax.text(j,i,f"{shown:.2f}",ha="center",va="center",fontsize=15,
                     color="white" if abs(pivot.iloc[i,j])>.55*vmax else BLACK)
     cb=fig.colorbar(im,ax=ax,fraction=.04,pad=.03);cb.set_label(cbar_label)
     save_panel(fig,folder,name,data)
@@ -79,7 +79,7 @@ for db,c in [("INSPIRE",BLUE),("MIMIC",ORANGE),("EICU",GREEN)]:
 ypos=np.arange(len(labels))[::-1]
 ax.barh(ypos,values,color=colors,alpha=.85,height=.65)
 ax.set_yticks(ypos,labels);ax.set_xlabel("Patients/operations");ax.set_title("Operational reference cohorts",loc="left",fontweight="bold")
-for yv,n in zip(ypos,values):ax.text(n,yv,f" {n:,}",va="center",fontsize=6)
+for yv,n in zip(ypos,values):ax.text(n*.98,yv,f"{n:,}",ha="right",va="center",fontsize=13.5,color="white",fontweight="bold")
 save_panel(fig,"Figure1_reference_observability","Figure1a_reference_flow",flow)
 
 bal=pd.read_csv(TABLES/"Table_observability_predictor_imbalance.csv")
@@ -125,19 +125,19 @@ for x, y, w, h, label, color in boxes:
                            edgecolor="none", alpha=.90)
     ax.add_patch(patch)
     ax.text(x+w/2, y+h/2, label, ha="center", va="center", color="white",
-            fontsize=6.3, fontweight="bold")
+            fontsize=10.5, fontweight="bold")
 ax.annotate("", xy=(4.02, 3.05), xytext=(3.05, 3.05),
             arrowprops=dict(arrowstyle="->", lw=.9, color=BLACK))
-ax.text(3.55, 3.42, "measurement\ndeletion", ha="center", va="center", fontsize=5.5)
+ax.text(3.55, 3.42, "measurement\ndeletion", ha="center", va="center", fontsize=10.5)
 ax.annotate("", xy=(7.92, 3.05), xytext=(6.95, 3.05),
             arrowprops=dict(arrowstyle="->", lw=.9, color=BLACK))
-ax.text(7.45, 3.42, "endpoint\nreconstruction", ha="center", va="center", fontsize=5.5)
+ax.text(7.45, 3.42, "endpoint\nreconstruction", ha="center", va="center", fontsize=10.5)
 ax.annotate("", xy=(1.6, 2.50), xytext=(4.7, 1.28),
             arrowprops=dict(arrowstyle="->", lw=.9, color=BLUE))
-ax.text(2.65, 1.55, "retained-reference\nevaluation", ha="center", va="center", color=BLUE, fontsize=5.5)
+ax.text(2.65, 1.55, "retained-reference\nevaluation", ha="center", va="center", color=BLUE, fontsize=10.5)
 ax.annotate("", xy=(9.4, 2.50), xytext=(6.3, 1.28),
             arrowprops=dict(arrowstyle="->", lw=.9, color=VERMILLION))
-ax.text(8.35, 1.55, "apparent-target\nevaluation", ha="center", va="center", color=VERMILLION, fontsize=5.5)
+ax.text(8.35, 1.55, "apparent-target\nevaluation", ha="center", va="center", color=VERMILLION, fontsize=10.5)
 ax.set_title("One model, two outcome targets", loc="left", fontweight="bold")
 save_panel(fig,"Figure1_reference_observability","Figure1d_estimand_schematic",process)
 
@@ -207,10 +207,14 @@ i=d[d.database.eq("INSPIRE")];m=d[d.database.eq("MIMIC")]
 keys=["retention_target","mechanism","strength","method"]
 paired=i.merge(m,on=keys,suffixes=("_inspire","_mimic"))
 fig,ax=plt.subplots(figsize=(3.0,2.7))
+short_method_labels={"naive":"Naive","IPAW_design_probability_untruncated":"IPAW",
+                     "IPAW_design_probability_truncated99":"IPAW-trunc","AIPW_design_probability":"AIPW",
+                     "recalibration_intercept_truth":"Intercept","recalibration_intercept_slope_truth":"Intercept+slope",
+                     "reference_10pct_recalibration":"10% reference"}
 for method,g in paired.groupby("method"):
-    ax.scatter(g.bias_inspire,g.bias_mimic,s=9,alpha=.6,color=METHOD_COLORS.get(method,GREY),label=method_labels.get(method,method))
+    ax.scatter(g.bias_inspire,g.bias_mimic,s=9,alpha=.6,color=METHOD_COLORS.get(method,GREY),label=short_method_labels.get(method,method))
 ax.axhline(0,color=LIGHT,lw=.7);ax.axvline(0,color=LIGHT,lw=.7);ax.set_xlabel("INSPIRE O/E bias");ax.set_ylabel("MIMIC O/E bias")
-ax.set_title("Independent mechanism replication",loc="left",fontweight="bold");ax.legend(bbox_to_anchor=(1.02,1),loc="upper left")
+ax.set_title("Independent mechanism replication",loc="left",fontweight="bold");ax.legend(loc="best",ncol=2)
 save_panel(fig,"Figure3_correction_strategies","Figure3c_cross_database_bias",paired)
 
 recal_methods=["recalibration_intercept_truth","recalibration_intercept_slope_truth","reference_10pct_recalibration"]
@@ -289,7 +293,7 @@ for fs,marker in [("P","o"),("PI","s"),("H","^")]:
     g=d[d.feature_set.eq(fs)];ax.scatter(g.worst_estimable_center_abs_citl,g.pooled_auc,s=28,marker=marker,label=fs)
     for j,row in enumerate(g.itertuples()):
         label=row.model.replace("gradient_boosting","GB").replace("restricted_rf","RF").replace("ridge","Ridge")
-        ax.annotate(label,(row.worst_estimable_center_abs_citl,row.pooled_auc),xytext=(3,4 if j%2==0 else -8),textcoords="offset points",fontsize=5)
+        ax.annotate(label,(row.worst_estimable_center_abs_citl,row.pooled_auc),xytext=(3,4 if j%2==0 else -8),textcoords="offset points",fontsize=15)
 ax.set_xlabel("Worst |CITL| among centers with ≥20 events");ax.set_ylabel("Pooled LOCO AUC");ax.legend(title="Feature set",loc="lower right")
 ax.set_title("Pooled performance vs center calibration",loc="left",fontweight="bold")
 save_panel(fig,"Figure4_stability_portability","Figure4c_portability_frontier",d)
@@ -349,7 +353,7 @@ fig,ax=plt.subplots(figsize=(3.7,2.5));xx=np.arange(len(component_plot))
 ax.bar(xx,component_plot.event_rate*100,color=[BLUE,SKY,PURPLE,GREEN])
 ax.set_xticks(xx,["Creatinine","Urine-output\nproxy","RRT","Available-component\nunion"])
 ax.set_ylabel("Event prevalence (%)")
-for x,row in zip(xx,component_plot.itertuples()):ax.text(x,row.event_rate*100+.35,f"{int(row.events):,}",ha="center",fontsize=6)
+for x,row in zip(xx,component_plot.itertuples()):ax.text(x,row.event_rate*100+.35,f"{int(row.events):,}",ha="center",fontsize=12)
 ax.set_title("Endpoint components change the apparent target",loc="left",fontweight="bold")
 save_panel(fig,"Figure6_eicu_replication","Figure6b_eicu_endpoint_components",component_plot)
 
@@ -364,9 +368,9 @@ for ax,metric,ideal in [(axes[0],"AUC",.5),(axes[1],"O/E",1.0)]:
     ax.bar([0,1],metric_plot[metric],color=[BLUE,GREEN],width=.65)
     ax.axhline(ideal,color=BLACK,lw=.7,ls="--")
     ax.set_xticks([0,1],["Creatinine","Component\nunion"]);ax.set_ylabel(metric)
-    for x,value in enumerate(metric_plot[metric]):ax.text(x,value+.015,f"{value:.3f}",ha="center",fontsize=6)
+    for x,value in enumerate(metric_plot[metric]):ax.text(x,value+.015,f"{value:.3f}",ha="center",fontsize=12)
 axes[0].set_ylim(.48,.68);axes[1].set_ylim(0,1.3)
-fig.suptitle("The same predictions imply different performance after target change",x=.01,ha="left",fontweight="bold",fontsize=8)
+fig.suptitle("The same predictions imply different performance after target change",x=.01,ha="left",fontweight="bold",fontsize=14)
 save_panel(fig,"Figure6_eicu_replication","Figure6c_eicu_target_performance",metric_plot)
 
 panel_audit = []

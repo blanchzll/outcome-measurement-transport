@@ -38,12 +38,12 @@ mpl.rcParams.update(
     {
         "svg.fonttype": "none",
         "pdf.fonttype": 42,
-        "font.size": 7,
-        "axes.labelsize": 7,
-        "axes.titlesize": 8,
-        "xtick.labelsize": 6.5,
-        "ytick.labelsize": 6.5,
-        "legend.fontsize": 6.5,
+        "font.size": 12,
+        "axes.labelsize": 12,
+        "axes.titlesize": 13,
+        "xtick.labelsize": 11,
+        "ytick.labelsize": 11,
+        "legend.fontsize": 10.5,
         "axes.spines.right": False,
         "axes.spines.top": False,
         "axes.linewidth": 0.7,
@@ -90,7 +90,7 @@ for index, centre in enumerate(count_matrix.columns):
     )
     bottom += values
 for x, total, events in zip(count_matrix.index.astype(int), bottom, event_totals.reindex(count_matrix.index)):
-    ax.text(x, total + max(bottom) * 0.018, f"{int(events)} events", ha="center", va="bottom", fontsize=6)
+    ax.text(x, total + max(bottom) * 0.018, f"{int(events)} events", ha="center", va="bottom", fontsize=12)
 ax.set_xlabel("Year of surgery")
 ax.set_ylabel("Patients")
 ax.set_xticks(count_matrix.index.astype(int))
@@ -179,7 +179,7 @@ for bar, row in zip(bars, wide.itertuples()):
         f"{n7}/{int(row.total)}",
         ha="center",
         va="bottom",
-        fontsize=6,
+        fontsize=12,
     )
 ax.set_ylim(0, 1.08)
 ax.set_xticks(wide.center.astype(int), [f"Centre {int(x)}" for x in wide.center])

@@ -1,0 +1,9 @@
+issue,previous_or_ambiguous_value,authoritative_value,authoritative_artifact,resolution
+primary_source_population,4014 records and 155 events used as analysis population,3710 patients and 152 events primary; 4014 and 155 sensitivity,Table_dataset_roles_and_inference_boundaries.csv,Rebuilt ledgers and manuscript from locked primary freeze
+centre_event_counts,39/43/56/16/1,39/42/56/14/1,MANUSCRIPT_NATURE_COMMUNICATIONS.md,Removed stale 4014-era counts
+source_random_forest_interval,AUC 0.668-0.760; OE 0.953-1.010; slope 0.886-1.287,AUC 0.665-0.761; OE 0.844-1.131; slope 0.883-1.290,Table1_source_model_results.csv,Rebuilt 1000 patient-within-centre bootstraps without outcome stratification
+clinical_bridge,AUC 0.6861; OE 0.3576; slope 0.8711,AUC 0.6809; OE 0.3746; slope 0.8793,Table_public_model_to_source_clinical_bridge.csv,Propagated locked 3710-patient evaluation
+hierarchical_calibration,common slope 1.1460; intercept SD 1.6045,common slope 1.1413; intercept SD 1.5704,Table_bayesian_hierarchical_calibration.csv,Propagated locked 3710-patient posterior summary
+screened_exclusion_description,304 exclusions attributed only to invalid sex,295 unresolved sex records plus 9 female-coded records,Table_source_exclusion_linkage_audit.csv,Separated verified stable-ID linkage from unexplained provenance
+primary_schedule_figure,24-hour four-database matrix displayed as main figure,12-hour four-database observability and sensitivity matrix with 200 replicates per cell,FIGURE5_PRIMARY_12H_AUDIT.json,Rebuilt Figure 5; retained 24-hour analysis in Supplementary Figure 13
+VitalDB_status,Main confirmatory or supplementary status ambiguous,Supportive perioperative mechanism sensitivity; waveform extension supplementary only,Table_dataset_roles_and_inference_boundaries.csv,Removed confirmatory wording and recorded prohibited inferences

@@ -1,96 +1,13 @@
-# Author input required before submission
+# Corresponding-author portal checklist
 
-The analysis package can be completed without further clinical data, but the following
-items cannot be inferred safely from datasets or code. They are submission blockers and
-must be supplied or approved verbatim by the corresponding author.
+The analysis and manuscript files are complete. The following items require the corresponding author because they involve personal attestations or journal-portal credentials rather than statistical analysis.
 
-## Identity and responsibility
+1. Confirm the final author order, affiliations, equal-contribution note and CRediT roles with every author.
+2. Enter the corresponding author's ORCID, postal address and telephone number if requested by the portal.
+3. Retain the five ethics approvals, waiver records and any amendment or local-governance documents that cover the analysed gastric and colorectal cohorts through 25 June 2024. The manuscript reports the approval identifiers supplied by the investigators.
+4. Confirm the competing-interest and funding declarations through the journal's author-signoff process.
+5. Complete and sign the official Nature Portfolio life-sciences and machine-learning reporting forms using `REPORTING_CHECKLIST_CROSSWALK.md`.
+6. Approve the governed source-data request process and the AI-assistance disclosure.
+7. Add a repository archive DOI if a Zenodo or equivalent deposit is created. The verified GitHub tag is sufficient for peer-review access and is already cited in the manuscript.
 
-1. Final author order, full names, degrees, affiliations, corresponding-author postal
-   address, email, and ORCID identifiers.
-2. CRediT contribution statement approved by every author.
-3. Confirmation that every listed author meets authorship criteria and accepts final
-   responsibility for the manuscript.
-
-## Ethics and governance
-
-The uploaded protocol and initiation materials now establish an original multicentre
-retrospective gastric-cancer protocol (V1.1, 6 November 2022) and state that waiver of
-informed consent was approved. The scanned approval letter is present. The following
-submission fields and scope reconciliations remain unresolved:
-
-1. The coordinating-centre approval has been verified as Ethics Committee of Shanghai
-   Ninth People's Hospital, Shanghai Jiao Tong University School of Medicine,
-   SH9H-2022-T369-1, dated 12 January 2023. Supply the approval or governance identifiers
-   for the other participating centres if the journal requests them.
-2. Final verbatim informed-consent waiver statement for the manuscript.
-3. Provide the amendment, centre-specific approval, or written governance confirmation
-   covering colorectal cancer surgery, the actual five-centre analysis set, and operations
-   through June 2024. Protocol V1.1 describes gastric cancer only, 2013-22, and a planned
-   participating-centre list that is not fully concordant with the analysed cohort.
-4. Confirm whether enrolment was consecutive, document how the approximately 5000 planned
-   source records became the 4014 authoritative operations, and whether the Sheet1 range
-   of 4 December 2017 to 25 June 2024 is the intended study period. The previously stated
-   2015-2024 period is not present in Sheet1 and must not be used without source verification.
-5. Confirmation that the stated site-level adjudication procedure is documented in the
-   protocol or case-report materials: KDIGO 2012; creatinine, urine output, and RRT; two
-   nephrologists per case; disagreement resolved by a third coordinating-centre
-   nephrologist; adjudicators masked to predictions and candidate predictors.
-6. Approved statement governing access to the five-centre patient-level data.
-7. Source correction, if available, for the 17 records with admission after surgery and
-   the six records with surgery after discharge. The sensitivity analysis already excludes
-   them, but corrected dates would improve the audit trail.
-8. Exact outcome horizon confirmation (currently reported as postoperative day 0-7),
-   handling of death/discharge before day 7, and whether every operation had complete
-   laboratory and urine-output surveillance opportunity. In the current data, 165 patients
-   had fewer than seven recorded postoperative inpatient days; clarify outpatient, transfer,
-   or post-discharge follow-up for these patients if available.
-9. Counts of first-versus-second adjudicator disagreement and third-review resolution,
-   plus the original adjudication protocol or case-report form if governance permits.
-10. Source resolution of the three records in which binary `PostopAKI` and `AKIStage`
-    disagree. Until reconciled, `PostopAKI` remains primary and stage analyses are descriptive.
-11. Definition and timing of the RRT field. In the authoritative 3710-patient cohort,
-    six values are missing and ten patients coded RRT=Yes are binary non-AKI. Confirm whether
-    these represent chronic/preoperative treatment, postoperative treatment, or data-entry error.
-12. Confirm that surgical-approach code 4 denotes robotic surgery. The source header lists
-    only codes 1-3, whereas 60 records contain code 4 and 13 contain corrupted or combined codes.
-13. Confirm whether the field labelled `术前POD1 Hb` is postoperative day-1 haemoglobin.
-    Its position among postoperative laboratory variables is inconsistent with the word
-    `术前`; it is currently treated as postoperative and excluded from prediction.
-14. Confirm laboratory units and resolve the small number of implausible values, including
-    preoperative WBC values 661 and 7027, BUN values 225 and 4004, haemoglobin below 30 or
-    above 220, albumin below 10 or above 70, and creatinine below 20 in the stated units.
-15. Explain why BMI, ASA grade, operation time, intraoperative fluid, and intraoperative
-    vasoactive use are wholly absent in centre 1 and approximately 61-86% absent in centre 4.
-    State whether collection began later, source systems differed, or records were unavailable.
-
-## Funding, conflicts, and assistance
-
-1. Every funding source and grant number, or an explicit statement that no specific
-   funding was received.
-2. Funder role in design, data collection, analysis, interpretation, writing, and the
-   decision to submit.
-3. Individual competing-interest declarations for all authors.
-4. Final journal-compliant disclosure of AI-assisted coding, statistical checking, and
-   language editing. Authors must confirm that they verified all generated code, numerical
-   results, references, and prose and retain responsibility for the work.
-
-## Reproducibility and submission administration
-
-1. The public repository URL, version tag and MIT License are fixed at
-   https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.0.
-   Add the archive DOI after author-controlled deposit.
-2. Confirmation that public-data use statements and required INSPIRE and MIMIC
-   acknowledgements meet the applicable data-use agreements.
-3. The target journal and article type are now fixed as a Nature Communications Article.
-   Confirm acceptance of the open-access publication charge and licence choice, then
-   recheck portal fields on the day of submission.
-4. Approval of the final title, 150-word abstract, cover letter, Data Availability statement,
-   Code Availability statement, and transparent-peer-review choice.
-5. Add the archive DOI for figure source data and release-safe code. Nature Communications
-   verifies accessions and persistent links before publication.
-6. Completed Nature Portfolio Reporting Summary and machine-learning reporting summary,
-   signed off by the corresponding author rather than treated as administrative checklists.
-
-Until these fields are completed, the correct status is **analysis-complete and formatted
-for Nature Communications, but submission-blocked on author-controlled information**.
+No unresolved statistical placeholder remains in the manuscript, cover letter or Supplementary Information.

@@ -1,0 +1,5 @@
+linkage_group,n,events,centre,sex_status,role_and_interpretation
+locked_primary_3710,3710,152,1-5,resolved_male_or_female,Investigator-locked primary analysis cohort
+excluded_unresolved_sex,295,2,4,missing_or_unresolved,Excluded from the locked cohort and retained with fold-internal imputation in the screened-population sensitivity
+excluded_female_coded,9,1,2,female,Exclusion is not explained by the stated sex-code or row-missingness rule
+screened_total_4014,4014,155,1-5,mixed,Screened-population sensitivity denominator; separately fitted models do not isolate a causal exclusion effect

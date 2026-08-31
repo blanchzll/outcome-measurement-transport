@@ -1,0 +1,120 @@
+{
+  "status": "PASS",
+  "freeze": {
+    "primary_n": 3710,
+    "primary_events": 152,
+    "screened_n": 4014,
+    "screened_events": 155
+  },
+  "checks": [
+    {
+      "check": "current text contains 39, 42, 56, 14 and one",
+      "status": "PASS"
+    },
+    {
+      "check": "current text contains 0.6809",
+      "status": "PASS"
+    },
+    {
+      "check": "current text contains 0.3746",
+      "status": "PASS"
+    },
+    {
+      "check": "current text contains 0.8793",
+      "status": "PASS"
+    },
+    {
+      "check": "current text contains 1.1413",
+      "status": "PASS"
+    },
+    {
+      "check": "current text contains 1.5704",
+      "status": "PASS"
+    },
+    {
+      "check": "current text contains 0.8436-1.1307",
+      "status": "PASS"
+    },
+    {
+      "check": "current text contains 295 unresolved sex",
+      "status": "PASS"
+    },
+    {
+      "check": "stale value absent: 39, 43, 56, 16",
+      "status": "PASS"
+    },
+    {
+      "check": "stale value absent: 0.6861",
+      "status": "PASS"
+    },
+    {
+      "check": "stale value absent: 0.3576",
+      "status": "PASS"
+    },
+    {
+      "check": "stale value absent: 1.1460",
+      "status": "PASS"
+    },
+    {
+      "check": "stale value absent: 1.6045",
+      "status": "PASS"
+    },
+    {
+      "check": "stale value absent: 0.9532-1.0102",
+      "status": "PASS"
+    },
+    {
+      "check": "all primary source-model rows use n=3710",
+      "status": "PASS"
+    },
+    {
+      "check": "all primary source-model rows use 152 events",
+      "status": "PASS"
+    },
+    {
+      "check": "authoritative RF O/E lower interval",
+      "status": "PASS"
+    },
+    {
+      "check": "authoritative RF O/E upper interval",
+      "status": "PASS"
+    },
+    {
+      "check": "Figure 5 audit passes",
+      "status": "PASS"
+    },
+    {
+      "check": "Figure 5 uses primary 12-hour tolerance",
+      "status": "PASS"
+    },
+    {
+      "check": "Figure 5 contains both metrics for 16 cells and 200 replicates",
+      "status": "PASS"
+    },
+    {
+      "check": "source role ledger declares locked primary cohort",
+      "status": "PASS"
+    },
+    {
+      "check": "source role ledger declares screened sensitivity denominator",
+      "status": "PASS"
+    },
+    {
+      "check": "screened sensitivity contains both declared populations",
+      "status": "PASS"
+    },
+    {
+      "check": "screened sensitivity retains 295 unresolved sex records",
+      "status": "PASS"
+    }
+  ],
+  "artifact_sha256": {
+    "manuscript_sources/MANUSCRIPT_NATURE_COMMUNICATIONS.md": "a55435819d2e8dd9d0f9d90207d63859482919b3364942e7e39db89694b5d711",
+    "manuscript_sources/SUPPLEMENTARY_INFORMATION.md": "937f22c161bfc0f1bd4366c4480061cbf3a5297bba0f64f767fab6d7fd9dedb2",
+    "submission_package_work/delivery/main/tables/Table1_source_model_results.csv": "f102a007f39e72f058acfd118634580d09a7220645974596ddaf95cff5bcb556",
+    "submission_package_work/delivery/supplement/tables/Table_dataset_roles_and_inference_boundaries.csv": "7c481e7648aa85fb134e3c5f9fe06e0145453dc8835b910fe6a03a50401a706e",
+    "submission_package_work/delivery/supplement/tables/Table_source_screened_cohort_sensitivity.csv": "7336cbefb2cd2200099f51e43d7f41ea2df2ebeadcba87fc858e58f8af943f7d",
+    "submission_package_work/qa/FIGURE5_PRIMARY_12H_AUDIT.json": "d518f3b42668d85bdb3e0f45c7188de4b921715e8067775858d705cbf63be8a9"
+  },
+  "patient_level_output_written": false
+}

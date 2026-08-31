@@ -54,6 +54,10 @@ CROSSDB_SUPP_TABLES = [
 ]
 EXTENSION_SUPP_TABLES = [
     'Table_method_identification_conditions_v2.csv',
+    'Table_primary_selection_reconstruction_decomposition.csv',
+    'Table_source_exclusion_linkage_audit.csv',
+    'Table_round1_discrepancy_resolution.csv',
+    'Table_source_screened_cohort_sensitivity.csv',
     'Table_empirical_schedule_transport.csv',
     'Table_optimized_reference_sampling.csv',
     'Table_source_postdischarge_sensitivity_bounds.csv',
@@ -85,6 +89,8 @@ def style_workbook(path: Path) -> None:
     wb = load_workbook(path)
     for ws in wb.worksheets:
         ws.freeze_panes = 'A2'
+        if ws.max_row >= 2 and ws.max_column >= 1 and ws.title != 'README':
+            ws.auto_filter.ref = ws.dimensions
         for cell in ws[1]:
             cell.font = Font(name='Arial', size=10, bold=True, color='000000')
             cell.fill = PatternFill(fill_type='solid', fgColor='E7E7E7')
@@ -97,20 +103,80 @@ def style_workbook(path: Path) -> None:
             values = [str(c.value) if c.value is not None else '' for c in list(column)[:200]]
             width = min(45, max(10, max((len(v) for v in values), default=10) + 2))
             ws.column_dimensions[get_column_letter(idx)].width = width
+    if 'INDEX' in wb.sheetnames:
+        index = wb['INDEX']
+        headers = {cell.value: cell.column for cell in index[1]}
+        sheet_column = headers.get('sheet')
+        if sheet_column:
+            for row in range(2, index.max_row + 1):
+                cell = index.cell(row=row, column=sheet_column)
+                if cell.value in wb.sheetnames:
+                    cell.hyperlink = f"#'{cell.value}'!A1"
+                    cell.style = 'Hyperlink'
     wb.save(path)
 
 
-def workbook_from_csvs(csvs: list[Path], output: Path, readme_rows: list[list[str]]) -> dict:
+def workbook_from_csvs(
+    csvs: list[Path], output: Path, readme_rows: list[list[str]], *, group_by_display: bool = False
+) -> dict:
     used: set[str] = set()
     with pd.ExcelWriter(output, engine='openpyxl') as writer:
         pd.DataFrame(readme_rows[1:], columns=readme_rows[0]).to_excel(writer, sheet_name='README', index=False)
         used.add('README')
         manifest = []
-        for csv in csvs:
-            frame = pd.read_csv(csv)
-            sheet = safe_sheet(csv.stem, used)
-            frame.to_excel(writer, sheet_name=sheet, index=False)
-            manifest.append({'source': str(csv), 'sheet': sheet, 'rows': len(frame), 'columns': len(frame.columns), 'sha256': sha256(csv)})
+        if group_by_display:
+            grouped: dict[str, list[Path]] = {}
+            for csv in csvs:
+                display = csv.parent.name
+                if not re.match(r'^(?:Supplementary)?Figure\d+$', display):
+                    raise RuntimeError(f'Figure source file lacks final-display folder: {csv}')
+                grouped.setdefault(display, []).append(csv)
+            def display_number(value: str) -> tuple[int, int]:
+                match = re.match(r'^(Supplementary)?Figure(\d+)$', value)
+                return (1 if match.group(1) else 0, int(match.group(2)))
+            for display in sorted(grouped, key=display_number):
+                sheet = safe_sheet(display, used)
+                parts = []
+                for csv in sorted(grouped[display]):
+                    frame = pd.read_csv(csv)
+                    frame.insert(0, 'panel_source', csv.stem)
+                    parts.append(frame)
+                    manifest.append({
+                        'final_display': display,
+                        'source_file': csv.name,
+                        'sheet': sheet,
+                        'rows': len(frame),
+                        'columns': len(frame.columns) - 1,
+                        'sha256': sha256(csv),
+                    })
+                pd.concat(parts, ignore_index=True, sort=False).to_excel(writer, sheet_name=sheet, index=False)
+        else:
+            for csv in csvs:
+                frame = pd.read_csv(csv)
+                if csv.name in {
+                    'Supplementary_Table_1_method_identification_conditions.csv',
+                    'Table_method_identification_conditions_v2.csv',
+                }:
+                    display = 'Supplementary Table 1'
+                    sheet_base = 'Supplementary Table 1'
+                elif csv.name == 'Table_primary_selection_reconstruction_decomposition.csv':
+                    display = 'Supplementary Table 2'
+                    sheet_base = 'Supplementary Table 2'
+                else:
+                    display = csv.parent.name if re.match(r'^(?:Supplementary)?Figure\d+$', csv.parent.name) else ''
+                    stem = re.sub(r'^(?:Supplementary)?Figure\d+[a-z]?(?:-|_)?', '', csv.stem)
+                    sheet_base = f'{display}_{stem}' if display else csv.stem
+                sheet = safe_sheet(sheet_base, used)
+                frame.to_excel(writer, sheet_name=sheet, index=False)
+                manifest.append({
+                    'final_display': display,
+                    'source_file': csv.name,
+                    'sheet': sheet,
+                    'rows': len(frame),
+                    'columns': len(frame.columns),
+                    'sha256': sha256(csv),
+                })
+        pd.DataFrame(manifest).to_excel(writer, sheet_name='INDEX', index=False)
     style_workbook(output)
     return {'output': str(output), 'sha256': sha256(output), 'sheets': manifest}
 
@@ -152,6 +218,14 @@ for name in EXTENSION_SUPP_TABLES:
     shutil.copy2(source, target)
     supp_csvs.append(target)
 supp_csvs = list(dict.fromkeys(path.resolve() for path in supp_csvs))
+# The identification table is Supplementary Table 1 and must be the first data
+# sheet rather than an opaque item near the end of a large workbook.
+identification = [p for p in supp_csvs if p.name == 'Table_method_identification_conditions_v2.csv']
+decomposition = [p for p in supp_csvs if p.name == 'Table_primary_selection_reconstruction_decomposition.csv']
+supp_csvs = identification + decomposition + [
+    p for p in supp_csvs
+    if p.name not in {'Table_method_identification_conditions_v2.csv', 'Table_primary_selection_reconstruction_decomposition.csv'}
+]
 
 # %% Main and supplementary table workbooks
 main_audit = workbook_from_csvs(
@@ -163,7 +237,13 @@ main_audit = workbook_from_csvs(
 supp_audit = workbook_from_csvs(
     supp_csvs,
     NC / 'tables' / 'Supplementary_Tables.xlsx',
-    [['Field', 'Value'], ['Scope', 'Complete aggregate supplementary table set'], ['Data level', 'Aggregate only; no patient-level records'], ['Primary compatibility table', 'Supplementary Table 1 maps methods to estimands and identification conditions']],
+    [
+        ['Field', 'Value'],
+        ['Scope', 'Complete aggregate supplementary table set'],
+        ['Data level', 'Aggregate only; no patient-level records'],
+        ['Supplementary Table 1', 'Methods mapped to estimands and identification conditions'],
+        ['Supplementary Table 2', 'Common-denominator selection/reconstruction decomposition with fixed-cohort and nested uncertainty'],
+    ],
 )
 
 # %% Nature Source Data workbook from all submitted panel CSVs
@@ -177,10 +257,11 @@ source_audit = workbook_from_csvs(
     [
         ['Field', 'Value'],
         ['Article title', 'Transported outcome-measurement schedules can alter calibration of clinical prediction models'],
-        ['Scope', 'Aggregate source values for every main and supplementary figure panel'],
+        ['Scope', 'Aggregate source values for every main and supplementary figure panel; INDEX maps final display numbers to sheets'],
         ['Data level', 'Aggregate or Monte Carlo summary only; no stable patient identifiers or row-level predictions'],
         ['Endpoint note', 'Public endpoints are operational creatinine references, not biological truth or expert-adjudicated full KDIGO'],
     ],
+    group_by_display=True,
 )
 
 audit = {

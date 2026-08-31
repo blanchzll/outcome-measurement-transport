@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "download_summary_status": "PASS",
+  "manifest_entries": 6394,
+  "verified_files": 6394,
+  "missing": [],
+  "mismatched": [],
+  "verified_bytes": 102456164496,
+  "verification_seconds": 710.9
+}

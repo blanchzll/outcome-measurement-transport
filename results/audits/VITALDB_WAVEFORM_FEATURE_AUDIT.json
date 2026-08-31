@@ -1,0 +1,41 @@
+{
+  "generated_at_utc": "2026-08-30T20:08:27.714647+00:00",
+  "dataset": "VitalDB 1.0.0",
+  "manifest_verification": "PASS; 6394 official objects",
+  "prediction_landmark": "opend",
+  "n_clinical_cases": 6388,
+  "n_extraction_ok": 6388,
+  "status_counts": {
+    "ok": 6388
+  },
+  "n_usable_art_map_duration_features": 3444,
+  "usable_art_map_percent": 53.91358797745773,
+  "n_operation_windows_truncated": 25,
+  "operation_window_truncated_percent": 0.3913587977457733,
+  "operation_window_available_fraction_minimum": 0.6675,
+  "art_map_coverage_median": 0.9835189659556289,
+  "art_map_track_counts": {
+    "Solar8000/ART_MBP": 3523,
+    "none": 2857,
+    "Solar8000/FEM_MBP": 5,
+    "EV1000/ART_MBP": 3
+  },
+  "hr_track_counts": {
+    "Solar8000/HR": 6388
+  },
+  "feature_protocol": {
+    "interval_seconds": 1,
+    "maximum_forward_hold_seconds": 5,
+    "art_map_valid_range_mmHg": [
+      20,
+      200
+    ],
+    "heart_rate_valid_range_bpm": [
+      20,
+      250
+    ],
+    "duration_feature_minimum_seconds": 1800,
+    "duration_feature_minimum_coverage": 0.2
+  },
+  "patient_level_output_public": false
+}

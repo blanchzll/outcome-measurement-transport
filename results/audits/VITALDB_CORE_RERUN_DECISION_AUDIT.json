@@ -1,0 +1,62 @@
+{
+  "generated_at_utc": "2026-08-30T20:14:09.714798+00:00",
+  "status": "PASS",
+  "repository": "github_repository",
+  "baseline_ref": "v1.3.0",
+  "baseline_commit": "bf0c8f5dc75c51553e50b455881ecb3ee4e6c404",
+  "head_commit": "126b5a76ebb2dd14eaa68ef4778b4c167753004b",
+  "worktree_clean": true,
+  "changed_paths": [
+    "README.md",
+    "WORKFLOW_MANIFEST.csv",
+    "protocols/VITALDB_WAVEFORM_EXTENSION_ACCEPTANCE_GATES.md",
+    "protocols/VITALDB_WAVEFORM_EXTENSION_PROTOCOL.md",
+    "requirements-full.txt",
+    "tests/test_vitaldb_waveform_extension.py",
+    "workflow/00_provenance_and_estimands/13_vitaldb_waveform_extension_qa.py",
+    "workflow/00_provenance_and_estimands/16_vitaldb_waveform_result_digest.py",
+    "workflow/00_provenance_and_estimands/17_vitaldb_core_rerun_decision.py",
+    "workflow/02_public_reference_cohorts/10_vitaldb_waveform_feature_extraction.py",
+    "workflow/04_measurement_deletion_simulation/11_vitaldb_waveform_model_comparison.py",
+    "workflow/04_measurement_deletion_simulation/12_vitaldb_waveform_measurement_stress.py",
+    "workflow/07_figures_tables_and_submission/15_plot_vitaldb_waveform_extension.py"
+  ],
+  "classification": {
+    "vitaldb_specific": [
+      "protocols/VITALDB_WAVEFORM_EXTENSION_ACCEPTANCE_GATES.md",
+      "protocols/VITALDB_WAVEFORM_EXTENSION_PROTOCOL.md",
+      "tests/test_vitaldb_waveform_extension.py",
+      "workflow/00_provenance_and_estimands/13_vitaldb_waveform_extension_qa.py",
+      "workflow/00_provenance_and_estimands/16_vitaldb_waveform_result_digest.py",
+      "workflow/00_provenance_and_estimands/17_vitaldb_core_rerun_decision.py",
+      "workflow/02_public_reference_cohorts/10_vitaldb_waveform_feature_extraction.py",
+      "workflow/04_measurement_deletion_simulation/11_vitaldb_waveform_model_comparison.py",
+      "workflow/04_measurement_deletion_simulation/12_vitaldb_waveform_measurement_stress.py",
+      "workflow/07_figures_tables_and_submission/15_plot_vitaldb_waveform_extension.py"
+    ],
+    "release_metadata": [
+      "README.md",
+      "WORKFLOW_MANIFEST.csv",
+      "requirements-full.txt"
+    ],
+    "shared_scientific_or_unclassified": []
+  },
+  "changed_file_sha256": {
+    "README.md": "3b0f4d1a0887bb8f73350595c29f84486d89a547e2ef589fe26bc9c732216040",
+    "WORKFLOW_MANIFEST.csv": "274b6532da9540aaa64896a3507e09dc89dd3adbc9ed61a50117f5335f0dacdf",
+    "protocols/VITALDB_WAVEFORM_EXTENSION_ACCEPTANCE_GATES.md": "974e49437f4123303dcd3757b7232421714ed94c3abc41d59deb9dc872e37c1c",
+    "protocols/VITALDB_WAVEFORM_EXTENSION_PROTOCOL.md": "716a4e1233329e048e84552d6f8165f7c83a2bf896d8ff1334f839dc50e4ae2a",
+    "requirements-full.txt": "489922b8866147a28e3d8396059a55e5ae3d6336a0abf65215f417debabe31dd",
+    "tests/test_vitaldb_waveform_extension.py": "bf6cb8e6e45173bb6a66becb2862b2c846cf3038dd30518aa841a5bafb17e809",
+    "workflow/00_provenance_and_estimands/13_vitaldb_waveform_extension_qa.py": "c276ee7da659b9dfc9a89c93be86206e1be1acfd2092098fcbdb0f46e6b378ad",
+    "workflow/00_provenance_and_estimands/16_vitaldb_waveform_result_digest.py": "48bcb0795e67ffd6944d79b6fc78464393571be79659376349caa8ffb13bd62e",
+    "workflow/00_provenance_and_estimands/17_vitaldb_core_rerun_decision.py": "b13b11daa7b0dbb6babf397653bccfa84fae689d2eca75f35c44081058f4de51",
+    "workflow/02_public_reference_cohorts/10_vitaldb_waveform_feature_extraction.py": "89c07dcf1d56485e69f53b810e10d6e66dc567ded122d75d6ae033e73d6f9c29",
+    "workflow/04_measurement_deletion_simulation/11_vitaldb_waveform_model_comparison.py": "115325833b03d59ce53bbfe2392598d6174efcb75bf4787467dc2a94fc960d0c",
+    "workflow/04_measurement_deletion_simulation/12_vitaldb_waveform_measurement_stress.py": "e2f3fc61b48b61ed1f4a65c0afe2b765c4bc074135787eb5aa12137d3bb6af2e",
+    "workflow/07_figures_tables_and_submission/15_plot_vitaldb_waveform_extension.py": "4ac2ac691a02d6088e0a095e9c69111b7846c2fc5588e3b3377c462624cdb5fc"
+  },
+  "core_analysis_rerun_required": false,
+  "decision": "Do not rerun unaffected core databases; run regression and hash audits, then integrate the VitalDB-specific extension.",
+  "boundary": "This code-dependency decision does not determine whether the formal VitalDB result belongs in the main text, supplementary information, or is non-reportable."
+}

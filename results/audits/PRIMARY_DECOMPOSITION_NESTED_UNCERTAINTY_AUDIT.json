@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "condition": {
+    "retention_target": 0.35,
+    "mechanism": "mixed_MNAR",
+    "strength": "strong"
+  },
+  "fixed_cohort_replicates": 300,
+  "nested_replicates": 100,
+  "cohorts": {
+    "INSPIRE": {
+      "n": 1676,
+      "events": 138,
+      "unique_reference_ids": 1676,
+      "resampling_unit": "patient",
+      "n_hospitals": null
+    },
+    "MIMIC": {
+      "n": 2838,
+      "events": 648,
+      "unique_reference_ids": 2838,
+      "resampling_unit": "patient",
+      "n_hospitals": null
+    },
+    "EICU": {
+      "n": 3253,
+      "events": 731,
+      "unique_reference_ids": 3253,
+      "resampling_unit": "hospital",
+      "n_hospitals": 12
+    }
+  },
+  "interval_interpretation": {
+    "deletion_given_fixed_cohort": "2.5th-97.5th percentiles across deletion draws, conditional on the locked cohort and risk scores",
+    "patient_or_hospital_plus_deletion": "2.5th-97.5th percentiles after resampling patients (INSPIRE/MIMIC) or hospitals (eICU) and then drawing deletion",
+    "mcse_of_mean": "simulation Monte Carlo standard error of each reported replicate mean"
+  },
+  "limitations": [
+    "The nested experiment does not resample source-model development.",
+    "eICU resamples hospitals; only the held-out hospital cohort is represented.",
+    "Intervals quantify empirical stress-test uncertainty, not causal identification under MNAR."
+  ]
+}

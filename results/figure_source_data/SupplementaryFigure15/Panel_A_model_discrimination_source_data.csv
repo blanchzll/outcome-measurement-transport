@@ -1,0 +1,4 @@
+model,label,estimate,ci_lower,ci_upper,bootstrap_replicates
+clinical_table_ridge,Historical clinical ridge,0.7044103847356897,0.6186231417023723,0.7835197812412157,1000
+duration_adjusted_clinical_ridge,Clinical + duration ridge,0.7002658742571161,0.6132185056568246,0.7762749932903918,1000
+waveform_enhanced_ridge,Clinical + waveform ridge,0.6768063809821707,0.5824670687107021,0.7583140793505939,1000

@@ -1,0 +1,19 @@
+model,target,metric,n_replicates,mean,q025,q975
+clinical_table_ridge,Apparent reconstructed endpoint,oe,300,1.0081262628897931,0.9230659444472431,1.1476547449785601
+clinical_table_ridge,Apparent reconstructed endpoint,calibration_intercept,300,-0.2874459734795098,-0.8548904744591362,0.07009827881190839
+clinical_table_ridge,Apparent reconstructed endpoint,calibration_slope,300,0.7186939792157139,0.1468398486888668,1.0211596263476803
+clinical_table_ridge,Retained reference endpoint,oe,300,0.8305172312304685,0.5784235054167622,1.1591399440924772
+clinical_table_ridge,Retained reference endpoint,calibration_intercept,300,-0.4824642755403703,-1.2518779256560768,0.07053450187807954
+clinical_table_ridge,Retained reference endpoint,calibration_slope,300,0.8537177854029172,0.33924833079394884,1.323335365405882
+duration_adjusted_clinical_ridge,Apparent reconstructed endpoint,oe,300,1.0091813035674655,0.9250880594481763,1.1323065437951831
+duration_adjusted_clinical_ridge,Apparent reconstructed endpoint,calibration_intercept,300,-0.3091548303288695,-0.8799056897500109,0.05685101522459292
+duration_adjusted_clinical_ridge,Apparent reconstructed endpoint,calibration_slope,300,0.699763372554701,0.13389438945007134,1.002693827636296
+duration_adjusted_clinical_ridge,Retained reference endpoint,oe,300,0.8345203621527497,0.5857515161069887,1.1902677732982945
+duration_adjusted_clinical_ridge,Retained reference endpoint,calibration_intercept,300,-0.4694212265964868,-1.2178013076450955,0.16803422539977475
+duration_adjusted_clinical_ridge,Retained reference endpoint,calibration_slope,300,0.8605481732947231,0.34630431958763885,1.3864732671399282
+waveform_enhanced_ridge,Apparent reconstructed endpoint,oe,300,1.0109609276390208,0.9308768376867196,1.1297739349894969
+waveform_enhanced_ridge,Apparent reconstructed endpoint,calibration_intercept,300,-0.3502182117276368,-1.068712239051022,0.0547076013584929
+waveform_enhanced_ridge,Apparent reconstructed endpoint,calibration_slope,300,0.6635101685608015,-0.07106990998332882,1.0194789336497683
+waveform_enhanced_ridge,Retained reference endpoint,oe,300,0.8170981737863332,0.5739730460843677,1.1854303040186411
+waveform_enhanced_ridge,Retained reference endpoint,calibration_intercept,300,-0.5927808584559107,-1.3430958421087265,0.024958948386618048
+waveform_enhanced_ridge,Retained reference endpoint,calibration_slope,300,0.7896767921334733,0.2374177120193192,1.3351313940417873

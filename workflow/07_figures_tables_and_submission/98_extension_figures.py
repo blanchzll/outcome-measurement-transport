@@ -38,12 +38,12 @@ COLORS = {
 mpl.rcParams.update({
     "font.family": "sans-serif",
     "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans", "sans-serif"],
-    "font.size": 7,
-    "axes.labelsize": 7,
-    "axes.titlesize": 7,
-    "xtick.labelsize": 6,
-    "ytick.labelsize": 6,
-    "legend.fontsize": 6,
+    "font.size": 9,
+    "axes.labelsize": 9,
+    "axes.titlesize": 10,
+    "xtick.labelsize": 8,
+    "ytick.labelsize": 8,
+    "legend.fontsize": 8,
     "axes.spines.top": False,
     "axes.spines.right": False,
     "pdf.fonttype": 42,
@@ -52,7 +52,7 @@ mpl.rcParams.update({
 
 
 def panel(ax, label: str) -> None:
-    ax.text(-0.16, 1.08, label, transform=ax.transAxes, fontweight="bold", fontsize=8, va="top")
+    ax.text(-0.16, 1.08, label, transform=ax.transAxes, fontweight="bold", fontsize=10, va="top")
 
 
 def save(fig, directory: Path, stem: str) -> None:
@@ -78,9 +78,9 @@ def heatmap(ax, table: pd.DataFrame, title: str, fmt: str, vmin=None, vmax=None,
             value = values[i, j]
             if np.isfinite(value):
                 ax.text(j, i, format(value, fmt), ha="center", va="center",
-                        color="white" if value > threshold else "#222222", fontsize=6)
+                        color="white" if value > threshold else "#222222", fontsize=8)
     cbar = ax.figure.colorbar(image, ax=ax, fraction=0.046, pad=0.04)
-    cbar.ax.tick_params(labelsize=5)
+    cbar.ax.tick_params(labelsize=7)
 
 
 def schedule_figure(table_path: Path, output_root: Path, figure_number: int, two_database: bool = False) -> None:
@@ -111,8 +111,8 @@ def schedule_figure(table_path: Path, output_root: Path, figure_number: int, two
                 value = values[i, j]
                 if np.isfinite(value):
                     ax.text(j, i, format(value, fmt), ha="center", va="center",
-                            color="white" if value > threshold else "#222222", fontsize=6)
-        fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04).ax.tick_params(labelsize=5)
+                            color="white" if value > threshold else "#222222", fontsize=8)
+        fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04).ax.tick_params(labelsize=7)
         panel(ax, label)
     folder = output_root / f"SupplementaryFigure{figure_number}"
     source_name = f"SupplementaryFigure{figure_number}_source_data.csv"
@@ -158,12 +158,12 @@ def source_bounds_figure(table_path: Path, output_root: Path) -> None:
         x = random.assumed_postdischarge_event_fraction * 100
         if metric == "oe":
             ax.plot(x, random["mean"], color="#333333", marker="o", ms=3, lw=1.2,
-                    label="Both assignment mechanisms (identical total events)")
+                    label="Both assignments\n(same event count)")
         else:
             ax.plot(x, random["mean"], color=COLORS["random_bound"], marker="o", ms=3, lw=1.2, label="Random among short-stay negatives")
             ax.fill_between(x, random.q025, random.q975, color=COLORS["random_bound"], alpha=0.16, linewidth=0)
             ax.plot(high.assumed_postdischarge_event_fraction * 100, high["mean"], color=COLORS["high_bound"], marker="s", ms=3, lw=1.2, label="Highest predicted risk")
-        ax.set_xlabel("Assumed event fraction among 167 short-stay negatives (%)")
+        ax.set_xlabel("Assumed event fraction among\n162 short-stay recorded negatives (%)")
         ax.set_ylabel(ylabel)
         ax.grid(axis="y", color="#dddddd", lw=0.5)
     axes[0].axhline(1, color="#777777", ls="--", lw=0.8)

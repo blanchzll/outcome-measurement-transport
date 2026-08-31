@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "inputs": {
+    "restricted/SOURCE_3710_LOCKED_LOCO_PREDICTIONS_SECURE.csv.gz": "9bdb49e39a5e3eed7057a5ebfe91ac10e15353b6d64ee55809ac0cab1a5df1c7",
+    "restricted/SOURCE_4014_LOCKED_LOCO_PREDICTIONS_SECURE.csv.gz": "307e60a10e99e888d63edcedbd672b047672200e0efad0fa8f289a1c20859c59"
+  },
+  "outputs": {
+    "Table_source_screened_cohort_sensitivity.csv": "7336cbefb2cd2200099f51e43d7f41ea2df2ebeadcba87fc858e58f8af943f7d",
+    "Table_source_bootstrap_uncertainty_diagnostics.csv": "7a17cd1d81d2b37fa309542021bd7f72c33b9eac20fed76af8ac9c66b12eef79"
+  },
+  "interpretation": "The 4,014 analysis is a screened-population sensitivity with separately locked LOCO fits; it does not identify the effect of any one exclusion or repair source coding.",
+  "patient_level_output_written": false
+}
