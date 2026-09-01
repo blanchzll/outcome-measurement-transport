@@ -24,7 +24,7 @@ plt.rcParams['font.sans-serif'] = ['Arial', 'DejaVu Sans', 'Liberation Sans']
 mpl.rcParams.update({"svg.fonttype":"none","pdf.fonttype":42,"font.size":16,"axes.labelsize":16,"axes.titlesize":17,
                      "xtick.labelsize":15,"ytick.labelsize":15,"legend.fontsize":15.5,
                      "axes.spines.right":False,"axes.spines.top":False,"axes.linewidth":.7,
-                     "legend.frameon":False,"savefig.bbox":"tight"})
+                     "legend.frameon":False,"savefig.bbox":"tight","savefig.pad_inches":.10})
 
 BLUE="#0072B2"; SKY="#56B4E9"; GREEN="#009E73"; ORANGE="#E69F00"; VERMILLION="#D55E00"
 PURPLE="#CC79A7"; GREY="#8A8A8A"; LIGHT="#D9D9D9"; BLACK="#272727"
@@ -48,19 +48,19 @@ def heatmap_panel(data,index,columns,value,title,cbar_label,folder,name,vcenter=
     if index=="mechanism":
         data[index]=pd.Categorical(data[index],categories=["MCAR","stratum_MAR","risk_MAR","history_MAR","outcome_MNAR","mixed_MNAR"],ordered=True)
     pivot=data.pivot(index=index,columns=columns,values=value)
-    fig,ax=plt.subplots(figsize=(3.5,2.6))
+    fig,ax=plt.subplots(figsize=(6.8,4.4),constrained_layout=True)
     vmax=np.nanmax(np.abs(pivot.to_numpy())); vmax=max(vmax,1e-6)
     norm=mpl.colors.TwoSlopeNorm(vmin=-vmax,vcenter=vcenter,vmax=vmax)
     im=ax.imshow(pivot,cmap="RdBu_r",norm=norm,aspect="auto")
     ax.set_xticks(range(len(pivot.columns)),[str(x) for x in pivot.columns]);ax.set_yticks(range(len(pivot.index)),pivot.index)
-    ax.set_xlabel("Target mean per-measurement retention");ax.set_ylabel("")
+    ax.set_xlabel("Per-measurement retention");ax.set_ylabel("")
     ax.set_title(title,loc="left",fontweight="bold")
     for i in range(pivot.shape[0]):
         for j in range(pivot.shape[1]):
             shown=0.0 if abs(pivot.iloc[i,j])<0.005 else pivot.iloc[i,j]
             ax.text(j,i,f"{shown:.2f}",ha="center",va="center",fontsize=15,
                     color="white" if abs(pivot.iloc[i,j])>.55*vmax else BLACK)
-    cb=fig.colorbar(im,ax=ax,fraction=.04,pad=.03);cb.set_label(cbar_label)
+    cb=fig.colorbar(im,ax=ax,fraction=.04,pad=.03);cb.set_label(cbar_label);cb.ax.tick_params(labelsize=15)
     save_panel(fig,folder,name,data)
 
 
@@ -70,33 +70,53 @@ flow_m=pd.read_csv(TABLES/"Table_mimic_reference_flow.csv")
 flow_e=pd.read_csv(ROOT/"eicu"/"tables"/"Table_eicu_reference_flow.csv")
 flow=pd.concat([flow_i.assign(database="INSPIRE"),flow_m.assign(database="MIMIC"),
                 flow_e.assign(database="EICU")],ignore_index=True)
-fig,ax=plt.subplots(figsize=(4.5,4.2))
+stage_labels={
+    "candidate_operations":"candidate operations",
+    "longitudinal_0_168h_creatinine_observed":"any 0-168 h creatinine",
+    "two_slot_observed":"two-window observed",
+    "dense_longitudinal_reference":"dense reference",
+    "adult first ICU stay, surgical service, baseline creatinine":"adult surgical ICU cohort",
+    "at least one 0-168h creatinine":"any 0-168 h creatinine",
+    "two-slot operational reference":"two-window reference",
+    "dense longitudinal reference":"dense reference",
+    "adult first ICU stay in explicit surgical unit":"adult surgical ICU cohort",
+    "valid pre-ICU baseline creatinine and no chronic-RRT flag":"valid baseline; no chronic-RRT flag",
+    "at least one 0-168h serum creatinine":"any 0-168 h creatinine",
+    "dense longitudinal operational reference":"dense reference",
+}
+fig,ax=plt.subplots(figsize=(8.2,5.4),constrained_layout=True)
 labels=[];values=[];colors=[]
 for db,c in [("INSPIRE",BLUE),("MIMIC",ORANGE),("EICU",GREEN)]:
     g=flow[flow.database.eq(db)]
     for row in g.itertuples():
-        labels.append(f"{db}: {row.stage}");values.append(row.n);colors.append(c)
+        raw_stage=row.stage if pd.notna(row.stage) else row.step
+        labels.append(f"{db}: {stage_labels.get(raw_stage,raw_stage)}");values.append(row.n);colors.append(c)
 ypos=np.arange(len(labels))[::-1]
 ax.barh(ypos,values,color=colors,alpha=.85,height=.65)
 ax.set_yticks(ypos,labels);ax.set_xlabel("Patients/operations");ax.set_title("Operational reference cohorts",loc="left",fontweight="bold")
-for yv,n in zip(ypos,values):ax.text(n*.98,yv,f"{n:,}",ha="right",va="center",fontsize=13.5,color="white",fontweight="bold")
+max_value=max(values)
+for yv,n in zip(ypos,values):
+    if n < .20 * max_value:
+        ax.text(n + .012 * max_value,yv,f"{n:,}",ha="left",va="center",fontsize=13.5,color=BLACK,fontweight="bold")
+    else:
+        ax.text(n*.98,yv,f"{n:,}",ha="right",va="center",fontsize=13.5,color="white",fontweight="bold")
 save_panel(fig,"Figure1_reference_observability","Figure1a_reference_flow",flow)
 
 bal=pd.read_csv(TABLES/"Table_observability_predictor_imbalance.csv")
 bal=bal[(bal.target=="two_slot")&(bal.level.fillna("").eq(""))].copy()
 bal["max_abs"]=bal[["smd_before_vs_full","smd_after_vs_full"]].abs().max(axis=1)
 bal=bal.nlargest(12,"max_abs").sort_values("max_abs")
-fig,ax=plt.subplots(figsize=(3.5,3.0));yy=np.arange(len(bal))
+fig,ax=plt.subplots(figsize=(6.2,5.2),constrained_layout=True);yy=np.arange(len(bal))
 ax.plot(bal.smd_before_vs_full,yy,"o",color=GREY,label="Before weighting")
 ax.plot(bal.smd_after_vs_full,yy,"o",color=BLUE,label="After IPAW")
 for yv,a,b in zip(yy,bal.smd_before_vs_full,bal.smd_after_vs_full):ax.plot([a,b],[yv,yv],color=LIGHT,lw=1)
 ax.axvline(0,color=BLACK,lw=.7);ax.axvline(.1,color=VERMILLION,lw=.6,ls="--");ax.axvline(-.1,color=VERMILLION,lw=.6,ls="--")
-ax.set_yticks(yy,bal.variable);ax.set_xlabel("Standardized difference vs full candidate cohort");ax.legend(loc="lower right")
+ax.set_yticks(yy,bal.variable);ax.set_xlabel("Standardized difference vs candidate cohort");ax.legend(loc="lower right")
 ax.set_title("Observation-weight balance",loc="left",fontweight="bold")
 save_panel(fig,"Figure1_reference_observability","Figure1b_ipaw_balance",bal)
 
 density=pd.read_csv(TABLES/"Table_monitoring_density_event_gradient.csv")
-fig,ax1=plt.subplots(figsize=(3.3,2.4));ax2=ax1.twinx()
+fig,ax1=plt.subplots(figsize=(6.2,4.8),constrained_layout=True);ax2=ax1.twinx()
 ax1.plot(density.minimum_postoperative_creatinine_count,density.event_rate*100,"o-",color=VERMILLION,label="Detected event rate")
 ax2.plot(density.minimum_postoperative_creatinine_count,density.n,"s--",color=BLUE,label="Eligible n")
 ax1.set_xlabel("Minimum postoperative creatinine measurements");ax1.set_ylabel("Detected event rate (%)",color=VERMILLION)
@@ -112,7 +132,7 @@ process = pd.DataFrame(
         {"stage": 4, "object": "Fixed risk predictions", "role": "Evaluated against either target"},
     ]
 )
-fig, ax = plt.subplots(figsize=(5.8, 2.5))
+fig, ax = plt.subplots(figsize=(10.0, 4.0), constrained_layout=True)
 ax.set_xlim(0, 11.2); ax.set_ylim(0, 4.5); ax.axis("off")
 boxes = [
     (0.2, 2.55, 2.8, 1.0, "Retained creatinine\ntrajectory", BLUE),
@@ -125,19 +145,19 @@ for x, y, w, h, label, color in boxes:
                            edgecolor="none", alpha=.90)
     ax.add_patch(patch)
     ax.text(x+w/2, y+h/2, label, ha="center", va="center", color="white",
-            fontsize=10.5, fontweight="bold")
+            fontsize=14, fontweight="bold")
 ax.annotate("", xy=(4.02, 3.05), xytext=(3.05, 3.05),
             arrowprops=dict(arrowstyle="->", lw=.9, color=BLACK))
-ax.text(3.55, 3.42, "measurement\ndeletion", ha="center", va="center", fontsize=10.5)
+ax.text(3.55, 3.72, "measurement deletion", ha="center", va="center", fontsize=12)
 ax.annotate("", xy=(7.92, 3.05), xytext=(6.95, 3.05),
             arrowprops=dict(arrowstyle="->", lw=.9, color=BLACK))
-ax.text(7.45, 3.42, "endpoint\nreconstruction", ha="center", va="center", fontsize=10.5)
+ax.text(7.45, 3.72, "endpoint reconstruction", ha="center", va="center", fontsize=12)
 ax.annotate("", xy=(1.6, 2.50), xytext=(4.7, 1.28),
             arrowprops=dict(arrowstyle="->", lw=.9, color=BLUE))
-ax.text(2.65, 1.55, "retained-reference\nevaluation", ha="center", va="center", color=BLUE, fontsize=10.5)
+ax.text(2.45, 1.40, "retained-reference\nevaluation", ha="center", va="center", color=BLUE, fontsize=12)
 ax.annotate("", xy=(9.4, 2.50), xytext=(6.3, 1.28),
             arrowprops=dict(arrowstyle="->", lw=.9, color=VERMILLION))
-ax.text(8.35, 1.55, "apparent-target\nevaluation", ha="center", va="center", color=VERMILLION, fontsize=10.5)
+ax.text(8.55, 1.40, "reconstructed-target\nevaluation", ha="center", va="center", color=VERMILLION, fontsize=12)
 ax.set_title("One model, two outcome targets", loc="left", fontweight="bold")
 save_panel(fig,"Figure1_reference_observability","Figure1d_estimand_schematic",process)
 
@@ -150,7 +170,7 @@ if sim.loc[~sim.method.str.startswith("reference_"),"n_replicates"].min()<300:
 
 for db in ["INSPIRE","MIMIC","EICU"]:
     d=sim[(sim.database==db)&(sim.method=="naive")&(sim.strength=="strong")&(sim.metric=="event_rate")]
-    heatmap_panel(d,"mechanism","retention_target","bias",f"{db}: naive event-rate bias","Bias", "Figure2_deletion_mechanisms",f"Figure2a_{db.lower()}_event_bias")
+    heatmap_panel(d,"mechanism","retention_target","bias",f"{db}: naive event-rate bias","Event-rate bias", "Figure2_deletion_mechanisms",f"Figure2a_{db.lower()}_event_bias")
 
 method_labels={"naive":"Naive","IPAW_design_probability_untruncated":"Design-probability IPAW",
                "IPAW_design_probability_truncated99":"IPAW, 99th-percentile truncation",
@@ -163,14 +183,14 @@ for db in ["INSPIRE","MIMIC","EICU"]:
                    "IPAW_design_probability_truncated99":"IPAW truncated","AIPW_design_probability":"AIPW"}
     d=sim[(sim.database==db)&(sim.mechanism=="mixed_MNAR")&(sim.strength=="strong")&(sim.metric=="oe")&sim.method.isin(estimator_map)].copy()
     d["method_label"]=pd.Categorical(d.method.map(estimator_map),categories=["Naive","IPAW untruncated","IPAW truncated","AIPW"],ordered=True)
-    heatmap_panel(d,"method_label","retention_target","bias",f"{db}: original-model O/E recovery","Bias vs retained-reference O/E", "Figure2_deletion_mechanisms",f"Figure2b_{db.lower()}_method_bias")
+    heatmap_panel(d,"method_label","retention_target","bias",f"{db}: original-model O/E bias","O/E bias", "Figure2_deletion_mechanisms",f"Figure2b_{db.lower()}_method_bias")
 
 d=sim[(sim.method=="full_reference")&(sim.metric=="reconstructed_sensitivity")]
 agg=d.groupby(["database","retention_target"]).agg(mean=("mean","mean"),q025=("mean",lambda x:np.quantile(x,.025)),q975=("mean",lambda x:np.quantile(x,.975))).reset_index()
-fig,ax=plt.subplots(figsize=(3.3,2.4))
+fig,ax=plt.subplots(figsize=(6.4,4.4),constrained_layout=True)
 for db,c,m in [("INSPIRE",BLUE,"o"),("MIMIC",ORANGE,"s"),("EICU",GREEN,"^")]:
     g=agg[agg.database.eq(db)];ax.plot(g.retention_target,g["mean"],marker=m,color=c,label=db);ax.fill_between(g.retention_target,g.q025,g.q975,color=c,alpha=.15)
-ax.set_xlabel("Target mean per-measurement retention");ax.set_ylabel("Endpoint reconstruction sensitivity");ax.set_ylim(0,1);ax.legend()
+ax.set_xlabel("Per-measurement retention");ax.set_ylabel("Reconstructed-endpoint\nsensitivity");ax.set_ylim(0,1);ax.legend()
 ax.set_title("Endpoint recovery depends on testing",loc="left",fontweight="bold")
 save_panel(fig,"Figure2_deletion_mechanisms","Figure2c_reconstruction_sensitivity",agg)
 
@@ -178,11 +198,16 @@ save_panel(fig,"Figure2_deletion_mechanisms","Figure2c_reconstruction_sensitivit
 d=sim[(sim.mechanism=="mixed_MNAR")&(sim.strength=="strong")&(sim.metric=="oe")&sim.method.isin([
     "recalibration_intercept_slope_apparent","recalibration_intercept_slope_truth"])].copy()
 d["target_label"]=d.method.map({"recalibration_intercept_slope_apparent":"Apparent endpoint","recalibration_intercept_slope_truth":"Retained reference"})
-fig,ax=plt.subplots(figsize=(4.2,2.5))
+fig,ax=plt.subplots(figsize=(10.0,3.2),constrained_layout=True)
 for (db,target),g in d.groupby(["database","target_label"]):
     color={"INSPIRE":BLUE,"MIMIC":ORANGE,"EICU":GREEN}[db];ls="-" if target=="Apparent endpoint" else "--"
-    ax.plot(g.retention_target,g["mean"],marker="o",color=color,ls=ls,label=f"{db}, {target}")
-ax.axhline(1,color=BLACK,lw=.7);ax.set_xlabel("Target mean per-measurement retention");ax.set_ylabel("O/E after local recalibration");ax.legend(ncol=2)
+    ax.plot(g.retention_target,g["mean"],marker="o",color=color,ls=ls)
+from matplotlib.lines import Line2D
+database_legend=[Line2D([0],[0],color=c,marker="o",label=db) for db,c in [("INSPIRE",BLUE),("MIMIC-IV",ORANGE),("eICU",GREEN)]]
+ax.legend(handles=database_legend,loc="upper left",ncol=3,fontsize=12)
+ax.text(.99,.92,"solid: reconstructed target   dashed: retained reference",transform=ax.transAxes,
+        ha="right",va="top",fontsize=12,color=BLACK)
+ax.axhline(1,color=BLACK,lw=.7);ax.set_xlabel("Per-measurement retention");ax.set_ylabel("O/E after local recalibration")
 ax.set_title("Held-out calibration depends on the endpoint target",loc="left",fontweight="bold")
 save_panel(fig,"Figure3_correction_strategies","Figure3a_apparent_vs_reference_recalibration",d)
 
@@ -193,7 +218,7 @@ estimator_labels={"naive":"Naive","IPAW_design_probability_untruncated":"IPAW un
                   "IPAW_design_probability_truncated99":"IPAW truncated",
                   "AIPW_design_probability":"AIPW","Gamma2_prediction_sensitivity_region":"Gamma=2 midpoint"}
 rmse["label"]=rmse.method.map(estimator_labels)
-fig,ax=plt.subplots(figsize=(4.2,2.6));y=np.arange(len(estimators));width=.24
+fig,ax=plt.subplots(figsize=(6.2,4.2),constrained_layout=True);y=np.arange(len(estimators));width=.24
 for i,(db,c) in enumerate([("INSPIRE",BLUE),("MIMIC",ORANGE),("EICU",GREEN)]):
     g=rmse[rmse.database.eq(db)].set_index("method").reindex(estimators)
     ax.barh(y+(i-1)*width,g.rmse,width,color=c,label=db)
@@ -206,7 +231,7 @@ d=sim[(sim.metric=="oe")&sim.method.isin(methods)].copy()
 i=d[d.database.eq("INSPIRE")];m=d[d.database.eq("MIMIC")]
 keys=["retention_target","mechanism","strength","method"]
 paired=i.merge(m,on=keys,suffixes=("_inspire","_mimic"))
-fig,ax=plt.subplots(figsize=(3.0,2.7))
+fig,ax=plt.subplots(figsize=(6.2,4.2),constrained_layout=True)
 short_method_labels={"naive":"Naive","IPAW_design_probability_untruncated":"IPAW",
                      "IPAW_design_probability_truncated99":"IPAW-trunc","AIPW_design_probability":"AIPW",
                      "recalibration_intercept_truth":"Intercept","recalibration_intercept_slope_truth":"Intercept+slope",
@@ -214,17 +239,18 @@ short_method_labels={"naive":"Naive","IPAW_design_probability_untruncated":"IPAW
 for method,g in paired.groupby("method"):
     ax.scatter(g.bias_inspire,g.bias_mimic,s=9,alpha=.6,color=METHOD_COLORS.get(method,GREY),label=short_method_labels.get(method,method))
 ax.axhline(0,color=LIGHT,lw=.7);ax.axvline(0,color=LIGHT,lw=.7);ax.set_xlabel("INSPIRE O/E bias");ax.set_ylabel("MIMIC O/E bias")
-ax.set_title("Independent mechanism replication",loc="left",fontweight="bold");ax.legend(loc="best",ncol=2)
+ax.set_title("Independent mechanism replication",loc="left",fontweight="bold");ax.legend(loc="lower right",ncol=2,fontsize=12)
 save_panel(fig,"Figure3_correction_strategies","Figure3c_cross_database_bias",paired)
 
 recal_methods=["recalibration_intercept_truth","recalibration_intercept_slope_truth","reference_10pct_recalibration"]
 for db,c in [("INSPIRE",BLUE),("MIMIC",ORANGE),("EICU",GREEN)]:
     d=sim[(sim.database==db)&(sim.mechanism=="mixed_MNAR")&(sim.strength=="strong")&(sim.metric=="oe")&sim.method.isin(recal_methods)].copy()
-    fig,ax=plt.subplots(figsize=(3.5,2.5))
+    fig,ax=plt.subplots(figsize=(6.2,4.2),constrained_layout=True)
     for method,marker in zip(recal_methods,["o","s","^"]):
         g=d[d.method.eq(method)].sort_values("retention_target")
         ax.errorbar(g.retention_target,g["mean"],yerr=[g["mean"]-g.q025,g.q975-g["mean"]],marker=marker,capsize=2,label=method_labels[method])
-    ax.axhline(1,color=BLACK,lw=.7,ls="--");ax.set_xlabel("Target mean per-measurement retention");ax.set_ylabel("O/E against retained reference");ax.legend()
+    ax.axhline(1,color=BLACK,lw=.7,ls="--");ax.set_xlabel("Per-measurement retention");ax.set_ylabel("O/E against retained reference")
+    if db=="INSPIRE": ax.legend(labels=["Intercept","Intercept+slope","10% reference"],loc="best",fontsize=12)
     ax.set_title(f"{db}: recalibration target fidelity",loc="left",fontweight="bold")
     save_panel(fig,"Figure3_correction_strategies",f"Figure3d_{db.lower()}_recalibration_fidelity",d)
 
@@ -232,7 +258,7 @@ reference_methods=["reference_05pct_recalibration","reference_10pct_recalibratio
 d=sim[(sim.mechanism=="mixed_MNAR")&(sim.strength=="strong")&(sim.retention_target==.35)&
       (sim.metric=="oe")&sim.method.isin(reference_methods)].copy()
 d["reference_fraction"]=d.method.str.extract(r"reference_(\d+)pct")[0].astype(float)/100
-fig,ax=plt.subplots(figsize=(3.5,2.5))
+fig,ax=plt.subplots(figsize=(6.2,4.2),constrained_layout=True)
 for db,c,m in [("INSPIRE",BLUE,"o"),("MIMIC",ORANGE,"s"),("EICU",GREEN,"^")]:
     g=d[d.database.eq(db)].sort_values("reference_fraction")
     ax.errorbar(g.reference_fraction*100,g["mean"],yerr=[g["mean"]-g.q025,g.q975-g["mean"]],
@@ -246,18 +272,14 @@ selection=pd.concat([pd.read_csv(TABLES/"Table_inspire_pure_label_selection_cont
                      pd.read_csv(TABLES/"Table_eicu_pure_label_selection_control.csv")],ignore_index=True)
 d=selection[(selection.retention_target==.35)&(selection.strength=="strong")&
             selection.mechanism.isin(["risk_MAR","outcome_MNAR"])&(selection.metric=="event_rate")].copy()
-fig,ax=plt.subplots(figsize=(5.4,2.5));positions=np.arange(6);width=.34
-labels=[]
-for database in ["INSPIRE","MIMIC","EICU"]:
-    for mechanism in ["risk_MAR","outcome_MNAR"]:labels.append(f"{database}\n{mechanism}")
-for offset,(method,label,color) in enumerate([("naive","Naive",GREY),("oracle_IPW_untruncated","Oracle IPW",BLUE)]):
-    values=[]
-    for database in ["INSPIRE","MIMIC","EICU"]:
-        for mechanism in ["risk_MAR","outcome_MNAR"]:
-            values.append(d[(d.database==database)&(d.mechanism==mechanism)&(d.method==method)].bias.iloc[0])
-    ax.bar(positions+(offset-.5)*width,values,width,color=color,label=label)
-ax.axhline(0,color=BLACK,lw=.7);ax.set_xticks(positions,labels);ax.set_ylabel("Event-rate bias")
-ax.set_title("Pure label-selection positive control",loc="left",fontweight="bold");ax.legend()
+fig,ax=plt.subplots(figsize=(6.8,4.4),constrained_layout=True);positions=np.arange(3);width=.18
+bar_specs=[("risk_MAR","naive","Naive; risk MAR",GREY,""),("risk_MAR","oracle_IPW_untruncated","Oracle IPW; risk MAR",BLUE,""),
+           ("outcome_MNAR","naive","Naive; outcome MNAR",GREY,"//"),("outcome_MNAR","oracle_IPW_untruncated","Oracle IPW; outcome MNAR",BLUE,"//")]
+for offset,(mechanism,method,label,color,hatch) in enumerate(bar_specs):
+    values=[d[(d.database==database)&(d.mechanism==mechanism)&(d.method==method)].bias.iloc[0] for database in ["INSPIRE","MIMIC","EICU"]]
+    ax.bar(positions+(offset-1.5)*width,values,width,color=color,hatch=hatch,label=label,edgecolor="white")
+ax.axhline(0,color=BLACK,lw=.7);ax.set_xticks(positions,["INSPIRE","MIMIC-IV","eICU"]);ax.set_ylabel("Event-rate bias")
+ax.set_title("Pure label-selection positive control",loc="left",fontweight="bold");ax.legend(ncol=2,fontsize=12)
 save_panel(fig,"Figure2_deletion_mechanisms","Figure2d_pure_selection_control",d)
 
 # %% Figure 4 stability and portability

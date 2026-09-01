@@ -145,7 +145,7 @@ def intercept_at_fixed_slope(y_center, x_center, slope):
 
 
 # %%
-d = pd.read_csv(ROOT / "secure_work" / "SOURCE_4014_LOCKED_LOCO_PREDICTIONS_SECURE.csv.gz", low_memory=False)
+d = pd.read_csv(ROOT / "secure_work" / "SOURCE_3710_LOCKED_LOCO_PREDICTIONS_SECURE.csv.gz", low_memory=False)
 d = d[["Center", "PostopAKI", PREDICTION_COLUMN]].dropna().copy()
 d["Center"] = d.Center.astype(str)
 centres = sorted(d.Center.unique(), key=lambda value: int(float(value)))
@@ -215,13 +215,13 @@ pd.DataFrame(centre_rows).to_csv(ROOT / "tables" / "Table_bayesian_hierarchical_
 pd.DataFrame(sensitivity_rows).to_csv(ROOT / "tables" / "Table_bayesian_hierarchical_calibration_prior_sensitivity.csv", index=False)
 
 audit = {
-    "analysis": "Bayesian hierarchical calibration of locked source-cohort LOCO predictions",
+    "analysis": "Bayesian hierarchical calibration of locked 3,710-patient source-cohort LOCO predictions",
     "prediction": PREDICTION_COLUMN,
     "n": len(d), "events": int(y.sum()), "centres": {centre: {"n": int((d.Center == centre).sum()), "events": int(d.loc[d.Center == centre, "PostopAKI"].sum())} for centre in centres},
     "model": "Bernoulli outcome; common positive calibration slope; centre-specific normally distributed intercepts",
     "primary_priors": {"population_intercept": "Normal(0,1.5)", "between_centre_sd": "half-Normal(0,1)", "log_common_slope": "Normal(0,0.5)"},
     "posterior": f"joint-mode Laplace approximation with {N_DRAWS} Gaussian draws",
-    "independent_unit": "analytic surgical record; repeat-operation patient identifier unavailable",
+    "independent_unit": "unique patient; one eligible operation per patient",
     "reason_for_common_slope": "five centres and only one event in centre 5 do not support centre-specific slope estimation",
     "diagnostics": diagnostics_all,
     "limits": [

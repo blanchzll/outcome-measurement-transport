@@ -1,7 +1,7 @@
 {
   "release": "outcome-measurement-transport",
-  "version": "v1.3.1",
-  "generated_utc": "2026-08-31",
+  "version": "v1.3.2",
+  "generated_utc": "2026-09-01",
   "files": [
     {
       "path": ".gitignore",
@@ -11,7 +11,7 @@
     {
       "path": "CITATION.md",
       "bytes": 384,
-      "sha256": "ddc567d049e75e8bafe7e28de45084d53cfd11fde127e3cad3d1297a64348027"
+      "sha256": "782394fb99070cba47c556e2038c5a78a83901fc973f80769dbdf772c1a74416"
     },
     {
       "path": "CODE_REVIEW_GUIDE.md",
@@ -26,12 +26,17 @@
     {
       "path": "README.md",
       "bytes": 7455,
-      "sha256": "fbabc93289eb53ead75020a0967b47373607f580e66674847565d650975a1169"
+      "sha256": "d08cda9121e5f262dd8f09d6525198de2b647ac2f5ef6032664d9185eb7315d1"
     },
     {
       "path": "RELEASE_NOTES_v1.3.1.md",
       "bytes": 2369,
       "sha256": "19829a4d32e38299441cde7beeca8a82a28f637aa1368f9759d311fc3e4868c9"
+    },
+    {
+      "path": "RELEASE_NOTES_v1.3.2.md",
+      "bytes": 1459,
+      "sha256": "bfe648ea64e3dd79dae709d3b27b033a3497ff2696e73ae74c1d5202385c3548"
     },
     {
       "path": "WORKFLOW_MANIFEST.csv",
@@ -66,17 +71,17 @@
     {
       "path": "docs/MODEL_CARD.md",
       "bytes": 4052,
-      "sha256": "34af979d188373ee6843a8cf061865fb3f91b9ff57111223a22832bede5cf1d7"
+      "sha256": "78282fc2a35ce3ff92cad3f0a7540fd9b84e638e0ca98fcbe8004b0c8c8cafcf"
     },
     {
       "path": "docs/PUBLIC_RELEASE_QA.json",
       "bytes": 927,
-      "sha256": "dbf02e2ab9d6bf94dc78dbb2484ca2943d3e0419637336f25a09a6689d6c1e23"
+      "sha256": "eb3eea878a6380f040452c1116c7fcaf58332e991917c9b3f9389ed9984dc5f5"
     },
     {
       "path": "docs/REPORTING_CHECKLIST_CROSSWALK.md",
       "bytes": 12275,
-      "sha256": "f59ef1db96062ce534fee7f28f2b9da4adda60d8832791080deab4581b4f4230"
+      "sha256": "fada16000351de3c368a8ce6c40e9c7bae9b6c2e9559c4eebf0a53a907f524d1"
     },
     {
       "path": "docs/TERMINOLOGY_LEDGER.md",
@@ -170,11 +175,16 @@
     },
     {
       "path": "results/audits/BAYESIAN_HIERARCHICAL_CALIBRATION_3710_AUDIT.json",
-      "bytes": 2722,
-      "sha256": "1101033fd7969db69be52290d12bd4a4a45a1566aaecd6b74255263b3a5c01c2"
+      "bytes": 2713,
+      "sha256": "8e72ce8aa7b857582b55e3ffdef2016edab17766caf38a2959f0924ecd5dde2a"
     },
     {
       "path": "results/audits/BAYESIAN_HIERARCHICAL_CALIBRATION_AUDIT.json",
+      "bytes": 2713,
+      "sha256": "8e72ce8aa7b857582b55e3ffdef2016edab17766caf38a2959f0924ecd5dde2a"
+    },
+    {
+      "path": "results/audits/BAYESIAN_HIERARCHICAL_CALIBRATION_SCREENED4014_AUDIT.json",
       "bytes": 2729,
       "sha256": "66cc52f716be6e0d55c43f9b889daba35b503c30ba886c37aac852c6c5f87622"
     },
@@ -690,8 +700,8 @@
     },
     {
       "path": "results/figure_source_data/SupplementaryFigure16/Figure7c_bayesian_hierarchical_calibration_source_data.csv",
-      "bytes": 2332,
-      "sha256": "561527dd10cdadf12b3dfb766ff7551d63500f6e6f0b1d3c2042ebad01a5fc2d"
+      "bytes": 2331,
+      "sha256": "34cebd8b0c7b23effc15e9ee60fa367f9e337af396da031126132f677a223625"
     },
     {
       "path": "results/figure_source_data/SupplementaryFigure2/Figure5a_burden_event_capture_source_data.csv",
@@ -1190,8 +1200,8 @@
     },
     {
       "path": "workflow/01_source_cohort_and_models/84_bayesian_hierarchical_calibration.py",
-      "bytes": 10318,
-      "sha256": "5d714193789814f745829d88482ffddb4ec51b9e2b7e0d3091743decbc949c5f"
+      "bytes": 10309,
+      "sha256": "b409d47a5cfe76b46eea2926bcf4fb0095800bae5ad7217b3bdf969d18129593"
     },
     {
       "path": "workflow/01_source_cohort_and_models/88_source_temporal_validation.py",
@@ -1500,8 +1510,8 @@
     },
     {
       "path": "workflow/07_figures_tables_and_submission/15_plot_vitaldb_waveform_extension.py",
-      "bytes": 8228,
-      "sha256": "4ac2ac691a02d6088e0a095e9c69111b7846c2fc5588e3b3377c462624cdb5fc"
+      "bytes": 8423,
+      "sha256": "d8eb17cc692d2427ba7b5ecae6c8417e964a7787a3c100f2a54b6f75e7be0b89"
     },
     {
       "path": "workflow/07_figures_tables_and_submission/16_make_source3710_temporal_figures.py",
@@ -1525,8 +1535,8 @@
     },
     {
       "path": "workflow/07_figures_tables_and_submission/60_make_nature_figures.py",
-      "bytes": 27330,
-      "sha256": "68910c2b27302a73865b4dd22e6889818ca684502aaddbe33bf239c05da056db"
+      "bytes": 29250,
+      "sha256": "4482e0fc2ffb7647c9d4c0ae4fdcc50ebe40d824ed7ff6129a2c6734fa79d98b"
     },
     {
       "path": "workflow/07_figures_tables_and_submission/68_assemble_submission.py",
@@ -1575,8 +1585,8 @@
     },
     {
       "path": "workflow/07_figures_tables_and_submission/assemble_nature_communications_figures.py",
-      "bytes": 11081,
-      "sha256": "fd36fa28a7aa12ee86f18f57d005724920b9a95d653ca9cd26f4a644a6f85831"
+      "bytes": 11095,
+      "sha256": "7dd53329d102f3f447f2e75262963a6e6ffcaab9f68c88f8c43297a63ae3c8bb"
     },
     {
       "path": "workflow/07_figures_tables_and_submission/build_nature_communications_workbooks.py",

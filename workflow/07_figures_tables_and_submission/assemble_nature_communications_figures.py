@@ -119,23 +119,23 @@ figure2 = [
     {'label': 'h', 'folder': 'Figure2_deletion_mechanisms', 'file': 'Figure2d_pure_selection_control.pdf', 'rect': r[7]},
 ]
 
-# %% Figure 3: wide summary panels plus two compact two-column rows
+# %% Figure 3: one wide target-comparison panel plus three two-column rows
 half = (PAGE_WIDTH - 2 * MARGIN - GAP) / 2
 figure3 = [
     {'label': 'a', 'folder': 'Figure3_correction_strategies', 'file': 'Figure3a_apparent_vs_reference_recalibration.pdf',
-     'rect': (MARGIN, MARGIN, PAGE_WIDTH - MARGIN, 125)},
+     'rect': (MARGIN, MARGIN, PAGE_WIDTH - MARGIN, 170)},
     {'label': 'b', 'folder': 'Figure3_correction_strategies', 'file': 'Figure3b_strategy_rmse.pdf',
-     'rect': (MARGIN, 133, PAGE_WIDTH - MARGIN, 248)},
+     'rect': (MARGIN, 178, MARGIN + half, 338)},
     {'label': 'c', 'folder': 'Figure3_correction_strategies', 'file': 'Figure3c_cross_database_bias.pdf',
-     'rect': (MARGIN, 256, PAGE_WIDTH - MARGIN, 371)},
+     'rect': (MARGIN + half + GAP, 178, PAGE_WIDTH - MARGIN, 338)},
     {'label': 'd', 'folder': 'Figure3_correction_strategies', 'file': 'Figure3d_inspire_recalibration_fidelity.pdf',
-     'rect': (MARGIN, 379, MARGIN + half, 509)},
+     'rect': (MARGIN, 346, MARGIN + half, 506)},
     {'label': 'e', 'folder': 'Figure3_correction_strategies', 'file': 'Figure3d_mimic_recalibration_fidelity.pdf',
-     'rect': (MARGIN + half + GAP, 379, PAGE_WIDTH - MARGIN, 509)},
+     'rect': (MARGIN + half + GAP, 346, PAGE_WIDTH - MARGIN, 506)},
     {'label': 'f', 'folder': 'Figure3_correction_strategies', 'file': 'Figure3d_eicu_recalibration_fidelity.pdf',
-     'rect': (MARGIN, 517, MARGIN + half, 647)},
+     'rect': (MARGIN, 514, MARGIN + half, 674)},
     {'label': 'g', 'folder': 'Figure3_correction_strategies', 'file': 'Figure3e_reference_sample_design.pdf',
-     'rect': (MARGIN + half + GAP, 517, PAGE_WIDTH - MARGIN, 647)},
+     'rect': (MARGIN + half + GAP, 514, PAGE_WIDTH - MARGIN, 674)},
 ]
 
 # %% Figure 4: two transport-robustness panels
@@ -217,7 +217,7 @@ if __name__ == '__main__':
     manifests = [
         compose('Figure1', figure1, 690),
         compose('Figure2', figure2, 674),
-        compose('Figure3', figure3, 657),
+        compose('Figure3', figure3, 684),
         compose('Figure4', figure4, 418),
         compose('SupplementaryFigure1', supp1, 370),
         compose('SupplementaryFigure2', supp2, 388),

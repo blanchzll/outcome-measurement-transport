@@ -38,4 +38,4 @@ Before local updating, define the target endpoint, audit the measurements needed
 
 ## Reproducibility
 
-Analyses use fixed seeds, Jupytext `py:percent` files, input hashes and machine-readable audits. Aggregate Source Data and code are available under the MIT License in GitHub tagged release v1.3.1 at https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.1. [AUTHOR INPUT NEEDED: independent archive DOI.]
+Analyses use fixed seeds, Jupytext `py:percent` files, input hashes and machine-readable audits. Aggregate Source Data and code are available under the MIT License in GitHub tagged release v1.3.2 at https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.2. [AUTHOR INPUT NEEDED: independent archive DOI.]

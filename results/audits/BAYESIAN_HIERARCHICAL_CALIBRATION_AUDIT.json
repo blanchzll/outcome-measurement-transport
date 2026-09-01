@@ -1,24 +1,24 @@
 {
-  "analysis": "Bayesian hierarchical calibration of locked source-cohort LOCO predictions",
+  "analysis": "Bayesian hierarchical calibration of locked 3,710-patient source-cohort LOCO predictions",
   "prediction": "pred_PI_restricted_rf",
-  "n": 4014,
-  "events": 155,
+  "n": 3710,
+  "events": 152,
   "centres": {
     "1": {
       "n": 765,
       "events": 39
     },
     "2": {
-      "n": 803,
-      "events": 43
+      "n": 794,
+      "events": 42
     },
     "3": {
       "n": 985,
       "events": 56
     },
     "4": {
-      "n": 1286,
-      "events": 16
+      "n": 991,
+      "events": 14
     },
     "5": {
       "n": 175,
@@ -32,37 +32,37 @@
     "log_common_slope": "Normal(0,0.5)"
   },
   "posterior": "joint-mode Laplace approximation with 30000 Gaussian draws",
-  "independent_unit": "analytic surgical record; repeat-operation patient identifier unavailable",
+  "independent_unit": "unique patient; one eligible operation per patient",
   "reason_for_common_slope": "five centres and only one event in centre 5 do not support centre-specific slope estimation",
   "diagnostics": [
     {
       "prior": "primary",
       "optimizer_success": true,
       "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
-      "negative_log_posterior_at_mode": 557.5625091369236,
-      "gradient_max_abs": 1.0598261464211944e-05,
-      "hessian_min_eigenvalue_raw": 0.8055336384997213,
-      "hessian_condition_number_regularized": 2380.6774253157687,
+      "negative_log_posterior_at_mode": 545.2996358605516,
+      "gradient_max_abs": 2.643719338479844e-05,
+      "hessian_min_eigenvalue_raw": 0.8108428568431917,
+      "hessian_condition_number_regularized": 2211.4275913814995,
       "posterior_approximation": "joint-mode Laplace approximation"
     },
     {
       "prior": "stronger_shrinkage",
       "optimizer_success": true,
       "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
-      "negative_log_posterior_at_mode": 559.9172038637266,
-      "gradient_max_abs": 5.2316599522317375e-05,
-      "hessian_min_eigenvalue_raw": 0.9997306375477082,
-      "hessian_condition_number_regularized": 1841.5807041724788,
+      "negative_log_posterior_at_mode": 547.5286397644674,
+      "gradient_max_abs": 7.470595858760642e-05,
+      "hessian_min_eigenvalue_raw": 0.9999099779160767,
+      "hessian_condition_number_regularized": 1720.207833872253,
       "posterior_approximation": "joint-mode Laplace approximation"
     },
     {
       "prior": "weaker_shrinkage",
       "optimizer_success": true,
       "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
-      "negative_log_posterior_at_mode": 556.6218619602089,
-      "gradient_max_abs": 0.00041976635502008475,
-      "hessian_min_eigenvalue_raw": 0.6378275948906386,
-      "hessian_condition_number_regularized": 3127.2742167294023,
+      "negative_log_posterior_at_mode": 544.392731275819,
+      "gradient_max_abs": 0.0003618261525717703,
+      "hessian_min_eigenvalue_raw": 0.6434459555290589,
+      "hessian_condition_number_regularized": 2904.279643447017,
       "posterior_approximation": "joint-mode Laplace approximation"
     }
   ],

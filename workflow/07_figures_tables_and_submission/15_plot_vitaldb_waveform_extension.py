@@ -40,6 +40,11 @@ MODEL_LABELS = {
     "duration_adjusted_clinical_ridge": "Clinical + duration ridge",
     "waveform_enhanced_ridge": "Clinical + waveform ridge",
 }
+MODEL_AXIS_LABELS = {
+    "clinical_table_ridge": "Clinical\nridge",
+    "duration_adjusted_clinical_ridge": "Clinical +\nduration",
+    "waveform_enhanced_ridge": "Clinical +\nwaveform",
+}
 
 
 def style() -> None:
@@ -151,7 +156,7 @@ def calibration_plot(summary: pd.DataFrame, metric: str, label: str, ideal: floa
             markersize=4.5,
         )
     ax.axhline(ideal, color="#444444", linestyle="--", linewidth=0.9)
-    ax.set_xticks(x, [MODEL_LABELS[m] for m in models])
+    ax.set_xticks(x, [MODEL_AXIS_LABELS[m] for m in models])
     ax.set_ylabel(label)
     ax.set_title(
         "Calibration after updating on the reconstructed endpoint",
