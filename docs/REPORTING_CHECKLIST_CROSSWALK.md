@@ -16,7 +16,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Sex and gender | The locked 3710-patient cohort uses valid source sex codes. Among the 304 screened records not present in that file, 295 had unresolved sex coding and nine were female-coded. Public database fields are administrative sex variables; the basis of assignment is not available from the extracts. | Complete with selection-provenance limitation |
 | Ethics | Five approval identifiers and the retrospective consent waiver are reported. Investigators confirmed coverage of the analysed gastric and colorectal cohorts through 25 June 2024; supporting local-governance records remain author-controlled. | Complete subject to portal attestation |
 | Data availability | Public database access routes, source-data restrictions and the governed request route through the corresponding author are stated. | Complete |
-| Code availability | Frozen code, tests and audits are released under the MIT License at GitHub tag v1.3.4. An archival DOI is optional for review and can be added if deposited. | Complete for review |
+| Code availability | Frozen code, tests and audits are released under the MIT License at GitHub tag v1.3.5. An archival DOI is optional for review and can be added if deposited. | Complete for review |
 
 ## Nature machine-learning reporting summary
 
@@ -71,7 +71,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Model updating | Cross-fitted apparent-target and reference-sample updating; targets explicitly separated. | Complete |
 | Subgroups and fairness | Measurement-aware descriptive audit; no fairness certification. | Complete with limitation |
 | Clinical utility | Retrospective decision analysis only; no prospective impact claim. | Complete with limitation |
-| Open science | Aggregate Source Data and tagged release v1.3.4 are prepared for review; an archive DOI is optional and can be added later. | Complete for review |
+| Open science | Aggregate Source Data and tagged release v1.3.5 are prepared for review; an archive DOI is optional and can be added later. | Complete for review |
 
 ## PROBAST+AI self-audit
 
@@ -97,7 +97,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Explainability | Not a central claim; feature stability and incremental value are supplementary. | Not applicable |
 | Fairness | Measurement-aware descriptive audits; sex uncertainty retained rather than imputed. | Complete with limitation |
 | Clinical deployment and impact | Not performed; monitoring workload is decision-analytic only. | Complete and limited |
-| Reproducibility | Code, Source Data and audits are prepared in GitHub tagged release v1.3.4; an archive DOI is optional for peer-review access. | Complete for review |
+| Reproducibility | Code, Source Data and audits are prepared in GitHub tagged release v1.3.5; an archive DOI is optional for peer-review access. | Complete for review |
 
 ## Author actions required on the official forms
 

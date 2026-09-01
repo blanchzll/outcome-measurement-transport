@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "repository": "outcome-measurement-transport",
-  "release": "v1.3.4",
+  "release": "v1.3.5",
   "checks": {
     "no_internal_paths": true,
     "no_detected_secrets": true,
@@ -12,7 +12,7 @@
     "synthetic_and_contract_tests": true
   },
   "counts": {
-    "files": 328,
+    "files": 329,
     "python_files": 115,
     "workflow_scripts": 108,
     "tests": 6,

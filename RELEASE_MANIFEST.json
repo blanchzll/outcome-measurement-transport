@@ -1,6 +1,6 @@
 {
   "release": "outcome-measurement-transport",
-  "version": "v1.3.4",
+  "version": "v1.3.5",
   "generated_utc": "2026-09-01",
   "files": [
     {
@@ -11,7 +11,7 @@
     {
       "path": "CITATION.md",
       "bytes": 408,
-      "sha256": "3a62b263ef06016ce35a64d5e004bb05ffe6d8d76a02dd8f6cf8b4461c1e46dd"
+      "sha256": "254494d3038d2b1f2cad0e4fe7fb1643607a51355ca23d73411028aca976177f"
     },
     {
       "path": "CODE_REVIEW_GUIDE.md",
@@ -26,7 +26,7 @@
     {
       "path": "README.md",
       "bytes": 8340,
-      "sha256": "a7c4fbdf7e8583d092784b2dcbc2894510cf6debdf97f7579e94166f69ed1b14"
+      "sha256": "5741b2c55cb32da3277ad95a8a3b9209e587bbf890e44fb2168005bb8c2c2abb"
     },
     {
       "path": "RELEASE_NOTES_v1.3.1.md",
@@ -47,6 +47,11 @@
       "path": "RELEASE_NOTES_v1.3.4.md",
       "bytes": 1478,
       "sha256": "b694d6e39e76c4014f93a8252a612c1ad4705d2c1ba1839d0855432a4da711b6"
+    },
+    {
+      "path": "RELEASE_NOTES_v1.3.5.md",
+      "bytes": 606,
+      "sha256": "9671b4094db5aa8d7de8aebf174879522bb235e5c8c5ca16a3f18eaf66507a20"
     },
     {
       "path": "WORKFLOW_MANIFEST.csv",
@@ -81,17 +86,17 @@
     {
       "path": "docs/MODEL_CARD.md",
       "bytes": 4052,
-      "sha256": "e3bc42dbf8583b4b79553b150d7efb95562b410482df02a0b1feb126b417fced"
+      "sha256": "f21c4060a917d1adfe3a001c2f2c5a5d56bc45b370ffd8de62d7789338002706"
     },
     {
       "path": "docs/PUBLIC_RELEASE_QA.json",
       "bytes": 925,
-      "sha256": "505a26388ff5c4833e33b76fc343240a062e3246e82ad54ea66d6849b8bc7117"
+      "sha256": "51c2a66e048a7b9cbd6af5446a4fe48964d0428785e6beee699ef936997a80f0"
     },
     {
       "path": "docs/REPORTING_CHECKLIST_CROSSWALK.md",
       "bytes": 12275,
-      "sha256": "9aa4dec015bc37d1529c0648ff6c31ea4b454c59a95f34415e81a8436548a173"
+      "sha256": "768fdc98b4df2d1d0e3c6ce5edd20200d76616f5ac3c137b7ebd4f0135141c5e"
     },
     {
       "path": "docs/TERMINOLOGY_LEDGER.md",
@@ -125,8 +130,8 @@
     },
     {
       "path": "protocols/OUTCOME_MEASUREMENT_TRANSPORT_PROCEDURE.md",
-      "bytes": 3997,
-      "sha256": "bf5e8f6248688d853813cdd972a09cbb7c0ba01c62a3e8e0820ebe9a9f4baf56"
+      "bytes": 3996,
+      "sha256": "54ac618c513bbf52389c7eb34e5dcda0ff82c4150892759230278689d78315a4"
     },
     {
       "path": "protocols/PROJECT_STATIC_CONTEXT.md",
@@ -316,7 +321,7 @@
     {
       "path": "results/audits/JTM_RELEASE_AUDIT.json",
       "bytes": 1330,
-      "sha256": "2f88b821957208f10e1e086faa5cb92feb675dee411b64b9824a1b80cb4f6ef6"
+      "sha256": "ed5cd58e8fdf13594a1aff62ca8aa21eb447400c52487e66798f5657bd4267e5"
     },
     {
       "path": "results/audits/MANUSCRIPT_RELEASE_AUDIT.json",
