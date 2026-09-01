@@ -1,17 +1,17 @@
 {
   "release": "outcome-measurement-transport",
-  "version": "v1.3.3",
+  "version": "v1.3.4",
   "generated_utc": "2026-09-01",
   "files": [
     {
       "path": ".gitignore",
-      "bytes": 140,
-      "sha256": "e039f7c2ef86ee2c1b7286cc0c3ee064e6dd5df386ef6e50cc4a8bcf8b6fbd62"
+      "bytes": 152,
+      "sha256": "79cf7b2eaae051604e9d2e2900a2a15143e0d010af68c5656aee98bcd13565af"
     },
     {
       "path": "CITATION.md",
-      "bytes": 384,
-      "sha256": "44bbe45d330083ace9f2a09188293ddc5cb7a12e3c28568c53fd20ea78586e88"
+      "bytes": 408,
+      "sha256": "3a62b263ef06016ce35a64d5e004bb05ffe6d8d76a02dd8f6cf8b4461c1e46dd"
     },
     {
       "path": "CODE_REVIEW_GUIDE.md",
@@ -25,8 +25,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7455,
-      "sha256": "9c33784c468828ea0437a1f8dcf3cc18eb41c42bb52f98b04c6602d5655ca309"
+      "bytes": 8340,
+      "sha256": "a7c4fbdf7e8583d092784b2dcbc2894510cf6debdf97f7579e94166f69ed1b14"
     },
     {
       "path": "RELEASE_NOTES_v1.3.1.md",
@@ -44,6 +44,11 @@
       "sha256": "dccfe3664b6a12e64f5b160736cb0a68dd0044ff99bae33f96d52df9b0699bcd"
     },
     {
+      "path": "RELEASE_NOTES_v1.3.4.md",
+      "bytes": 1478,
+      "sha256": "b694d6e39e76c4014f93a8252a612c1ad4705d2c1ba1839d0855432a4da711b6"
+    },
+    {
       "path": "WORKFLOW_MANIFEST.csv",
       "bytes": 13637,
       "sha256": "59c72caf916b1b67286d4a2741b845f2ca2f4c1f79ed81c63dd6f68861f18c36"
@@ -55,8 +60,8 @@
     },
     {
       "path": "ci/github-actions-tests.yml",
-      "bytes": 358,
-      "sha256": "3174ada270779c11257fbef0b10c745353e18a80a37239cff59d5e66aa14498e"
+      "bytes": 290,
+      "sha256": "644b099e89916fd9a765f1a772859673f7c3f92096bb186a56f2a06909075a43"
     },
     {
       "path": "docs/AUTHOR_INPUT_REQUIRED.md",
@@ -76,17 +81,17 @@
     {
       "path": "docs/MODEL_CARD.md",
       "bytes": 4052,
-      "sha256": "9b7af237d32af886c291ebd69bb4a0a4496b31850b692ab9002d0dce95123f73"
+      "sha256": "e3bc42dbf8583b4b79553b150d7efb95562b410482df02a0b1feb126b417fced"
     },
     {
       "path": "docs/PUBLIC_RELEASE_QA.json",
-      "bytes": 927,
-      "sha256": "dbdc27a0f89d463827cde70c63dfe03ee78e61b1f7e192320b9f6187c05fd50d"
+      "bytes": 925,
+      "sha256": "505a26388ff5c4833e33b76fc343240a062e3246e82ad54ea66d6849b8bc7117"
     },
     {
       "path": "docs/REPORTING_CHECKLIST_CROSSWALK.md",
       "bytes": 12275,
-      "sha256": "cffc293be45c9af3efe0622ee99611736afd1cdfc639822e60992dde8cb347e9"
+      "sha256": "9aa4dec015bc37d1529c0648ff6c31ea4b454c59a95f34415e81a8436548a173"
     },
     {
       "path": "docs/TERMINOLOGY_LEDGER.md",
@@ -117,6 +122,11 @@
       "path": "protocols/LITERATURE_EVIDENCE_MAP.md",
       "bytes": 8273,
       "sha256": "d653a2f71773583621c9a505b6a8fb0065e4ccbd444a9f3482944f0f25a04971"
+    },
+    {
+      "path": "protocols/OUTCOME_MEASUREMENT_TRANSPORT_PROCEDURE.md",
+      "bytes": 3997,
+      "sha256": "bf5e8f6248688d853813cdd972a09cbb7c0ba01c62a3e8e0820ebe9a9f4baf56"
     },
     {
       "path": "protocols/PROJECT_STATIC_CONTEXT.md",
@@ -165,13 +175,18 @@
     },
     {
       "path": "pyproject.toml",
-      "bytes": 492,
-      "sha256": "7bde5a48ca92487e7c3a0680eac9361d9975577c936066aaba7ead7644e6398b"
+      "bytes": 714,
+      "sha256": "8e317682e21cfb72f56265733d879fce0a30b6832fbb583f6f0b18d9729fdf1a"
     },
     {
       "path": "requirements-full.txt",
       "bytes": 123,
       "sha256": "489922b8866147a28e3d8396059a55e5ae3d6336a0abf65215f417debabe31dd"
+    },
+    {
+      "path": "requirements-test-lock.txt",
+      "bytes": 365,
+      "sha256": "6b1e0d25b8e3d1a470a83d2812983af041999439e9a16f232c87d102a80c3379"
     },
     {
       "path": "results/audits/ANALYSIS_COMPLETION_AUDIT.json",
@@ -299,6 +314,11 @@
       "sha256": "c6d114524a5152db996b7690b1784ed0c8c44282b7bb89ae058e5c447491459e"
     },
     {
+      "path": "results/audits/JTM_RELEASE_AUDIT.json",
+      "bytes": 1330,
+      "sha256": "2f88b821957208f10e1e086faa5cb92feb675dee411b64b9824a1b80cb4f6ef6"
+    },
+    {
       "path": "results/audits/MANUSCRIPT_RELEASE_AUDIT.json",
       "bytes": 3264,
       "sha256": "85a42dc639831b5f1729b1da62722d759e7ae96d49e0e2cb3dd23f8da7c8b002"
@@ -335,8 +355,8 @@
     },
     {
       "path": "results/audits/PRIMARY_DECOMPOSITION_NESTED_UNCERTAINTY_AUDIT.json",
-      "bytes": 1384,
-      "sha256": "feb4746dc6e2e4d284fa7161da1fc0e4d794ba0108c677d500da8d708583e2db"
+      "bytes": 1706,
+      "sha256": "8f98c53ccf0f4dab24d0c43cf97a80dfca08b5c734fe5f2e459502b6916092e3"
     },
     {
       "path": "results/audits/PUBLICATION_FACT_BASE.json",
@@ -480,8 +500,8 @@
     },
     {
       "path": "results/audits/VITALDB_EMPIRICAL_SCHEDULE_EXTENSION_AUDIT.json",
-      "bytes": 2315,
-      "sha256": "b698f0fd2c013512bb30948fd5f543196861145e2c56204f5d4a7231ef176a4e"
+      "bytes": 2660,
+      "sha256": "a7caa1f23450a2c0886c9eca28bdce7396df4f980335460bdc7e4b34ef56bb92"
     },
     {
       "path": "results/audits/VITALDB_ENDPOINT_AUDIT.json",
@@ -650,23 +670,23 @@
     },
     {
       "path": "results/figure_source_data/Figure5/Figure5_primary_12h_source_data.csv",
-      "bytes": 4764,
-      "sha256": "e17c5328107f29927b2db3abfc2afebe556d0ed5f2b2da059bb98b3fc4582f31"
+      "bytes": 4758,
+      "sha256": "f19af9f83faa42e6a5a50a96960bfa9879014aebcee0f9b1e3983e345afd66bc"
     },
     {
       "path": "results/figure_source_data/SupplementaryFigure1/Figure4a_model_stability_source_data.csv",
-      "bytes": 869,
-      "sha256": "b630766e482c1993af242010ebca9e14c2e14d4519f1667bd5f8718904a252f8"
+      "bytes": 873,
+      "sha256": "0bb968fe9c01d3ef2a939ed48031108a87b9f5f4c66794e151e58c11d066f076"
     },
     {
       "path": "results/figure_source_data/SupplementaryFigure1/Figure4b_perioperative_increment_source_data.csv",
-      "bytes": 734,
-      "sha256": "bcfbc3490c562ea5711182d1ce08b4f76067e17329e1cb5a1a6eaaead6e8f35d"
+      "bytes": 566,
+      "sha256": "a9fe20a1f67ffbaf93c8d312cd57e4d5a4bae2501c39aa47ea85cb646833ac86"
     },
     {
       "path": "results/figure_source_data/SupplementaryFigure1/Figure4c_portability_frontier_source_data.csv",
-      "bytes": 1646,
-      "sha256": "2e4135e98055dcc9ca5f9cd41f8538061140eac9df4681ed0b5bed5ece26ca52"
+      "bytes": 1641,
+      "sha256": "bcffdb2c6d125bd98fa5a9dcfc60b520051744c39bca58bd7320290148bc20b1"
     },
     {
       "path": "results/figure_source_data/SupplementaryFigure10/SupplementaryFigure10_source_data.csv",
@@ -685,8 +705,8 @@
     },
     {
       "path": "results/figure_source_data/SupplementaryFigure13/SupplementaryFigure13_empirical_schedule_sensitivity_source_data.csv",
-      "bytes": 361,
-      "sha256": "7bd39434fdc51cebb5fd7153d632fecf2d63a6bdb59b2442d2cad564da2df063"
+      "bytes": 373,
+      "sha256": "069d4828e58cd9fdc7826daef1b40a22c7730389bbdda2ca0003c38e8a535233"
     },
     {
       "path": "results/figure_source_data/SupplementaryFigure14/SupplementaryFigure14_vitaldb_selection_correction_source_data.csv",
@@ -710,13 +730,13 @@
     },
     {
       "path": "results/figure_source_data/SupplementaryFigure2/Figure5a_burden_event_capture_source_data.csv",
-      "bytes": 1930,
-      "sha256": "a5f88aa24f71985a16f753ba89bc10ac752a764deff32edbc44b5656616def2e"
+      "bytes": 1858,
+      "sha256": "90971365f9d27d02c2c4c58fd2f929355d753585c6409c1b5fe1325722edee1f"
     },
     {
       "path": "results/figure_source_data/SupplementaryFigure2/Figure5b_subgroup_auc_source_data.csv",
-      "bytes": 2616,
-      "sha256": "409398482233515078c12aada522cb2d5e9a0e865ad9c55a51c9fb114d0dfcfb"
+      "bytes": 2597,
+      "sha256": "5b9f4d8f92abc3afa2e5692a4f1959001295ce2bc4b28912ab2e3fff66febfaa"
     },
     {
       "path": "results/figure_source_data/SupplementaryFigure3/Figure6a_eicu_hospital_observability_source_data.csv",
@@ -835,8 +855,8 @@
     },
     {
       "path": "results/key_tables/Table_empirical_schedule_transport.csv",
-      "bytes": 172455,
-      "sha256": "74a190db1af70dd588c4b6269f5dcf3120e93aba89620723fcb5200af9e73e29"
+      "bytes": 172540,
+      "sha256": "f9dde421420ae953e60e6cd3a8ae8d9af4c025d9f5def6f0835f61e7af383faa"
     },
     {
       "path": "results/key_tables/Table_hemoglobin_endpoint_flow.csv",
@@ -887,6 +907,11 @@
       "path": "results/key_tables/Table_optimized_reference_sampling.csv",
       "bytes": 33408,
       "sha256": "b4261f1c1491df0584b79efa8c136fe23018011427ebb3574516ba5babf4e460"
+    },
+    {
+      "path": "results/key_tables/Table_primary_calibration_selection_reconstruction_control.csv",
+      "bytes": 13070,
+      "sha256": "b508b8cdb344ed9974cb29bbe1d9041ba37313a42ac0391ad7b5ae58ea7ccf02"
     },
     {
       "path": "results/key_tables/Table_primary_selection_reconstruction_decomposition.csv",
@@ -1005,8 +1030,8 @@
     },
     {
       "path": "results/key_tables/Table_vitaldb_empirical_schedule_extension.csv",
-      "bytes": 77422,
-      "sha256": "49daa79e8efedd2fbf16ad6f6758ea37ee124794a2ff0d7b30bbd77c6fdad5c2"
+      "bytes": 77510,
+      "sha256": "3c1245367e0dd2e9574faf45db6c00548b7f9bbc6c7cc1355c73b7ab93fc94f2"
     },
     {
       "path": "results/key_tables/Table_vitaldb_endpoint_cohort_ledger.csv",
@@ -1047,6 +1072,11 @@
       "path": "tests/test_ascertainment_stress.py",
       "bytes": 1569,
       "sha256": "af10f26ec0e839f29767ef2f53f5ce1d5d9f07228d5c624612b79003da4043cb"
+    },
+    {
+      "path": "tests/test_calibration_control_contract.py",
+      "bytes": 2403,
+      "sha256": "2cfebd11eab3838827647e8f996197ac62fbea9380ead572bc54361a273c346d"
     },
     {
       "path": "tests/test_cross_database_external_validation.py",
@@ -1350,8 +1380,8 @@
     },
     {
       "path": "workflow/04_measurement_deletion_simulation/05_vitaldb_empirical_schedule_extension.py",
-      "bytes": 5679,
-      "sha256": "d47be5ce741815854ecbd7eead6cc821a91393bc3a9cab550220c4b0feda73fa"
+      "bytes": 6432,
+      "sha256": "43e463748173f9554f337a161158f74f7db0cbe56c39ba5e5c31233af8d4fdfe"
     },
     {
       "path": "workflow/04_measurement_deletion_simulation/11_vitaldb_waveform_model_comparison.py",
@@ -1400,8 +1430,8 @@
     },
     {
       "path": "workflow/04_measurement_deletion_simulation/99_primary_decomposition_and_nested_uncertainty.py",
-      "bytes": 11890,
-      "sha256": "5a5a7959e940e656fe286e86da4b66620d74e1b27b591030bb1a1fe913f4f6a1"
+      "bytes": 15686,
+      "sha256": "9a3b36281098603694a94111e5cb96eecdc5547448fe3fea56528b0f92a72d87"
     },
     {
       "path": "workflow/04_measurement_deletion_simulation/ascertainment_stress.py",

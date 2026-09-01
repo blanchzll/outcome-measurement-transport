@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "release": "v1.3.4",
+  "target_journal": "Journal of Translational Medicine",
+  "article_type": "Methodology",
+  "section": "Computational Modelling and Epidemiology",
+  "scientific_contract": {
+    "source_primary_cohort": "3710 unique patients with 152 recorded PostopAKI events",
+    "source_screened_cohort": "4014 records retained only for screening and sensitivity accounting",
+    "prediction_landmark": "end of surgery",
+    "central_claim": "outcome measurement transport can alter apparent calibration without changing patients or frozen predictions",
+    "public_database_role": "operational longitudinal laboratory references and controlled measurement experiments, not clinical ground truth"
+  },
+  "round_2_repairs": {
+    "supplementary_figures_1_2_rebuilt_from_authoritative_source_cohort": true,
+    "calibration_selection_reconstruction_control_added": true,
+    "formula_rendering_verified_in_docx_and_pdf": true,
+    "harmonised_vitaldb_schedule_extension_added": true,
+    "tests_passed": "17/17"
+  },
+  "historical_audits": "Earlier release-audit files remain provenance records for their named versions; this file is the current JTM release audit.",
+  "privacy": "No patient-level rows, row-level predictions, fitted clinical models or restricted row-level extracts are included."
+}

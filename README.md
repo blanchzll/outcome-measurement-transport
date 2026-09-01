@@ -1,10 +1,10 @@
 # Outcome measurement transport and calibration
 
-Tagged release: <https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.3>
+Tagged review release: <https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.4>
 
 This repository contains the release-safe analysis code and aggregate outputs for the manuscript:
 
-> **Transported outcome-measurement schedules can alter calibration of clinical prediction models**
+> **Outcome-measurement transport reveals misleading calibration in clinical prediction models: a multicohort methodology study**
 
 The study asks whether a fixed set of predictions can receive different calibration assessments when a health system changes which longitudinal measurements are observed and how the endpoint is reconstructed.
 
@@ -58,11 +58,11 @@ The public operational endpoint is a creatinine-based computational reference. I
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install -e . pytest
+python -m pip install -e ".[test]"
 pytest -q
 ```
 
-These tests verify endpoint reconstruction, retention behaviour, estimand separation, and simulation contracts without accessing clinical records.
+These tests verify endpoint reconstruction, retention behaviour, estimand separation, and simulation contracts without accessing clinical records. The exact clean-test environment is pinned in `requirements-test-lock.txt`. The full authorised-data workflow adds the packages listed in `requirements-full.txt`; the minimal package intentionally excludes database clients and plotting libraries unless the corresponding extra is installed.
 
 ## Full workflow configuration
 
@@ -91,12 +91,20 @@ The submitted release was checked against all 6,394 official VitalDB objects
 machine-readable verification record is
 `results/audits/VITALDB_FULL_MANIFEST_VERIFICATION.json`.
 
-The primary 35% strong mixed-MNAR experiment also separates the change from the
-full operational cohort to the retained-reference cohort (selection) from the
-change introduced when the endpoint is reconstructed within that same retained
-cohort. Fixed-cohort deletion draws and nested patient or hospital resampling
-are reported separately in
-`Table_primary_selection_reconstruction_decomposition.csv`.
+The primary 35% strong mixed-MNAR experiment separates the change from the full
+operational cohort to the evaluable retained-reference cohort (selection) from
+the change introduced when the endpoint is reconstructed on that same
+denominator. A calibration-specific control fits identical two-fold updates to
+either intact retained labels or reconstructed labels among the same evaluable
+records, then evaluates both on selected and full retained labels. Fixed-cohort
+deletion draws and nested patient or hospital resampling are reported separately
+in `Table_primary_selection_reconstruction_decomposition.csv` and
+`Table_primary_calibration_selection_reconstruction_control.csv`.
+
+The empirical schedule experiment uses the same minimum donor rule in every
+database: at least one valid post-landmark creatinine time in (0, 168] hours.
+Donor eligibility does not require a reconstructable endpoint or dense-reference
+membership. VitalDB retains its prespecified adult, single-operation restriction.
 
 Scripts retain their frozen numerical settings, seeds, cohort rules, model specifications, and output contracts. Internal server paths have been replaced by environment-based configuration in the public copy.
 
@@ -116,4 +124,4 @@ Scripts retain their frozen numerical settings, seeds, cohort rules, model speci
 
 ## Licence and citation
 
-Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite tagged release `v1.3.3` and the associated manuscript; an archive DOI will be added after author-controlled archival deposit.
+Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite tagged release `v1.3.4`; an archive DOI can be added after author-controlled deposit.

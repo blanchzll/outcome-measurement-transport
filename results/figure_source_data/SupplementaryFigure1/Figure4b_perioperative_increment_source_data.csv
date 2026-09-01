@@ -1,5 +1,5 @@
 model,metric,estimate,ci_lower,ci_upper,bootstrap
-ridge,auc_difference,0.0111009872188182,-0.004175805816468,0.0265050478601259,"paired analytic-record bootstrap within center, 1000 replicates; locked predictions"
-restricted_rf,auc_difference,0.0006194150247849,-0.0187202429074188,0.0199641902677041,"paired analytic-record bootstrap within center, 1000 replicates; locked predictions"
-gradient_boosting,auc_difference,0.0097275744175743,-0.0054169623701963,0.024870457550196,"paired analytic-record bootstrap within center, 1000 replicates; locked predictions"
-soft_voting,auc_difference,0.0068545252405352,-0.0071221458191651,0.0231789903825009,"paired analytic-record bootstrap within center, 1000 replicates; locked predictions"
+ridge,auc_difference,0.0030047187953019,-0.0105341742847844,0.0178306022750805,"paired center-by-outcome, 1000 replicates"
+restricted_rf,auc_difference,-0.0040780968018697,-0.0194485046670215,0.0118945491627465,"paired center-by-outcome, 1000 replicates"
+gradient_boosting,auc_difference,0.0050553238069879,-0.0059645517144462,0.01724257880684,"paired center-by-outcome, 1000 replicates"
+soft_voting,auc_difference,0.0007359249726339,-0.011078074613177,0.0124588122392829,"paired center-by-outcome, 1000 replicates"

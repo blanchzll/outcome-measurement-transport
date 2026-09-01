@@ -31,10 +31,17 @@ def load_module(path: Path, name: str):
 
 
 def vitaldb_donor_schedules(case_path: Path, serial_path: Path) -> list[np.ndarray]:
-    cases = pd.read_csv(case_path, usecols=["caseid", "subjectid", "adult", "dense_reference"])
+    """Return all minimally eligible postoperative timing vectors.
+
+    Donor eligibility deliberately does not require a baseline value, a
+    reconstructable endpoint or dense-reference membership. This matches the
+    other databases, where a donor contributes a descriptive schedule when it
+    has at least one valid post-landmark creatinine time in 0-168 hours.
+    """
+    cases = pd.read_csv(case_path, usecols=["caseid", "subjectid", "adult"])
     counts = cases.groupby("subjectid")["caseid"].nunique()
     single = counts.index[counts.eq(1)]
-    eligible = cases.loc[cases.adult & cases.dense_reference & cases.subjectid.isin(single), "caseid"]
+    eligible = cases.loc[cases.adult & cases.subjectid.isin(single), "caseid"]
     serial = pd.read_csv(serial_path, usecols=["caseid", "hours_from_opend"])
     serial = serial.loc[serial.caseid.isin(eligible) & serial.hours_from_opend.gt(0) & serial.hours_from_opend.le(168)]
     return [
@@ -111,6 +118,12 @@ def main() -> None:
         "computed_pairs": sorted({f"{target}->{donor}" for target, donor in raw[["target_database", "donor_schedule_database"]].itertuples(index=False)}),
         "target_n": {name: int(len(value[0])) for name, value in targets.items()},
         "donor_schedule_n": {name: int(len(value)) for name, value in schedules.items()},
+        "donor_schedule_eligibility": (
+            "For every database, a donor timing vector requires at least one valid post-landmark "
+            "creatinine time in (0, 168] hours. VitalDB additionally applies the prespecified adult, "
+            "single-operation rule. Donor eligibility does not require baseline creatinine, endpoint "
+            "reconstructability or dense-reference membership."
+        ),
         "vitaldb_target_audit": vitaldb_audit,
         "raw_rows": int(len(raw)),
         "summary_rows": int(len(summary)),

@@ -30,6 +30,7 @@
       "n_hospitals": 12
     }
   },
+  "calibration_control": "Retained-label and reconstructed-label two-fold updates use identical folds and the same evaluable records. Evaluation on selected retained labels isolates fitted-label reconstruction; evaluation of the retained-label update in the full cohort isolates transport from the selected denominator.",
   "interval_interpretation": {
     "deletion_given_fixed_cohort": "2.5th-97.5th percentiles across deletion draws, conditional on the locked cohort and risk scores",
     "patient_or_hospital_plus_deletion": "2.5th-97.5th percentiles after resampling patients (INSPIRE/MIMIC) or hospitals (eICU) and then drawing deletion",

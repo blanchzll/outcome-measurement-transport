@@ -20,8 +20,9 @@
     "INSPIRE": 7059,
     "MIMIC": 9164,
     "EICU": 20288,
-    "VitalDB": 1078
+    "VitalDB": 3843
   },
+  "donor_schedule_eligibility": "For every database, a donor timing vector requires at least one valid post-landmark creatinine time in (0, 168] hours. VitalDB additionally applies the prespecified adult, single-operation rule. Donor eligibility does not require baseline creatinine, endpoint reconstructability or dense-reference membership.",
   "vitaldb_target_audit": {
     "eligible_dense_adult_unique_patients": 1078,
     "train_n": 754,
@@ -81,7 +82,7 @@
     "primary_operation_rule": "patients with exactly one VitalDB operation; repeat-operation patients excluded",
     "model_role": "database-native ridge risk engine for outcome-measurement mechanism replication"
   },
-  "raw_rows": 11184,
+  "raw_rows": 11182,
   "summary_rows": 504,
   "interpretation_boundary": "Observed donor schedules are descriptive measurement patterns, not randomized or causal hospital policies. Nearest retained target measurements are mapped within prespecified 12-hour and 24-hour tolerances."
 }

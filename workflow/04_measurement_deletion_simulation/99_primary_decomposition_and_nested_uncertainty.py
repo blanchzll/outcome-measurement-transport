@@ -62,7 +62,55 @@ def prepare(database: str):
     return patient.reset_index(drop=True), serial.reset_index(drop=True)
 
 
-def decompose(frame: pd.DataFrame, measurement_retention: float) -> dict[str, float]:
+def calibration_control(frame: pd.DataFrame, seed: int) -> dict[str, float]:
+    """Separate selected-denominator transport from endpoint reconstruction.
+
+    The retained-label and reconstructed-label updates use identical folds and
+    the same evaluable records. Their difference on the selected retained
+    labels isolates the effect of changing the fitted label. Moving the
+    retained-label update from the selected to full cohort isolates denominator
+    transport under an invariant label.
+    """
+    observed = frame.R.eq(1) & frame.y_reconstructed.notna()
+    keys = [
+        "retained_fit_selected_retained_oe", "retained_fit_selected_retained_slope",
+        "retained_fit_full_retained_oe", "retained_fit_full_retained_slope",
+        "reconstructed_fit_selected_reconstructed_oe", "reconstructed_fit_selected_reconstructed_slope",
+        "reconstructed_fit_selected_retained_oe", "reconstructed_fit_selected_retained_slope",
+        "reconstructed_fit_full_retained_oe", "reconstructed_fit_full_retained_slope",
+    ]
+    output = {key: np.nan for key in keys}
+    if observed.sum() < 20 or frame.loc[observed, "y_full"].nunique() < 2 or frame.loc[observed, "y_reconstructed"].nunique() < 2:
+        return output
+
+    retained_frame = frame.copy()
+    retained_frame["y_reconstructed"] = retained_frame["y_full"]
+    retained_prediction, retained_ok = simulation.crossfit_recalibration(
+        retained_frame, np.random.default_rng(seed), intercept_only=False
+    )
+    reconstructed_prediction, reconstructed_ok = simulation.crossfit_recalibration(
+        frame, np.random.default_rng(seed), intercept_only=False
+    )
+
+    def extract(prefix: str, y, prediction) -> None:
+        try:
+            metrics = simulation.weighted_metrics(y, prediction)
+        except Exception:
+            return
+        output[f"{prefix}_oe"] = float(metrics["oe"])
+        output[f"{prefix}_slope"] = float(metrics["calibration_slope"])
+
+    if retained_ok:
+        extract("retained_fit_selected_retained", frame.loc[observed, "y_full"], retained_prediction[observed])
+        extract("retained_fit_full_retained", frame["y_full"], retained_prediction)
+    if reconstructed_ok:
+        extract("reconstructed_fit_selected_reconstructed", frame.loc[observed, "y_reconstructed"], reconstructed_prediction[observed])
+        extract("reconstructed_fit_selected_retained", frame.loc[observed, "y_full"], reconstructed_prediction[observed])
+        extract("reconstructed_fit_full_retained", frame["y_full"], reconstructed_prediction)
+    return output
+
+
+def decompose(frame: pd.DataFrame, measurement_retention: float, recalibration_seed: int) -> dict[str, float]:
     observed = frame.R.eq(1) & frame.y_reconstructed.notna()
     full_rate = float(frame.y_full.mean())
     full_prediction = float(frame.risk.mean())
@@ -80,6 +128,8 @@ def decompose(frame: pd.DataFrame, measurement_retention: float) -> dict[str, fl
     return {
         "n_full": int(len(frame)),
         "n_evaluable": int(observed.sum()),
+        "n_evaluable_reference_events": int(frame.loc[observed, "y_full"].sum()),
+        "n_evaluable_reconstructed_events": int(frame.loc[observed, "y_reconstructed"].sum()),
         "full_reference_event_rate": full_rate,
         "evaluable_reference_event_rate": selected_reference_rate,
         "evaluable_reconstructed_event_rate": reconstructed_rate,
@@ -95,6 +145,7 @@ def decompose(frame: pd.DataFrame, measurement_retention: float) -> dict[str, fl
         "selection_component": selected_reference_rate - full_rate,
         "reconstruction_component": reconstructed_rate - selected_reference_rate,
         "total_apparent_event_rate_bias": reconstructed_rate - full_rate,
+        **calibration_control(frame, recalibration_seed),
     }
 
 
@@ -173,14 +224,14 @@ def run(reps: int, nested_reps: int):
             result = stress.delete_and_reconstruct(patient, serial, MECHANISM, RETENTION, STRENGTH, rng)
             fixed_rows.append({"database": database, "replicate": replicate,
                                "sampling_layer": "deletion_given_fixed_cohort",
-                               **decompose(result.patient, result.mean_measurement_retention)})
+                               **decompose(result.patient, result.mean_measurement_retention, BASE_SEED + 5_000_000 + replicate)})
         for replicate in range(nested_reps):
             rng = np.random.default_rng(BASE_SEED + 1_000_000 + 100_000 * (1 + ("INSPIRE", "MIMIC", "EICU").index(database)) + replicate)
             boot_patient, boot_serial = resample(database, patient, serial, rng, replicate)
             result = stress.delete_and_reconstruct(boot_patient, boot_serial, MECHANISM, RETENTION, STRENGTH, rng)
             nested_rows.append({"database": database, "replicate": replicate,
                                 "sampling_layer": "patient_or_hospital_plus_deletion",
-                                **decompose(result.patient, result.mean_measurement_retention)})
+                                **decompose(result.patient, result.mean_measurement_retention, BASE_SEED + 6_000_000 + replicate)})
         # Database-level checkpoints protect the long targeted audit from a
         # later reporting failure. They remain in the secure workspace.
         pd.DataFrame(fixed_rows).to_csv(
@@ -205,6 +256,17 @@ def run(reps: int, nested_reps: int):
     combined_summary.loc[combined_summary.metric.isin(key_metrics)].to_csv(
         TABLES / "Table_primary_selection_reconstruction_decomposition.csv", index=False
     )
+    calibration_metrics = [
+        metric for metric in combined_summary.metric.unique()
+        if metric.startswith("retained_fit_") or metric.startswith("reconstructed_fit_")
+    ]
+    calibration_metrics = [
+        "n_evaluable", "n_evaluable_reference_events", "n_evaluable_reconstructed_events",
+        *calibration_metrics,
+    ]
+    combined_summary.loc[combined_summary.metric.isin(calibration_metrics)].to_csv(
+        TABLES / "Table_primary_calibration_selection_reconstruction_control.csv", index=False
+    )
     fixed.to_csv(SECURE / "PRIMARY_DECOMPOSITION_FIXED_COHORT_REPLICATES_SECURE.csv.gz", index=False, compression="gzip")
     nested.to_csv(SECURE / "PRIMARY_DECOMPOSITION_NESTED_REPLICATES_SECURE.csv.gz", index=False, compression="gzip")
     audit = {
@@ -212,6 +274,11 @@ def run(reps: int, nested_reps: int):
         "condition": {"retention_target": RETENTION, "mechanism": MECHANISM, "strength": STRENGTH},
         "fixed_cohort_replicates": reps, "nested_replicates": nested_reps,
         "cohorts": audits,
+        "calibration_control": (
+            "Retained-label and reconstructed-label two-fold updates use identical folds and the same evaluable records. "
+            "Evaluation on selected retained labels isolates fitted-label reconstruction; evaluation of the retained-label "
+            "update in the full cohort isolates transport from the selected denominator."
+        ),
         "interval_interpretation": {
             "deletion_given_fixed_cohort": "2.5th-97.5th percentiles across deletion draws, conditional on the locked cohort and risk scores",
             "patient_or_hospital_plus_deletion": "2.5th-97.5th percentiles after resampling patients (INSPIRE/MIMIC) or hospitals (eICU) and then drawing deletion",

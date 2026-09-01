@@ -2,6 +2,6 @@
 
 Please cite the associated manuscript:
 
-> *Transported outcome-measurement schedules can alter calibration of clinical prediction models.*
+> *Outcome-measurement transport reveals misleading calibration in clinical prediction models: a multicohort methodology study.*
 
-Code release: <https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.3> (MIT License). The final author list, journal citation, manuscript DOI and archive DOI will be added after author approval and archival deposit.
+Code release: <https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.4> (MIT License). The journal citation, manuscript DOI and archive DOI will be added after acceptance and author-controlled archival deposit.

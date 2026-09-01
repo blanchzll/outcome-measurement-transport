@@ -10,6 +10,20 @@ requires-python = ">=3.10"
 dependencies = ["numpy>=1.26", "pandas>=2.0", "scipy>=1.11", "scikit-learn>=1.4"]
 license = {text = "MIT"}
 
+[project.optional-dependencies]
+test = [
+  "pytest==9.1.1",
+  "matplotlib==3.11.1",
+  "duckdb==1.4.3",
+  "joblib==1.5.3",
+]
+workflow = [
+  "matplotlib==3.11.1",
+  "duckdb==1.4.3",
+  "joblib==1.5.3",
+  "vitaldb==1.7.2",
+]
+
 [tool.setuptools]
 py-modules = ["ascertainment_stress"]
 
