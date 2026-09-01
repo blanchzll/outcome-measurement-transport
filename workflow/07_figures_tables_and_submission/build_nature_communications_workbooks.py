@@ -23,6 +23,8 @@ if not source_root_value:
     raise RuntimeError('AKI_SOURCE_ROOT must identify the frozen analysis workspace')
 ROOT = Path(source_root_value).resolve()
 EXTENSION_SOURCE = Path(os.environ.get('EXTENSION_TABLE_ROOT', NC.parent / 'work' / 'tables')).resolve()
+release_table_value = os.environ.get('RELEASE_TABLE_ROOT')
+RELEASE_TABLE_SOURCE = Path(release_table_value).resolve() if release_table_value else None
 MAIN_SOURCE = ROOT / 'delivery' / 'main' / 'tables'
 SUPP_SOURCE = ROOT / 'delivery' / 'supplement' / 'tables'
 MAIN_OUT = NC / 'tables' / 'main'
@@ -217,6 +219,19 @@ for name in EXTENSION_SUPP_TABLES:
     target = SUPP_OUT / name
     shutil.copy2(source, target)
     supp_csvs.append(target)
+
+# The tagged release is the final authority for any aggregate table that it
+# carries. This overlay prevents an older delivery snapshot from silently
+# repopulating a submission workbook after a frozen cohort correction.
+if RELEASE_TABLE_SOURCE is not None:
+    if not RELEASE_TABLE_SOURCE.is_dir():
+        raise FileNotFoundError(RELEASE_TABLE_SOURCE)
+    supplementary_names = {path.name for path in supp_csvs}
+    for source in sorted(RELEASE_TABLE_SOURCE.glob('*.csv')):
+        if source.name in MAIN_TABLES:
+            shutil.copy2(source, MAIN_OUT / source.name)
+        elif source.name in supplementary_names:
+            shutil.copy2(source, SUPP_OUT / source.name)
 supp_csvs = list(dict.fromkeys(path.resolve() for path in supp_csvs))
 # The identification table is Supplementary Table 1 and must be the first data
 # sheet rather than an opaque item near the end of a large workbook.

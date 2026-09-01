@@ -1,6 +1,6 @@
 {
   "release": "outcome-measurement-transport",
-  "version": "v1.3.2",
+  "version": "v1.3.3",
   "generated_utc": "2026-09-01",
   "files": [
     {
@@ -11,7 +11,7 @@
     {
       "path": "CITATION.md",
       "bytes": 384,
-      "sha256": "782394fb99070cba47c556e2038c5a78a83901fc973f80769dbdf772c1a74416"
+      "sha256": "44bbe45d330083ace9f2a09188293ddc5cb7a12e3c28568c53fd20ea78586e88"
     },
     {
       "path": "CODE_REVIEW_GUIDE.md",
@@ -26,7 +26,7 @@
     {
       "path": "README.md",
       "bytes": 7455,
-      "sha256": "d08cda9121e5f262dd8f09d6525198de2b647ac2f5ef6032664d9185eb7315d1"
+      "sha256": "9c33784c468828ea0437a1f8dcf3cc18eb41c42bb52f98b04c6602d5655ca309"
     },
     {
       "path": "RELEASE_NOTES_v1.3.1.md",
@@ -37,6 +37,11 @@
       "path": "RELEASE_NOTES_v1.3.2.md",
       "bytes": 1459,
       "sha256": "bfe648ea64e3dd79dae709d3b27b033a3497ff2696e73ae74c1d5202385c3548"
+    },
+    {
+      "path": "RELEASE_NOTES_v1.3.3.md",
+      "bytes": 1009,
+      "sha256": "dccfe3664b6a12e64f5b160736cb0a68dd0044ff99bae33f96d52df9b0699bcd"
     },
     {
       "path": "WORKFLOW_MANIFEST.csv",
@@ -71,17 +76,17 @@
     {
       "path": "docs/MODEL_CARD.md",
       "bytes": 4052,
-      "sha256": "78282fc2a35ce3ff92cad3f0a7540fd9b84e638e0ca98fcbe8004b0c8c8cafcf"
+      "sha256": "9b7af237d32af886c291ebd69bb4a0a4496b31850b692ab9002d0dce95123f73"
     },
     {
       "path": "docs/PUBLIC_RELEASE_QA.json",
       "bytes": 927,
-      "sha256": "eb3eea878a6380f040452c1116c7fcaf58332e991917c9b3f9389ed9984dc5f5"
+      "sha256": "dbdc27a0f89d463827cde70c63dfe03ee78e61b1f7e192320b9f6187c05fd50d"
     },
     {
       "path": "docs/REPORTING_CHECKLIST_CROSSWALK.md",
       "bytes": 12275,
-      "sha256": "fada16000351de3c368a8ce6c40e9c7bae9b6c2e9559c4eebf0a53a907f524d1"
+      "sha256": "cffc293be45c9af3efe0622ee99611736afd1cdfc639822e60992dde8cb347e9"
     },
     {
       "path": "docs/TERMINOLOGY_LEDGER.md",
@@ -1590,13 +1595,18 @@
     },
     {
       "path": "workflow/07_figures_tables_and_submission/build_nature_communications_workbooks.py",
-      "bytes": 12100,
-      "sha256": "62771b30b9861a6342bcdff2dc276623385ae4bace5ae4b50edea4229e96dc6a"
+      "bytes": 12930,
+      "sha256": "a503799b4335d2239a0c17e71536b0d3b9580af24e86158db2d54d5115c14709"
     },
     {
       "path": "workflow/07_figures_tables_and_submission/release_paths.py",
       "bytes": 1082,
       "sha256": "4db14feab503e203f8b46fa10be36172609c113e7c1c272191c2e2e379c03ce1"
+    },
+    {
+      "path": "workflow/07_figures_tables_and_submission/verify_submission_workbook_against_release.py",
+      "bytes": 3439,
+      "sha256": "1c02a48f190196e5528fbb1a47c69116befc50f7754adc01ceb2e5b0fb89c6e2"
     }
   ]
 }

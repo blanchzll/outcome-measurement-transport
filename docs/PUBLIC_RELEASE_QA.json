@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "repository": "outcome-measurement-transport",
-  "release": "v1.3.2",
+  "release": "v1.3.3",
   "checks": {
     "no_internal_paths": true,
     "no_detected_secrets": true,
@@ -12,15 +12,15 @@
     "synthetic_and_contract_tests": true
   },
   "counts": {
-    "files": 320,
-    "python_files": 113,
-    "workflow_scripts": 107,
+    "files": 322,
+    "python_files": 114,
+    "workflow_scripts": 108,
     "tests": 5,
     "figure_source_csvs": 51
   },
   "test_result": {
     "returncode": 0,
-    "stdout_tail": "................                                                         [100%]\n16 passed in 4.19s\n",
+    "stdout_tail": "................                                                         [100%]\n16 passed in 4.16s\n",
     "stderr_tail": ""
   },
   "privacy_findings": {
