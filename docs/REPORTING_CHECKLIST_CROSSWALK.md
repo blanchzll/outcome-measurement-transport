@@ -1,8 +1,8 @@
 # Reporting checklist crosswalk
 
-This crosswalk prepares the author responses for the official Nature Portfolio smart PDFs and clinical reporting forms. It does not replace the official forms or corresponding-author sign-off.
+This crosswalk maps the submission to the reporting standards relevant to a Journal of Translational Medicine Methodology article. It supports, but does not replace, corresponding-author verification of the submitted files.
 
-## Nature Portfolio reporting summary
+## JTM Methodology reporting map
 
 | Domain | Draft response and manuscript pointer | Status |
 |---|---|---|
@@ -16,9 +16,9 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Sex and gender | The locked 3710-patient cohort uses valid source sex codes. Among the 304 screened records not present in that file, 295 had unresolved sex coding and nine were female-coded. Public database fields are administrative sex variables; the basis of assignment is not available from the extracts. | Complete with selection-provenance limitation |
 | Ethics | Five approval identifiers and the retrospective consent waiver are reported. Investigators confirmed coverage of the analysed gastric and colorectal cohorts through 25 June 2024; supporting local-governance records remain author-controlled. | Complete subject to portal attestation |
 | Data availability | Public database access routes, source-data restrictions and the governed request route through the corresponding author are stated. | Complete |
-| Code availability | Frozen code, tests and audits are released under the MIT License at GitHub tag v1.3.5. An archival DOI is optional for review and can be added if deposited. | Complete for review |
+| Code availability | Frozen code, tests and audits are released under the MIT License at GitHub tag v1.3.6. An archival DOI is optional for review and can be added if deposited. | Complete for review |
 
-## Nature machine-learning reporting summary
+## Prediction-model reporting map
 
 | Domain | Draft response and manuscript pointer | Status |
 |---|---|---|
@@ -71,7 +71,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Model updating | Cross-fitted apparent-target and reference-sample updating; targets explicitly separated. | Complete |
 | Subgroups and fairness | Measurement-aware descriptive audit; no fairness certification. | Complete with limitation |
 | Clinical utility | Retrospective decision analysis only; no prospective impact claim. | Complete with limitation |
-| Open science | Aggregate Source Data and tagged release v1.3.5 are prepared for review; an archive DOI is optional and can be added later. | Complete for review |
+| Open science | Aggregate Source Data and tagged release v1.3.6 are prepared for review; an archive DOI is optional and can be added later. | Complete for review |
 
 ## PROBAST+AI self-audit
 
@@ -83,7 +83,7 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Analysis | Low to moderate concern for the methodological experiments | Fold containment, fixed designs, positive controls and replication are strong; simulated mechanisms and conditional dense estimand limit generality. |
 | Applicability | High concern for clinical deployment; moderate for methodological use | Framework is suitable for retrospective stress testing but not a validated clinical AKI system. |
 
-## MI-CLAIM-GEN mapping
+## Computational reproducibility map
 
 | Domain | Location | Status |
 |---|---|---|
@@ -97,12 +97,11 @@ This crosswalk prepares the author responses for the official Nature Portfolio s
 | Explainability | Not a central claim; feature stability and incremental value are supplementary. | Not applicable |
 | Fairness | Measurement-aware descriptive audits; sex uncertainty retained rather than imputed. | Complete with limitation |
 | Clinical deployment and impact | Not performed; monitoring workload is decision-analytic only. | Complete and limited |
-| Reproducibility | Code, Source Data and audits are prepared in GitHub tagged release v1.3.5; an archive DOI is optional for peer-review access. | Complete for review |
+| Reproducibility | Code, aggregate Source Data and audits are prepared in GitHub tagged release v1.3.6; an archive DOI is optional for peer-review access. | Complete for review |
 
-## Author actions required on the official forms
+## Author actions before portal submission
 
-1. Insert corresponding-author identity and date in both Nature smart PDFs.
-2. Confirm ethics and consent-waiver wording verbatim.
-3. Confirm sex-field provenance and whether sex or gender was collected.
-4. Verify the final repository tag and software licence; add an archive DOI only if one is created.
-5. Verify that every response matches the manuscript and portal after author information is inserted.
+1. Confirm ethics and consent-waiver wording verbatim.
+2. Confirm sex-field provenance and whether sex or gender was collected.
+3. Verify GitHub tag v1.3.6 and the MIT software licence; add an archive DOI only if one is created.
+4. Verify that the manuscript, supplementary files and portal metadata remain concordant after author information is inserted.

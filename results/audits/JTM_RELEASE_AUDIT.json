@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "release": "v1.3.5",
+  "release": "v1.3.6",
   "target_journal": "Journal of Translational Medicine",
   "article_type": "Methodology",
   "section": "Computational Modelling and Epidemiology",
@@ -17,6 +17,15 @@
     "formula_rendering_verified_in_docx_and_pdf": true,
     "harmonised_vitaldb_schedule_extension_added": true,
     "tests_passed": "17/17"
+  },
+  "reference_audit_repairs": {
+    "references_checked": 19,
+    "doi_records_resolved": 16,
+    "intentional_no_doi_records": 3,
+    "numbering_by_first_appearance": true,
+    "jtm_square_bracket_citations": true,
+    "available_retraction_indicators_clear": true,
+    "analysis_results_changed": false
   },
   "historical_audits": "Earlier release-audit files remain provenance records for their named versions; this file is the current JTM release audit.",
   "privacy": "No patient-level rows, row-level predictions, fitted clinical models or restricted row-level extracts are included."

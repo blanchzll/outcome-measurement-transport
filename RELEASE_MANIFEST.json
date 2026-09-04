@@ -1,7 +1,7 @@
 {
   "release": "outcome-measurement-transport",
-  "version": "v1.3.5",
-  "generated_utc": "2026-09-01",
+  "version": "v1.3.6",
+  "generated_utc": "2026-09-04",
   "files": [
     {
       "path": ".gitignore",
@@ -11,7 +11,7 @@
     {
       "path": "CITATION.md",
       "bytes": 408,
-      "sha256": "254494d3038d2b1f2cad0e4fe7fb1643607a51355ca23d73411028aca976177f"
+      "sha256": "5e9b22a2384f4cb8704e238c1ed536f5d821b41d51492fe31b1e4cd387b068fd"
     },
     {
       "path": "CODE_REVIEW_GUIDE.md",
@@ -26,7 +26,7 @@
     {
       "path": "README.md",
       "bytes": 8340,
-      "sha256": "5741b2c55cb32da3277ad95a8a3b9209e587bbf890e44fb2168005bb8c2c2abb"
+      "sha256": "714c9c4357d38dfc8cfa0c976a48a31ff30661f49857ed271e10bf96ec75626b"
     },
     {
       "path": "RELEASE_NOTES_v1.3.1.md",
@@ -54,6 +54,11 @@
       "sha256": "9671b4094db5aa8d7de8aebf174879522bb235e5c8c5ca16a3f18eaf66507a20"
     },
     {
+      "path": "RELEASE_NOTES_v1.3.6.md",
+      "bytes": 961,
+      "sha256": "3aa250751e7b79ae2d84768650ab9f7f200fe86be5e70cf0b4c59e72bf98e8ec"
+    },
+    {
       "path": "WORKFLOW_MANIFEST.csv",
       "bytes": 13637,
       "sha256": "59c72caf916b1b67286d4a2741b845f2ca2f4c1f79ed81c63dd6f68861f18c36"
@@ -70,8 +75,8 @@
     },
     {
       "path": "docs/AUTHOR_INPUT_REQUIRED.md",
-      "bytes": 1345,
-      "sha256": "98fa14c0eaf0709b4d641a2c275dfbd54ceedd10387998ea8b54874b7c8be646"
+      "bytes": 1361,
+      "sha256": "f6671f1ae572ab736edef40dd52c0674be21957c102bb668bb6962e7f773b4b5"
     },
     {
       "path": "docs/CLAIM_EVIDENCE_MAP.md",
@@ -84,19 +89,24 @@
       "sha256": "c7fd0cd94deac6d570b975940ef3461f78877f84dd36269d2756cd4059b3b4f3"
     },
     {
+      "path": "docs/FINAL_REFERENCE_AUDIT.md",
+      "bytes": 3398,
+      "sha256": "6071a8703abd4c6b2cb49efcf81c6d7fc2cb058fd477923ff3a393e23567d993"
+    },
+    {
       "path": "docs/MODEL_CARD.md",
       "bytes": 4052,
-      "sha256": "f21c4060a917d1adfe3a001c2f2c5a5d56bc45b370ffd8de62d7789338002706"
+      "sha256": "967445b544b90b849b4d69ba922db1f691e6be41ded1ce89a1261249ca274513"
     },
     {
       "path": "docs/PUBLIC_RELEASE_QA.json",
       "bytes": 925,
-      "sha256": "51c2a66e048a7b9cbd6af5446a4fe48964d0428785e6beee699ef936997a80f0"
+      "sha256": "2663fad0e4531dadd356a2228ecb654fc63908b84df07eddf14869cdb3d24b42"
     },
     {
       "path": "docs/REPORTING_CHECKLIST_CROSSWALK.md",
-      "bytes": 12275,
-      "sha256": "768fdc98b4df2d1d0e3c6ce5edd20200d76616f5ac3c137b7ebd4f0135141c5e"
+      "bytes": 12257,
+      "sha256": "182e61e413c27bbc0487dbf8602276658a2569104b4f03e5d8581bb0e51e857f"
     },
     {
       "path": "docs/TERMINOLOGY_LEDGER.md",
@@ -320,8 +330,8 @@
     },
     {
       "path": "results/audits/JTM_RELEASE_AUDIT.json",
-      "bytes": 1330,
-      "sha256": "ed5cd58e8fdf13594a1aff62ca8aa21eb447400c52487e66798f5657bd4267e5"
+      "bytes": 1639,
+      "sha256": "be16924656e742716bd9b7e40dca317a30c94c21be064c0312d75b730e74c9bd"
     },
     {
       "path": "results/audits/MANUSCRIPT_RELEASE_AUDIT.json",
@@ -392,6 +402,11 @@
       "path": "results/audits/PUBLIC_MODEL_TO_SOURCE_CLINICAL_BRIDGE_AUDIT.json",
       "bytes": 1649,
       "sha256": "918f19e2cad08dba9b75bb1a08af8a9be472ef47ce7ae73253f50dde79bc5df6"
+    },
+    {
+      "path": "results/audits/REFERENCE_CROSSREF_AUDIT.json",
+      "bytes": 20440,
+      "sha256": "23cd2a3551016c1d28fd318c85ae37b6d434cee3a1e66bc0fd6767c75dd523d2"
     },
     {
       "path": "results/audits/REFERENCE_EVENT_DESIGN_AUDIT.json",
