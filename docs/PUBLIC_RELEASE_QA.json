@@ -1,34 +1,14 @@
 {
+  "version": "v1.3.7",
+  "date": "2026-09-24",
   "status": "PASS",
-  "repository": "outcome-measurement-transport",
-  "release": "v1.3.6",
-  "checks": {
-    "no_internal_paths": true,
-    "no_detected_secrets": true,
-    "no_restricted_data_or_model_files": true,
-    "no_patient_level_filenames": true,
-    "aggregate_csv_headers_exclude_direct_identifiers": true,
-    "python_compilation": true,
-    "synthetic_and_contract_tests": true
-  },
-  "counts": {
-    "files": 332,
-    "python_files": 115,
-    "workflow_scripts": 108,
-    "tests": 6,
-    "figure_source_csvs": 51
-  },
-  "test_result": {
-    "returncode": 0,
-    "stdout_tail": ".................                                                        [100%]\n17 passed in 8.92s",
-    "stderr_tail": ""
-  },
+  "files": 338,
+  "aggregate_csvs": 105,
   "privacy_findings": {
-    "internal_path_hits": [],
-    "secret_hits": [],
-    "restricted_files": [],
-    "patient_filename_hits": [],
-    "identifier_header_hits": []
+    "restricted_filename": [],
+    "direct_identifier_header": [],
+    "internal_path": []
   },
-  "compile_errors": []
+  "synthetic_tests": "17 passed in 9.75s",
+  "figure_rebuild": "6 PDFs regenerated from public aggregate data"
 }

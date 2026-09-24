@@ -1,6 +1,6 @@
 # Outcome measurement transport and calibration
 
-Tagged review release: <https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.6>
+Tagged review release: <https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.7>
 
 This repository contains the release-safe analysis code and aggregate outputs for the manuscript:
 
@@ -22,6 +22,7 @@ The study asks whether a fixed set of predictions can receive different calibrat
 - Synthetic unit and contract tests.
 - Aggregate main tables, cross-database validation tables, figure source data, and machine-readable audits.
 - A reviewer guide linking claims and display items to generating scripts.
+- JTM display-figure source code and aggregate source data for Supplementary Figure 17.
 
 ## What this repository does not contain
 
@@ -124,4 +125,4 @@ Scripts retain their frozen numerical settings, seeds, cohort rules, model speci
 
 ## Licence and citation
 
-Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite tagged release `v1.3.6`; an archive DOI can be added after author-controlled deposit.
+Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite tagged release `v1.3.7`; an archive DOI can be added after author-controlled deposit.

@@ -1,7 +1,7 @@
 {
   "release": "outcome-measurement-transport",
-  "version": "v1.3.6",
-  "generated_utc": "2026-09-04",
+  "version": "v1.3.7",
+  "generated_utc": "2026-09-24",
   "files": [
     {
       "path": ".gitignore",
@@ -11,7 +11,7 @@
     {
       "path": "CITATION.md",
       "bytes": 408,
-      "sha256": "5e9b22a2384f4cb8704e238c1ed536f5d821b41d51492fe31b1e4cd387b068fd"
+      "sha256": "c740e593b35b480a18460763349aadc5d59b1f90c4360ce361b5f938ac5e2116"
     },
     {
       "path": "CODE_REVIEW_GUIDE.md",
@@ -25,8 +25,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 8340,
-      "sha256": "714c9c4357d38dfc8cfa0c976a48a31ff30661f49857ed271e10bf96ec75626b"
+      "bytes": 8428,
+      "sha256": "42d9ad49ab42e5cff24c24878118c0381603e5fc59d2f9446b73fa4fb03fc2e7"
     },
     {
       "path": "RELEASE_NOTES_v1.3.1.md",
@@ -57,6 +57,11 @@
       "path": "RELEASE_NOTES_v1.3.6.md",
       "bytes": 961,
       "sha256": "3aa250751e7b79ae2d84768650ab9f7f200fe86be5e70cf0b4c59e72bf98e8ec"
+    },
+    {
+      "path": "RELEASE_NOTES_v1.3.7.md",
+      "bytes": 1164,
+      "sha256": "afa6125be8c658e63447aab01ceaf9f972c61e7bda28c75cfdc3b1efb60c827b"
     },
     {
       "path": "WORKFLOW_MANIFEST.csv",
@@ -96,17 +101,17 @@
     {
       "path": "docs/MODEL_CARD.md",
       "bytes": 4052,
-      "sha256": "967445b544b90b849b4d69ba922db1f691e6be41ded1ce89a1261249ca274513"
+      "sha256": "8fa74202f348c9854d9028d947081efc5a4d02cb2f0b77e961b2660fbde04531"
     },
     {
       "path": "docs/PUBLIC_RELEASE_QA.json",
-      "bytes": 925,
-      "sha256": "2663fad0e4531dadd356a2228ecb654fc63908b84df07eddf14869cdb3d24b42"
+      "bytes": 343,
+      "sha256": "9d3e830dcbf4a57cac536f2fa3036ab8a141e8c8e42202199cbf54501d346f8f"
     },
     {
       "path": "docs/REPORTING_CHECKLIST_CROSSWALK.md",
       "bytes": 12257,
-      "sha256": "182e61e413c27bbc0487dbf8602276658a2569104b4f03e5d8581bb0e51e857f"
+      "sha256": "450ed013e49935878ba70373650c33795ab1ade0691ce080928432cd4d7a485b"
     },
     {
       "path": "docs/TERMINOLOGY_LEDGER.md",
@@ -117,6 +122,11 @@
       "path": "environment.example",
       "bytes": 259,
       "sha256": "f4c53f45658c97613735ccb6c94813b7781b904c613af719541ef5ad3ccfe856"
+    },
+    {
+      "path": "finalize_public_release.py",
+      "bytes": 3405,
+      "sha256": "48565c9c439fecc119b82c3c8ecf3f3ad2d2ddeb4ca7ba690fbb8b8e41c4ccf5"
     },
     {
       "path": "protocols/ETHICS_PROTOCOL_CONCORDANCE_AUDIT.md",
@@ -155,8 +165,8 @@
     },
     {
       "path": "protocols/RISK_REGISTER.md",
-      "bytes": 9239,
-      "sha256": "608f09a78e558c608427b36c6e470ef7d847bb004c58963423e7578bdf351585"
+      "bytes": 9771,
+      "sha256": "7047e15bfc5679f06c4064dace9087fd5bf0b883ce93050432ec7ca3a714f7f1"
     },
     {
       "path": "protocols/STATISTICAL_ANALYSIS_PLAN.md",
@@ -747,6 +757,21 @@
       "path": "results/figure_source_data/SupplementaryFigure16/Figure7c_bayesian_hierarchical_calibration_source_data.csv",
       "bytes": 2331,
       "sha256": "34cebd8b0c7b23effc15e9ee60fa367f9e337af396da031126132f677a223625"
+    },
+    {
+      "path": "results/figure_source_data/SupplementaryFigure17/SupplementaryFigure17a_dense_fraction_source_data.csv",
+      "bytes": 192,
+      "sha256": "32dc3b1247d97e4cde848998639fa048033c1c5d35fc129203c685582703549c"
+    },
+    {
+      "path": "results/figure_source_data/SupplementaryFigure17/SupplementaryFigure17b_selection_imbalance_source_data.csv",
+      "bytes": 7732,
+      "sha256": "365f9c117a38c816033fec1603d57247a27c142d5e5ad80b8bd5fe3c7a1eabb6"
+    },
+    {
+      "path": "results/figure_source_data/SupplementaryFigure17/SupplementaryFigure17c_d_weight_diagnostics_source_data.csv",
+      "bytes": 3451,
+      "sha256": "89e1d18ccb7b05044a44766a66fd327bfed216c0a3c673683132fbab9e3da5ae"
     },
     {
       "path": "results/figure_source_data/SupplementaryFigure2/Figure5a_burden_event_capture_source_data.csv",
@@ -1562,6 +1587,11 @@
       "path": "workflow/07_figures_tables_and_submission/100_build_submission_zip.py",
       "bytes": 1980,
       "sha256": "9456169ea3f17b58fd3ca5dfed331182e55494a6132779bba8c1f41e39846f3b"
+    },
+    {
+      "path": "workflow/07_figures_tables_and_submission/101_redesign_jtm_figures.py",
+      "bytes": 28536,
+      "sha256": "110d78f5c9b2a62b21a210a7b030bd7dbbcc17726016d1970817ec604edc865d"
     },
     {
       "path": "workflow/07_figures_tables_and_submission/15_plot_vitaldb_waveform_extension.py",
