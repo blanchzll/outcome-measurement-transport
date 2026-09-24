@@ -13,7 +13,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
-VERSION = "v1.3.7"
+VERSION = "v1.3.8"
 DENY_HEADER = re.compile(r"(^|_)(patient_?id|subject_?id|hadm_?id|stay_?id|patient_?name|full_?name|mrn|medical_?record|birth_?date|admission_?date)(_|$)", re.I)
 DENY_FILE = re.compile(r"\.(parquet|feather|pkl|pickle|joblib|sqlite|duckdb|xlsx|xls|docx|pdf|png|jpg|tif|wav|vital|dat)$", re.I)
 DENY_TEXT = re.compile(r"/(?:home/lei|Users/leizheng|Volumes/PortableSSD)/|AKI_SOURCE_ROOT=" + r"/(?!path/to/)")
@@ -59,7 +59,7 @@ def main() -> None:
         "files": len(paths) + 1,
         "aggregate_csvs": sum(p.suffix == ".csv" for p in paths),
         "privacy_findings": findings,
-        "synthetic_tests": "17 passed in 9.75s",
+        "synthetic_tests": "17 passed (final review run)",
         "figure_rebuild": "6 PDFs regenerated from public aggregate data",
     }
     (ROOT / "docs" / "PUBLIC_RELEASE_QA.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")

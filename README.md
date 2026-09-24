@@ -1,6 +1,6 @@
 # Outcome measurement transport and calibration
 
-Tagged review release: <https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.7>
+Tagged review release: <https://github.com/blanchzll/outcome-measurement-transport/tree/v1.3.8>
 
 This repository contains the release-safe analysis code and aggregate outputs for the manuscript:
 
@@ -125,4 +125,4 @@ Scripts retain their frozen numerical settings, seeds, cohort rules, model speci
 
 ## Licence and citation
 
-Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite tagged release `v1.3.7`; an archive DOI can be added after author-controlled deposit.
+Code is released under the MIT License. The licence does not cover clinical data, restricted database extracts, fitted clinical models, or institution-specific mappings. Cite tagged release `v1.3.8`; an archive DOI can be added after author-controlled deposit.

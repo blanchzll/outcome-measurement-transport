@@ -176,17 +176,17 @@ class Builder:
         ax.set_xlim(0, 10); ax.set_ylim(0, 5); ax.axis("off")
         boxes = [
             (0.1, 3.2, 2.45, 0.85, "Retained\ntrajectory", BLUE),
-            (3.75, 3.2, 2.45, 0.85, "Observed\nsubset", SKY),
-            (7.4, 3.2, 2.45, 0.85, "Reconstructed\nendpoint", ORANGE),
+            (3.4, 3.2, 2.45, 0.85, "Observed\nsubset", SKY),
+            (6.5, 3.2, 3.4, 0.85, "Reconstructed\nendpoint", ORANGE),
             (3.75, 0.55, 2.45, 0.85, "Fixed risk\npredictions", GREEN),
         ]
         for x0, y0, w, h, txt, col in boxes:
             rect = mpl.patches.FancyBboxPatch((x0, y0), w, h, boxstyle="round,pad=0.04", facecolor=col, edgecolor="none")
-            ax.add_patch(rect); ax.text(x0 + w/2, y0 + h/2, txt, ha="center", va="center", color="white", fontweight="bold", fontsize=7)
-        for xa, xb in [(2.6, 3.68), (6.25, 7.33)]:
+            ax.add_patch(rect); ax.text(x0 + w/2, y0 + h/2, txt, ha="center", va="center", color="white", fontweight="bold", fontsize=6.3)
+        for xa, xb in [(2.6, 3.33), (5.9, 6.43)]:
             ax.annotate("", xy=(xb, 3.62), xytext=(xa, 3.62), arrowprops=dict(arrowstyle="->", color=CHARCOAL, lw=0.8))
         ax.text(3.15, 4.20, "measurement\ndeletion", ha="center", va="bottom", fontsize=6.2, linespacing=0.9)
-        ax.text(6.8, 4.20, "endpoint\nconstruction", ha="center", va="bottom", fontsize=6.2, linespacing=0.9)
+        ax.text(6.16, 4.20, "endpoint\nconstruction", ha="center", va="bottom", fontsize=6.2, linespacing=0.9)
         ax.annotate("", xy=(1.35, 3.12), xytext=(4.35, 1.45), arrowprops=dict(arrowstyle="->", color=BLUE, lw=0.8))
         ax.annotate("", xy=(8.65, 3.12), xytext=(5.6, 1.45), arrowprops=dict(arrowstyle="->", color=VERMILLION, lw=0.8))
         ax.text(1.75, 1.72, "retained-reference\nevaluation", ha="center", color=BLUE, fontsize=6.5)
@@ -257,7 +257,7 @@ class Builder:
                 vals.append(row.bias); lows.append(row.bias-(row.q025-row.truth)); highs.append((row.q975-row.truth)-row.bias)
             ax.errorbar(x+off, vals, yerr=[lows, highs], fmt=marker, color=color, linestyle="none", capsize=2, label=label)
         ax.axhline(0, color=CHARCOAL, linewidth=0.7); ax.set_xticks(x, ["INSPIRE", "MIMIC-IV", "eICU"]); ax.set_ylabel("Event-rate bias")
-        ax.legend(frameon=False, ncol=2, loc="upper center"); clean(ax, "y"); panel_label(ax, "d", x=-0.055)
+        ax.legend(frameon=False, ncol=2, loc="lower center", bbox_to_anchor=(0.5, 1.02)); clean(ax, "y"); panel_label(ax, "d", x=-0.055)
         inputs = [self.source / x for x in event_files + method_files + [sens_file, control_file]]
         self.save(fig, "Figure2", inputs, "Deleting measurements changes endpoint reconstruction; weighting corrects pure label selection but not missing trajectories.")
 
@@ -345,7 +345,7 @@ class Builder:
         for spec,off,color,marker,label in [("minimal",-.12,"#7A7A7A","o","Minimal"),("extended_common",.12,BLUE,"s","Extended common")]:
             g=transport[transport.model_specification.eq(spec)].set_index("direction_label").reindex(directions)
             ax.errorbar(g.roc_auc,y+off,xerr=[g.roc_auc-g.roc_auc_ci_lower,g.roc_auc_ci_upper-g.roc_auc],fmt=marker,color=color,capsize=2,label=label)
-        ax.axvline(.5,color=CHARCOAL,ls="--",lw=.7); ax.set_yticks(y,directions); ax.set_xlabel("External AUC (95% interval)"); ax.legend(frameon=False,loc="lower right")
+        ax.axvline(.5,color=CHARCOAL,ls="--",lw=.7); ax.set_yticks(y,directions); ax.set_xlabel("External AUC (95% interval)"); ax.legend(frameon=False,loc="upper left",bbox_to_anchor=(0.06,1.0))
         clean(ax,"x"); panel_label(ax,"b",x=-.055)
         self.save(fig,"Figure4",[self.source/x for x in files],"Target divergence persists across designed discrimination, while more common variables do not guarantee transport.")
 

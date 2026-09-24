@@ -1,14 +1,14 @@
 {
-  "version": "v1.3.7",
+  "version": "v1.3.8",
   "date": "2026-09-24",
   "status": "PASS",
-  "files": 338,
+  "files": 339,
   "aggregate_csvs": 105,
   "privacy_findings": {
     "restricted_filename": [],
     "direct_identifier_header": [],
     "internal_path": []
   },
-  "synthetic_tests": "17 passed in 9.75s",
+  "synthetic_tests": "17 passed (final review run)",
   "figure_rebuild": "6 PDFs regenerated from public aggregate data"
 }

@@ -1,6 +1,6 @@
 {
   "release": "outcome-measurement-transport",
-  "version": "v1.3.7",
+  "version": "v1.3.8",
   "generated_utc": "2026-09-24",
   "files": [
     {
@@ -11,7 +11,7 @@
     {
       "path": "CITATION.md",
       "bytes": 408,
-      "sha256": "c740e593b35b480a18460763349aadc5d59b1f90c4360ce361b5f938ac5e2116"
+      "sha256": "e322ce39d5671e7238f7dfed27b81877056f3fd3106eb908ade7b2cacf3d13d7"
     },
     {
       "path": "CODE_REVIEW_GUIDE.md",
@@ -26,7 +26,7 @@
     {
       "path": "README.md",
       "bytes": 8428,
-      "sha256": "42d9ad49ab42e5cff24c24878118c0381603e5fc59d2f9446b73fa4fb03fc2e7"
+      "sha256": "7b782565c56a67e9276393f32171a492d14b859b68acc0286422f667f5a5fa7f"
     },
     {
       "path": "RELEASE_NOTES_v1.3.1.md",
@@ -62,6 +62,11 @@
       "path": "RELEASE_NOTES_v1.3.7.md",
       "bytes": 1164,
       "sha256": "afa6125be8c658e63447aab01ceaf9f972c61e7bda28c75cfdc3b1efb60c827b"
+    },
+    {
+      "path": "RELEASE_NOTES_v1.3.8.md",
+      "bytes": 643,
+      "sha256": "a14509bab625b39bcb1c802326e2f7e919a6d1d6bd18a2c3c055722f113f5924"
     },
     {
       "path": "WORKFLOW_MANIFEST.csv",
@@ -101,17 +106,17 @@
     {
       "path": "docs/MODEL_CARD.md",
       "bytes": 4052,
-      "sha256": "8fa74202f348c9854d9028d947081efc5a4d02cb2f0b77e961b2660fbde04531"
+      "sha256": "716baa7bd4f57ebc26271fb1ffbc0e8d1a3ed2594d0d2c672a84eeb1384f72fe"
     },
     {
       "path": "docs/PUBLIC_RELEASE_QA.json",
-      "bytes": 343,
-      "sha256": "9d3e830dcbf4a57cac536f2fa3036ab8a141e8c8e42202199cbf54501d346f8f"
+      "bytes": 353,
+      "sha256": "9d25239d7edfce2494221563d48bfe136430d35ea7127c19b1d77bc08ce74446"
     },
     {
       "path": "docs/REPORTING_CHECKLIST_CROSSWALK.md",
       "bytes": 12257,
-      "sha256": "450ed013e49935878ba70373650c33795ab1ade0691ce080928432cd4d7a485b"
+      "sha256": "75b1872b11965fc4bb7d1526ac475c829fa4abcb398daa4803b733c6db35478d"
     },
     {
       "path": "docs/TERMINOLOGY_LEDGER.md",
@@ -125,8 +130,8 @@
     },
     {
       "path": "finalize_public_release.py",
-      "bytes": 3405,
-      "sha256": "48565c9c439fecc119b82c3c8ecf3f3ad2d2ddeb4ca7ba690fbb8b8e41c4ccf5"
+      "bytes": 3415,
+      "sha256": "24e058d2eb8583b98e27a4f01f5924b3d52b0d4255cef7e8a62465dda2eb27a1"
     },
     {
       "path": "protocols/ETHICS_PROTOCOL_CONCORDANCE_AUDIT.md",
@@ -1590,8 +1595,8 @@
     },
     {
       "path": "workflow/07_figures_tables_and_submission/101_redesign_jtm_figures.py",
-      "bytes": 28536,
-      "sha256": "110d78f5c9b2a62b21a210a7b030bd7dbbcc17726016d1970817ec604edc865d"
+      "bytes": 28589,
+      "sha256": "5832cbe82973291365169fae8e048227b7a1c11be7c34acaccd4ad2223fe5f6b"
     },
     {
       "path": "workflow/07_figures_tables_and_submission/15_plot_vitaldb_waveform_extension.py",
